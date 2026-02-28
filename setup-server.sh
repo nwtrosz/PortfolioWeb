@@ -17,10 +17,11 @@ echo -e "\e[33m[1/4] Konfigurowanie uprawnień (Git-friendly)...\e[0m"
 chmod +x /root
 chmod +x /root/www
 
-# Dodanie do safe.directory, aby git pull zawsze działał
+# Dodanie do safe.directory i ignorowanie zmian uprawnień (fileMode)
 git config --global --add safe.directory $PROJECT_PATH
+git config core.fileMode false
 
-# Ustawienie właściciela na aktualnego użytkownika, nie na www-data
+# Ustawienie właściciela na aktualnego użytkownika
 chown -R $USER:$USER $PROJECT_PATH
 chmod -R 755 $PROJECT_PATH
 
