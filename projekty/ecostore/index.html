@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoStore - Naturalne Produkty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Quicksand', sans-serif; }</style>
+</head>
+<body class="bg-[#F9FBF9] text-emerald-900">
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <span class="text-2xl font-bold text-emerald-700">EcoStore🌿</span>
+        <div class="hidden md:flex gap-8 font-semibold">
+            <a href="#">Kolekcje</a><a href="#">O nas</a><a href="#">Kontakt</a>
+        </div>
+        <button class="bg-emerald-700 text-white px-6 py-2 rounded-full">Koszyk (0)</button>
+    </nav>
+    <header class="py-20 text-center px-6">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">Żyj w zgodzie <br><span class="text-emerald-500 underline">z naturą.</span></h1>
+        <p class="text-lg text-emerald-700/70 max-w-2xl mx-auto mb-10">Wyselekcjonowane produkty ekologiczne, które dbają o Twoje zdrowie i naszą planetę.</p>
+        <button class="bg-emerald-700 text-white px-10 py-4 rounded-xl text-lg font-bold hover:shadow-xl transition-all">Przeglądaj produkty</button>
+    </header>
+    <section class="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="bg-white p-4 rounded-3xl shadow-sm border border-emerald-50">
+            <div class="aspect-square bg-emerald-50 rounded-2xl mb-4 flex items-center justify-center text-4xl">🕯️</div>
+            <h3 class="font-bold text-xl">Świeca Sojowa</h3>
+            <p class="text-emerald-600 font-bold">49.00 PLN</p>
+        </div>
+        <div class="bg-white p-4 rounded-3xl shadow-sm border border-emerald-50">
+            <div class="aspect-square bg-emerald-50 rounded-2xl mb-4 flex items-center justify-center text-4xl">🧴</div>
+            <h3 class="font-bold text-xl">Bio Olejek</h3>
+            <p class="text-emerald-600 font-bold">89.00 PLN</p>
+        </div>
+        <div class="bg-white p-4 rounded-3xl shadow-sm border border-emerald-50">
+            <div class="aspect-square bg-emerald-50 rounded-2xl mb-4 flex items-center justify-center text-4xl">🍵</div>
+            <h3 class="font-bold text-xl">Zestaw Herbat</h3>
+            <p class="text-emerald-600 font-bold">129.00 PLN</p>
+        </div>
+    </section>
+</body>
+</html>
