@@ -8,7 +8,7 @@ Zoptymalizowany skrypt wdrożeniowy dla serwerów UBUNTU.
 # ==========================================
 $ServerIP = "ADRES_IP_SERWERA"    # <-- WPISZ TU IP SWOJEGO VPS
 $SSHUser  = "ubuntu"               # <-- Domyślny user na Ubuntu (zmień na 'root' jeśli używasz roota)
-$RemoteDir = "/var/www/html"      # <-- Standardowy folder Nginx/Apache na Ubuntu
+$RemoteDir = "/var/www/portfolio"      # <-- Folder dedykowany dla portfolio
 $UseSudo   = $true                 # <-- Ustaw na $false jeśli logujesz się jako root
 # ==========================================
 

@@ -5,7 +5,7 @@
 # ==========================================
 SERVER_IP="ADRES_IP_SERWERA"    # <-- WPISZ TU IP SWOJEGO VPS
 SSH_USER="ubuntu"               # <-- Domyślny user na Ubuntu
-REMOTE_DIR="/var/www/html"      # <-- Folder docelowy
+REMOTE_DIR="/var/www/portfolio"      # <-- Folder dedykowany dla portfolio
 USE_SUDO=true                   # <-- Czy używać sudo na serwerze?
 # ==========================================
 
