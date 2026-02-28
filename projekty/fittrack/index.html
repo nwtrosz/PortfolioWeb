@@ -17,7 +17,7 @@
 </head>
 <body class="text-white overflow-x-hidden">
     <div class="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-difference">
-        <span class="teko text-4xl tracking-widest text-white">FIT.TRACK</span>
+        <span class="teko text-4xl tracking-widest">FIT.TRACK</span>
         <button class="bg-white text-black px-8 py-2 rounded-full font-bold uppercase text-xs tracking-widest">Download App</button>
     </div>
 
@@ -26,19 +26,17 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20 relative z-10">
             <div class="md:w-1/2 text-center md:text-left">
                 <h1 class="teko text-[120px] lg:text-[180px] mb-4">HUSTLE<br><span class="text-rose-600">HARDER</span></h1>
-                <p class="text-xl text-white/40 max-w-md font-medium mb-10 leading-tight">Jedyna aplikacja, która zniszczy Twoje wymówki. Monitoruj postępy, planuj treningi i pokonuj rekordy.</p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-12">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="h-12 opacity-80 hover:opacity-100 transition-opacity">
-                </div>
+                <p class="text-xl text-white/40 max-w-md font-medium mb-10 leading-tight">Jedyna aplikacja, która zniszczy Twoje wymówki. Monitoruj postępy i pokonuj rekordy.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="h-12 opacity-80 mx-auto md:mx-0">
             </div>
             <div class="md:w-1/2 perspective-[1000px]">
-                <div id="phone" class="phone-tilt w-[300px] h-[600px] bg-slate-950 border-[10px] border-slate-800 rounded-[3rem] relative shadow-2xl overflow-hidden shadow-rose-600/20">
+                <div id="phone" class="phone-tilt w-[300px] h-[600px] bg-slate-950 border-[10px] border-slate-800 rounded-[3rem] relative shadow-2xl overflow-hidden shadow-rose-600/20 mx-auto">
                     <div class="p-8 pt-16 flex flex-col h-full bg-gradient-to-b from-rose-600/20 to-black">
                         <div class="flex justify-between items-center mb-10"><p class="text-rose-500 font-bold uppercase text-xs">Push Day 🔥</p><span class="heart-pulse text-2xl text-rose-600">❤️</span></div>
-                        <h2 class="text-4xl font-black italic mb-10 text-white">92% <span class="text-xs font-normal block text-slate-400 not-italic uppercase tracking-widest">Weekly Goal</span></h2>
+                        <h2 class="text-4xl font-black italic mb-10">92% <span class="text-xs font-normal block text-slate-400 not-italic uppercase tracking-widest">Goal</span></h2>
                         <div class="space-y-4">
-                            <div class="bg-white/5 p-4 rounded-2xl border border-white/10"><div class="flex justify-between font-bold"><span>Bench Press</span><span class="text-rose-500">100kg</span></div></div>
-                            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 opacity-50"><div class="flex justify-between font-bold"><span>Squats</span><span class="text-rose-500">140kg</span></div></div>
+                            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 flex justify-between font-bold"><span>Bench Press</span><span class="text-rose-500">100kg</span></div>
+                            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 opacity-50 flex justify-between font-bold"><span>Squats</span><span class="text-rose-500">140kg</span></div>
                         </div>
                         <div class="mt-auto bg-rose-600 text-white p-5 rounded-2xl font-black text-center uppercase tracking-widest hover:bg-rose-500 cursor-pointer transition-all">Start Session</div>
                     </div>
@@ -48,14 +46,8 @@
     </main>
 
     <div class="bg-rose-600 py-4 overflow-hidden whitespace-nowrap border-y border-rose-500 z-20">
-        <div class="text-white font-black text-3xl uppercase tracking-widest animate-[marquee_20s_linear_infinite] inline-block">
-            NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS •
-        </div>
+        <div class="text-white font-black text-3xl uppercase tracking-widest animate-[marquee_20s_linear_infinite] inline-block uppercase">NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • </div>
     </div>
-
-    <footer class="text-center py-20 bg-black text-slate-600 text-xs font-medium tracking-[0.3em] uppercase">
-        FitTrack App Demo UX/UI Portfolio &copy; 2026
-    </footer>
 
     <script>
         const phone = document.getElementById('phone');

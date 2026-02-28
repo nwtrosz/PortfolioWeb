@@ -9,28 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; }
-        .gradient-text { 
-            background: linear-gradient(90deg, #2563eb, #7c3aed, #db2777, #2563eb);
-            background-size: 300% 300%;
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: gradient-flow 8s ease infinite;
-        }
+        .gradient-text { background: linear-gradient(90deg, #2563eb, #7c3aed, #db2777, #2563eb); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: gradient-flow 8s ease infinite; }
         @keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
         #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.03; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
         .magnetic-btn { transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1); }
     </style>
 </head>
 <body class="text-slate-900 overflow-x-hidden selection:bg-blue-200">
-    <div class="noise"></div>
-
     <nav class="fixed w-full z-50 glass-card shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <span class="text-2xl font-extrabold tracking-tight">Kajetan<span class="text-blue-600">.dev</span></span>
             <div class="space-x-8 hidden md:flex items-center font-medium text-sm">
                 <a href="#projekty" class="hover:text-blue-600 transition">Realizacje</a>
-                <a href="mailto:kontakt@twojadomena.pl" class="bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-500/30">Kontakt</a>
+                <a href="mailto:kontakt@twojadomena.pl" class="bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-blue-600 transition-all">Kontakt</a>
             </div>
         </div>
     </nav>
@@ -54,38 +46,44 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Project 1: Fachowo -->
-                <div class="group cursor-pointer">
-                    <div class="aspect-[16/10] bg-[#0f172a] rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl">
-                        <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                        <h3 class="text-6xl font-black text-white italic tracking-tighter z-10">FACHOWO</h3>
-                        <a href="./projekty/fachowo/" class="absolute inset-0"></a>
+                <div class="group relative rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all overflow-hidden flex flex-col">
+                    <div class="h-64 bg-[#0f172a] p-8 flex items-center justify-center relative"><h3 class="text-5xl font-black text-white italic z-10 transform group-hover:scale-110 transition-transform">FACHOWO</h3></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-4"><span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold uppercase">Marketplace</span></div>
+                        <h4 class="text-2xl font-bold mb-3">Platforma Usługowa Fachowo</h4>
+                        <p class="text-slate-600 mb-8 flex-1">Landing page nowoczesnego systemu łączącego klientów ze zweryfikowanymi fachowcami.</p>
+                        <a href="./projekty/fachowo/" class="inline-flex items-center gap-2 text-blue-600 font-bold group-hover:gap-4 transition-all">Obejrzyj projekt &rarr;</a>
                     </div>
-                    <div class="mt-8 px-4"><h4 class="text-2xl font-bold mb-2">Platforma Fachowo Lite</h4><p class="text-slate-500">Marketplace usług domowych.</p></div>
                 </div>
                 <!-- Project 2: FitTrack -->
-                <div class="group cursor-pointer">
-                    <div class="aspect-[16/10] bg-black rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-6xl font-black text-white uppercase tracking-tighter z-10">FIT.TRACK</h3>
-                        <a href="./projekty/fittrack/" class="absolute inset-0"></a>
+                <div class="group relative rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all overflow-hidden flex flex-col">
+                    <div class="h-64 bg-black p-8 flex items-center justify-center relative"><h3 class="text-5xl font-black text-white uppercase tracking-tighter z-10">Fit.Track</h3></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-4"><span class="px-3 py-1 bg-rose-50 text-rose-600 rounded-full text-xs font-bold uppercase">SaaS</span></div>
+                        <h4 class="text-2xl font-bold mb-3">Aplikacja Fitness FitTrack</h4>
+                        <p class="text-slate-600 mb-8 flex-1">Agresywny, nowoczesny dark-theme dla aplikacji mobilnej z analityką.</p>
+                        <a href="./projekty/fittrack/" class="inline-flex items-center gap-2 text-rose-600 font-bold group-hover:gap-4 transition-all">Obejrzyj projekt &rarr;</a>
                     </div>
-                    <div class="mt-8 px-4"><h4 class="text-2xl font-bold mb-2">Aplikacja FitTrack</h4><p class="text-slate-500">SaaS dla branży fitness.</p></div>
                 </div>
                 <!-- Project 3: EcoStore -->
-                <div class="group cursor-pointer">
-                    <div class="aspect-[16/10] bg-[#F9FBF9] rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl border border-emerald-50">
-                        <h3 class="text-6xl font-black text-emerald-800/20 tracking-tighter z-10">ECOSTORE</h3>
-                        <a href="./projekty/ecostore/" class="absolute inset-0"></a>
+                <div class="group relative rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all overflow-hidden flex flex-col">
+                    <div class="h-64 bg-[#F9FBF9] p-8 flex items-center justify-center relative"><span class="text-6xl">🌿</span></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-4"><span class="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold uppercase">E-Commerce</span></div>
+                        <h4 class="text-2xl font-bold mb-3">Sklep Ekologiczny EcoStore</h4>
+                        <p class="text-slate-600 mb-8 flex-1">Minimalistyczny design sklepu internetowego z naturalnymi produktami.</p>
+                        <a href="./projekty/ecostore/" class="inline-flex items-center gap-2 text-emerald-600 font-bold group-hover:gap-4 transition-all">Obejrzyj projekt &rarr;</a>
                     </div>
-                    <div class="mt-8 px-4"><h4 class="text-2xl font-bold mb-2">Sklep EcoStore</h4><p class="text-slate-500">E-commerce z naturalnymi produktami.</p></div>
                 </div>
                 <!-- Project 4: DevConsult -->
-                <div class="group cursor-pointer">
-                    <div class="aspect-[16/10] bg-slate-900 rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl border border-slate-800">
-                        <h3 class="text-4xl font-mono text-blue-400 z-10 font-bold">&lt;DevConsult /&gt;</h3>
-                        <a href="./projekty/devconsult/" class="absolute inset-0"></a>
+                <div class="group relative rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all overflow-hidden flex flex-col">
+                    <div class="h-64 bg-slate-900 p-8 flex items-center justify-center relative"><h3 class="text-3xl font-mono text-blue-500 z-10">&lt;DevConsult /&gt;</h3></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-4"><span class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-bold uppercase">B2B</span></div>
+                        <h4 class="text-2xl font-bold mb-3">Agencja IT DevConsult</h4>
+                        <p class="text-slate-600 mb-8 flex-1">Profesjonalna wizytówka dla konsultantów IT i Software House'ów.</p>
+                        <a href="./projekty/devconsult/" class="inline-flex items-center gap-2 text-indigo-600 font-bold group-hover:gap-4 transition-all">Obejrzyj projekt &rarr;</a>
                     </div>
-                    <div class="mt-8 px-4"><h4 class="text-2xl font-bold mb-2">Agencja DevConsult</h4><p class="text-slate-500">B2B IT Solutions.</p></div>
                 </div>
             </div>
         </div>
@@ -136,6 +134,15 @@
         window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
         window.addEventListener('resize', init);
         init(); animate();
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0, 0)'; });
+        });
     </script>
 </body>
 </html>
