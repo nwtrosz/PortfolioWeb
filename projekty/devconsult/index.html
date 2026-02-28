@@ -3,114 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevConsult | Enterprise Systems</title>
+    <title>DevConsult | Enterprise IT Strategy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Space Grotesk', sans-serif; background-color: #020617; color: #94a3b8; }
         .mono { font-family: 'Fira Code', monospace; }
-        #network-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.4; }
-        .grid-bg { background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 40px 40px; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        #network-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .grid-bg { background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px); background-size: 50px 50px; }
+        .scanner-line { position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, transparent, #3b82f6, transparent); opacity: 0.2; animation: scan 6s linear infinite; z-index: 5; }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
 </head>
 <body class="overflow-x-hidden">
+    <div id="spotlight"></div>
+
     <nav class="fixed w-full p-8 flex justify-between items-center z-[60] border-b border-white/5 backdrop-blur-xl">
-        <span class="text-white font-bold text-xl tracking-tighter uppercase">DEV<span class="text-blue-500">.CONSULT</span></span>
-        <div class="hidden md:flex gap-12 font-bold text-[10px] uppercase tracking-[0.4em] text-slate-500"><a href="#services">Services</a><a href="#tech">Stack</a><a href="#contact">Contact</a></div>
+        <span class="text-white font-bold text-2xl tracking-tighter uppercase">DEV<span class="text-blue-500">.CONSULT</span></span>
+        <div class="hidden md:flex gap-12 font-bold text-[10px] uppercase tracking-[0.4em] text-slate-500">
+            <a href="#services" class="hover:text-blue-400 transition">Infrastructure</a>
+            <a href="#security" class="hover:text-blue-400 transition">Security</a>
+            <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+        </div>
+        <span class="mono text-[9px] text-green-500 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20 shadow-[0_0_15px_rgba(34,197,94,0.2)]">CORE_STABLE</span>
     </nav>
 
     <header class="relative min-h-screen flex items-center justify-center pt-20 grid-bg overflow-hidden">
+        <div class="scanner-line"></div>
         <canvas id="network-canvas"></canvas>
         <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
-            <div class="mono text-blue-500 mb-8 text-sm uppercase tracking-widest">// System_Status: Online</div>
-            <h1 class="text-7xl md:text-[140px] font-bold text-white mb-8 tracking-tighter leading-none uppercase italic">Engineering <br><span class="text-transparent" style="-webkit-text-stroke: 1px #3b82f6;">Trust.</span></h1>
-            <p class="text-2xl max-w-3xl mx-auto mb-16 font-light leading-relaxed text-slate-400">Projektujemy i wdrażamy infrastrukturę IT dla firm, które nie mogą pozwolić sobie na przestoje.</p>
-            <div class="flex justify-center gap-8"><button class="bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold uppercase text-xs tracking-widest hover:bg-blue-500 transition-all">Start Audit</button></div>
+            <div class="mono text-blue-500 mb-8 text-sm uppercase tracking-[0.5em] animate__animated animate__fadeIn">// INITIATING_SCALABILITY_PROTOCOL</div>
+            <h1 class="text-7xl md:text-[150px] font-bold text-white mb-10 tracking-tighter leading-[0.8] uppercase italic">Scaling <br><span class="text-transparent" style="-webkit-text-stroke: 1px #3b82f6;">Logic.</span></h1>
+            <p class="text-2xl max-w-3xl mx-auto mb-16 font-light leading-relaxed text-slate-400">Architektura IT klasy Enterprise. Budujemy ekosystemy, które przetrwają każdą skalę i każdy atak.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 pt-16 border-t border-white/10">
+                <div class="text-center"><p class="text-5xl font-bold text-white mb-2 italic">99.99%</p><p class="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Uptime SLA</p></div>
+                <div class="text-center"><p class="text-5xl font-bold text-white mb-2 italic">450TB</p><p class="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Traffic Handled</p></div>
+                <div class="text-center"><p class="text-5xl font-bold text-white mb-2 italic">-45%</p><p class="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Cloud Efficiency</p></div>
+                <div class="text-center"><p class="text-5xl font-bold text-white mb-2 italic">SOC2</p><p class="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Ready</p></div>
+            </div>
         </div>
     </header>
 
     <section id="services" class="py-40 max-w-7xl mx-auto px-6">
-        <h2 class="text-5xl font-bold text-white mb-24 tracking-tighter uppercase italic">Our Core Modules.</h2>
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class="p-12 rounded-[3rem] glass hover:bg-blue-600/5 transition-all">
-                <div class="text-blue-500 mono mb-6 text-xs">ARCH_01</div>
-                <h3 class="text-3xl font-bold text-white mb-6 italic">Cloud Scalability</h3>
-                <p class="font-light">Wdrażanie klastrów Kubernetes i automatyzacja procesów CI/CD dla globalnych produktów.</p>
+        <h2 class="text-5xl font-bold text-white mb-24 tracking-tighter uppercase italic">Engineering Modules.</h2>
+        <div class="grid md:grid-cols-3 gap-16">
+            <div class="p-12 rounded-[3.5rem] glass hover:bg-blue-600/5 transition-all duration-700 group">
+                <div class="mono text-blue-500 mb-8 text-xs">MODULE_01 // CLOUD</div>
+                <h3 class="text-3xl font-black text-white mb-6 italic">High Velocity</h3>
+                <p class="leading-relaxed font-light mb-8">Wdrażanie natywnych rozwiązań chmurowych z pełną orkiestracją Kubernetes i Terraform.</p>
+                <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
-            <div class="p-12 rounded-[3rem] glass hover:bg-blue-600/5 transition-all">
-                <div class="text-blue-500 mono mb-6 text-xs">ARCH_02</div>
-                <h3 class="text-3xl font-bold text-white mb-6 italic">Cyber Security</h3>
-                <p class="font-light">Audyty bezpieczeństwa kodu i infrastruktury. Implementacja polityk Zero-Trust.</p>
+            <div class="p-12 rounded-[3.5rem] glass hover:bg-blue-600/5 transition-all duration-700 group">
+                <div class="mono text-blue-500 mb-8 text-xs">MODULE_02 // SECURITY</div>
+                <h3 class="text-3xl font-black text-white mb-6 italic">Zero Trust</h3>
+                <p class="leading-relaxed font-light mb-8">Audyty bezpieczeństwa kodu (SAST/DAST) i uszczelnianie infrastruktury przed zagrożeniami.</p>
+                <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
-            <div class="p-12 rounded-[3rem] glass hover:bg-blue-600/5 transition-all">
-                <div class="text-blue-500 mono mb-6 text-xs">ARCH_03</div>
-                <h3 class="text-3xl font-bold text-white mb-6 italic">High Performance</h3>
-                <p class="font-light">Optymalizacja baz danych i backendu pod kątem milionów zapytań na sekundę.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="tech" class="py-40 border-y border-white/5 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-center text-sm font-bold uppercase tracking-[0.5em] text-blue-500/50 mb-20">Technology Stack</h2>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-12 opacity-40">
-                <div class="text-center font-black italic text-2xl">AWS</div>
-                <div class="text-center font-black italic text-2xl">KUBERNETES</div>
-                <div class="text-center font-black italic text-2xl">TERRAFORM</div>
-                <div class="text-center font-black italic text-2xl">RUST</div>
-                <div class="text-center font-black italic text-2xl">GO</div>
+            <div class="p-12 rounded-[3.5rem] glass hover:bg-blue-600/5 transition-all duration-700 group">
+                <div class="mono text-blue-500 mb-8 text-xs">MODULE_03 // REFACTOR</div>
+                <h3 class="text-3xl font-black text-white mb-6 italic">Core Modern</h3>
+                <p class="leading-relaxed font-light mb-8">Migracja systemów legacy do mikroserwisów. Spłacamy dług techniczny bez przestojów.</p>
+                <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-40 max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-6xl font-bold text-white mb-8 tracking-tighter italic">Ready to optimize?</h2>
-        <p class="text-xl font-light mb-12">Umów się na bezpłatną konsultację techniczną.</p>
-        <form class="glass p-12 rounded-[3.5rem] text-left">
-            <div class="grid grid-cols-2 gap-8 mb-8">
-                <div><label class="block text-[10px] font-bold uppercase mb-3 tracking-widest text-blue-500">Name</label><input type="text" class="w-full bg-slate-950 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-blue-500"></div>
-                <div><label class="block text-[10px] font-bold uppercase mb-3 tracking-widest text-blue-500">Email</label><input type="email" class="w-full bg-slate-950 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-blue-500"></div>
-            </div>
-            <button class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase italic tracking-widest hover:bg-blue-600 hover:text-white transition-all">Submit Request</button>
-        </form>
+    <section id="contact" class="py-40 border-t border-white/5 bg-slate-950 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-7xl font-bold text-white mb-12 tracking-tighter italic uppercase">Start Transition.</h2>
+            <p class="text-xl font-light mb-16 opacity-60">Skontaktuj się z naszymi inżynierami, aby omówić architekturę Twojego systemu.</p>
+            <form class="glass p-12 rounded-[4rem] text-left">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+                    <div><label class="mono text-[10px] text-blue-500 uppercase font-bold mb-4 block tracking-widest">User_Name</label><input type="text" class="w-full bg-black/50 border border-white/10 p-5 rounded-2xl text-white outline-none focus:border-blue-500 transition-all"></div>
+                    <div><label class="mono text-[10px] text-blue-500 uppercase font-bold mb-4 block tracking-widest">User_Email</label><input type="email" class="w-full bg-black/50 border border-white/10 p-5 rounded-2xl text-white outline-none focus:border-blue-500 transition-all"></div>
+                </div>
+                <button class="w-full bg-blue-600 text-white py-6 rounded-3xl font-black uppercase italic tracking-widest hover:bg-white hover:text-black transition-all">Establish Connection</button>
+            </form>
+        </div>
     </section>
+
+    <footer class="py-20 text-center mono text-[10px] opacity-20 uppercase tracking-[1em]">DevConsult Enterprise 2026</footer>
 
     <script>
         const canvas = document.getElementById('network-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
         let mouse = { x: null, y: null };
+
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
-            for (let i = 0; i < 100; i++) { particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, sx: Math.random() * 0.4 - 0.2, sy: Math.random() * 0.4 - 0.2 }); }
+            const count = window.innerWidth < 768 ? 50 : 120;
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    sx: Math.random() * 0.6 - 0.3,
+                    sy: Math.random() * 0.6 - 0.3
+                });
+            }
         }
+
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach((p, i) => {
                 p.x += p.sx; p.y += p.sy;
                 if (p.x > canvas.width) p.x = 0; if (p.x < 0) p.x = canvas.width;
                 if (p.y > canvas.height) p.y = 0; if (p.y < 0) p.y = canvas.height;
-                
-                // Interakcja z myszką na podstronie
+
+                // Reactivity
                 if(mouse.x) {
                     let dx = mouse.x - p.x; let dy = mouse.y - p.y;
                     let dist = Math.sqrt(dx*dx + dy*dy);
-                    if(dist < 200) { p.x -= dx/100; p.y -= dy/100; }
+                    if(dist < 200) { p.x -= dx/150; p.y -= dy/150; }
                 }
 
-                ctx.fillStyle = '#3b82f6'; ctx.beginPath(); ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2); ctx.fill();
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.8)';
+                ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fill();
+
                 for (let j = i; j < particles.length; j++) {
                     let d = Math.sqrt((p.x-particles[j].x)**2 + (p.y-particles[j].y)**2);
-                    if (d < 150) { ctx.strokeStyle = `rgba(59, 130, 246, ${1 - d/150 - 0.8})`; ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); }
+                    if (d < 180) {
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${1 - d/180})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
+                    }
                 }
             });
             requestAnimationFrame(animate);
         }
-        const setM = (e) => { mouse.x = e.clientX || e.touches[0].clientX; mouse.y = e.clientY || e.touches[0].clientY; };
-        window.addEventListener('mousemove', setM);
-        window.addEventListener('touchmove', setM);
+
+        const updateM = (e) => { mouse.x = e.clientX || (e.touches && e.touches[0].clientX); mouse.y = e.clientY || (e.touches && e.touches[0].clientY); };
+        window.addEventListener('mousemove', updateM);
+        window.addEventListener('touchmove', updateM);
         window.addEventListener('resize', init);
         init(); animate();
     </script>

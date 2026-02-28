@@ -51,7 +51,6 @@
             </div>
         </div>
 
-        <!-- MARQUEE - NOW VISIBLE IMMEDIATELY -->
         <div class="w-full bg-rose-600 py-6 overflow-hidden whitespace-nowrap border-y border-rose-500 z-20 relative transform -rotate-1 scale-105 shadow-2xl">
             <div class="text-white font-black text-4xl uppercase tracking-[0.2em] animate-[marquee_20s_linear_infinite] inline-block">
                 NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • 
@@ -59,37 +58,18 @@
         </div>
     </main>
 
-    <!-- ADDITIONAL CONTENT -->
     <section class="py-40 max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16">
         <div class="glass p-12 rounded-[3rem] text-center border-white/5 hover:border-rose-600/50 transition-all">
             <h3 class="text-4xl font-black italic mb-6">01. AI COACH</h3>
-            <p class="text-slate-400">Analiza techniki w czasie rzeczywistym dzięki kamerze Twojego smartfona.</p>
+            <p class="text-slate-400 font-medium">Analiza techniki w czasie rzeczywistym dzięki kamerze Twojego smartfona.</p>
         </div>
         <div class="glass p-12 rounded-[3rem] text-center border-rose-600/30">
             <h3 class="text-4xl font-black italic mb-6">02. SOCIAL</h3>
-            <p class="text-slate-400">Rywalizuj ze znajomymi i dziel się swoimi rekordami w społeczności PRO.</p>
+            <p class="text-slate-400 font-medium">Rywalizuj ze znajomymi i dziel się swoimi rekordami w społeczności PRO.</p>
         </div>
         <div class="glass p-12 rounded-[3rem] text-center border-white/5 hover:border-rose-600/50 transition-all">
             <h3 class="text-4xl font-black italic mb-6">03. DIET</h3>
-            <p class="text-slate-400">Automatyczny dobór makroskładników na podstawie intensywności treningu.</p>
-        </div>
-    </section>
-
-    <section class="py-40 bg-white/5 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="teko text-8xl mb-12">Pricing</h2>
-            <div class="grid md:grid-cols-2 gap-8 text-left">
-                <div class="glass p-10 rounded-[3rem] border-white/10">
-                    <h4 class="text-2xl font-bold mb-4">Basic</h4>
-                    <p class="text-5xl font-black mb-8">Free</p>
-                    <ul class="space-y-4 text-slate-400"><li class="flex gap-2">✓ Śledzenie treningów</li><li class="flex gap-2">✓ Podstawowa analityka</li></ul>
-                </div>
-                <div class="glass p-10 rounded-[3rem] border-rose-600/50 bg-rose-600/5">
-                    <h4 class="text-2xl font-bold mb-4 text-rose-500">Athlete PRO</h4>
-                    <p class="text-5xl font-black mb-8">29 PLN<span class="text-sm font-normal">/mo</span></p>
-                    <ul class="space-y-4 text-slate-200"><li class="flex gap-2">✓ AI Form Analysis</li><li class="flex gap-2">✓ Custom Diet Plans</li><li class="flex gap-2">✓ Cloud Sync</li></ul>
-                </div>
-            </div>
+            <p class="text-slate-400 font-medium">Automatyczny dobór makroskładników na podstawie intensywności treningu.</p>
         </div>
     </section>
 
@@ -97,27 +77,18 @@
 
     <script>
         const phone = document.getElementById('phone');
-        
         const updateTilt = (e) => {
             const clientX = e.clientX || (e.touches && e.touches[0].clientX);
             const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-            
             if (!clientX || !clientY) return;
-
-            // Logika śledzenia na całym ekranie
             const x = clientX / window.innerWidth;
             const y = clientY / window.innerHeight;
-            
-            const rotateX = (0.5 - y) * 30; // wychylenie góra-dół
-            const rotateY = (x - 0.5) * 30; // wychylenie lewo-prawo
-
+            const rotateX = (0.5 - y) * 30;
+            const rotateY = (x - 0.5) * 30;
             phone.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         };
-
         window.addEventListener('mousemove', updateTilt);
         window.addEventListener('touchmove', updateTilt);
-        
-        // Reset po puszczeniu/wyjściu
         window.addEventListener('touchend', () => phone.style.transform = `rotateX(0deg) rotateY(0deg)`);
     </script>
 </body>
