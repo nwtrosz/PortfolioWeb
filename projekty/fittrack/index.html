@@ -6,20 +6,20 @@
     <title>FitTrack | Dominate Your Body</title>
     <!-- Critical CSS for instant render -->
     <style>
-        body { background-color: #050505 !important; color: white; margin: 0; }
-        .hero-placeholder { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        body { background-color: #050505 !important; color: white; margin: 0; font-family: sans-serif; overflow-x: hidden; }
+        .hero-instant { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; }
         .teko { font-family: 'Teko', sans-serif; text-transform: uppercase; line-height: 0.8; }
-        .phone-tilt { transform-style: preserve-3d; transition: transform 0.1s ease-out; will-change: transform; }
+        .phone-tilt { transform-style: preserve-3d; transition: transform 0.2s cubic-bezier(0.2, 1, 0.2, 1); will-change: transform; }
         .heart-pulse { animation: pulse 1.2s infinite; }
         @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .perspective-container { perspective: 2000px; min-height: 640px; }
+        .perspective-container { perspective: 1500px; }
     </style>
 </head>
 <body class="selection:bg-rose-600">
@@ -29,74 +29,71 @@
     </div>
 
     <main class="relative min-h-screen flex flex-col items-center justify-center pt-24 md:pt-32 overflow-hidden">
-        <!-- Optimized Background -->
-        <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/10 to-orange-600/10 blur-[120px] pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/10 to-orange-600/10 blur-[100px] pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 md:gap-24 relative z-10 w-full px-6 mb-16 md:mb-20">
             <div class="md:w-1/2 text-center md:text-left">
-                <div class="inline-block bg-rose-600/10 text-rose-500 border border-rose-600/20 px-4 py-1 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 md:mb-8 italic">AI Driven Discipline</div>
+                <div class="inline-block bg-rose-600/10 text-rose-500 border border-rose-600/20 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-6 italic animate-pulse">AI Coaching Enabled</div>
                 <h1 class="teko text-7xl md:text-[120px] lg:text-[180px] mb-6 italic tracking-tighter leading-none">HUSTLE<br><span class="text-transparent" style="-webkit-text-stroke: 1.5px #e11d48;">HARDER</span></h1>
                 <p class="text-lg md:text-2xl text-white/40 max-w-md font-medium mb-10 leading-tight italic uppercase tracking-tighter mx-auto lg:mx-0">Zmień swoje wymówki w rekordy życiowe.</p>
-                <!-- Smaller badge image -->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="160" height="48" class="h-10 md:h-14 opacity-80 mx-auto md:mx-0" alt="Play Store">
             </div>
 
-            <div class="lg:w-1/2 perspective-container flex justify-center w-full mt-12 lg:mt-0">
-                <!-- Added fixed dimensions to prevent layout jump -->
+            <div class="lg:w-1/2 perspective-container flex justify-center w-full mt-8 lg:mt-0">
                 <div id="phone" class="phone-tilt w-[260px] md:w-[300px] h-[520px] md:h-[600px] bg-slate-950 border-[8px] md:border-[12px] border-slate-800 rounded-[3rem] md:rounded-[4rem] relative shadow-[0_50px_100px_rgba(225,29,72,0.3)] overflow-hidden">
                     <div class="p-8 md:p-10 pt-16 md:pt-20 flex flex-col h-full bg-gradient-to-b from-rose-600/20 to-black">
                         <div class="flex justify-between items-center mb-8 md:mb-12 font-black text-[10px] md:text-xs uppercase tracking-widest text-rose-500"><span>Training Live</span><span class="heart-pulse text-xl md:text-2xl">❤️</span></div>
-                        <h2 class="text-4xl md:text-5xl font-black italic mb-10 md:mb-12 leading-none text-white">92% <br><span class="text-[9px] md:text-[10px] font-normal not-italic text-slate-500 uppercase tracking-[0.4em]">Intensity</span></h2>
+                        <h2 class="text-4xl md:text-5xl font-black italic mb-8 text-white">92% <br><span class="text-[9px] md:text-[10px] font-normal not-italic text-slate-500 uppercase tracking-[0.4em]">Intensity</span></h2>
                         <div class="space-y-4 md:space-y-6">
-                            <div class="glass p-4 md:p-5 rounded-2xl md:rounded-3xl flex justify-between font-black italic shadow-lg text-sm md:text-base"><span>Bench Press</span><span class="text-rose-500">100kg</span></div>
-                            <div class="glass p-4 md:p-5 rounded-2xl md:rounded-3xl flex justify-between font-black italic opacity-40 text-sm md:text-base"><span>Squats</span><span class="text-rose-500">140kg</span></div>
+                            <div class="glass p-4 md:p-5 rounded-2xl flex justify-between font-black italic shadow-lg text-sm md:text-base"><span>Bench Press</span><span class="text-rose-500">100kg</span></div>
+                            <div class="glass p-4 md:p-5 rounded-2xl flex justify-between font-black italic opacity-40 text-sm md:text-base"><span>Squats</span><span class="text-rose-500">140kg</span></div>
                         </div>
-                        <div class="mt-auto bg-rose-600 text-white py-4 md:py-6 rounded-2xl md:rounded-[2rem] font-black text-center uppercase tracking-widest text-xs md:text-base">Start session</div>
+                        <div class="mt-auto bg-rose-600 text-white py-4 md:py-6 rounded-2xl font-black text-center uppercase tracking-widest text-xs md:text-base">Start session</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="w-full bg-rose-600 py-4 md:py-6 overflow-hidden whitespace-nowrap border-y border-rose-500 z-20 relative transform -rotate-1 md:scale-105 shadow-2xl">
+        <div class="w-full bg-rose-600 py-4 md:py-6 overflow-hidden whitespace-nowrap border-y border-rose-500 z-20 relative transform -rotate-1 shadow-2xl">
             <div class="text-white font-black text-2xl md:text-4xl uppercase tracking-[0.2em] animate-[marquee_20s_linear_infinite] inline-block">
-                NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • 
+                NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • 
             </div>
         </div>
     </main>
 
-    <section class="py-24 md:py-40 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
-        <div class="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] text-center border-white/5">
-            <h3 class="text-3xl md:text-4xl font-black italic mb-4 md:mb-6 uppercase tracking-tighter text-white">01. AI COACH</h3>
-            <p class="text-sm md:text-base text-slate-400 font-medium leading-relaxed">Analiza techniki w czasie rzeczywistym dzięki kamerze smartfona.</p>
-        </div>
-        <div class="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] text-center border-rose-600/30">
-            <h3 class="text-3xl md:text-4xl font-black italic mb-4 md:mb-6 uppercase tracking-tighter text-white">02. SOCIAL</h3>
-            <p class="text-sm md:text-base text-slate-400 font-medium leading-relaxed">Rywalizuj ze znajomymi i dziel się swoimi rekordami w społeczności PRO.</p>
-        </div>
-        <div class="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] text-center border-white/5">
-            <h3 class="text-3xl md:text-4xl font-black italic mb-4 md:mb-6 uppercase tracking-tighter text-white">03. DIET</h3>
-            <p class="text-sm md:text-base text-slate-400 font-medium leading-relaxed">Automatyczny dobór makroskładników na podstawie intensywności treningu.</p>
-        </div>
-    </section>
-
-    <footer class="py-16 md:py-20 text-center opacity-30 text-[8px] md:text-[10px] uppercase font-bold tracking-[0.5em] px-6">FitTrack &copy; 2026 Dominate the Game</footer>
-
     <script>
         const phone = document.getElementById('phone');
-        const updateTilt = (e) => {
-            const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-            const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-            if (!clientX || !clientY) return;
-            const x = clientX / window.innerWidth;
-            const y = clientY / window.innerHeight;
-            const rotateX = (0.5 - y) * 20;
-            const rotateY = (x - 0.5) * 20;
+        
+        // Combined Tilt (Mouse + Touch + Gyroscope)
+        const updateTilt = (xPct, y) => {
+            const rotateX = (0.5 - y) * 40; // Increased sensitivity
+            const rotateY = (xPct - 0.5) * 40;
             phone.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         };
-        // Optimized event listener initialization
-        document.addEventListener('mousemove', updateTilt, { passive: true });
-        document.addEventListener('touchmove', updateTilt, { passive: true });
+
+        // 1. Mouse Tracking
+        document.addEventListener('mousemove', (e) => {
+            updateTilt(e.clientX / window.innerWidth, e.clientY / window.innerHeight);
+        }, { passive: true });
+
+        // 2. Touch Tracking
+        document.addEventListener('touchmove', (e) => {
+            updateTilt(e.touches[0].clientX / window.innerWidth, e.touches[0].clientY / window.innerHeight);
+        }, { passive: true });
+
+        // 3. Device Orientation (Gyroscope)
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', (e) => {
+                if(window.innerWidth < 1024) { // Only on mobile/tablets
+                    const x = (e.gamma + 45) / 90; // -45 to 45 deg range
+                    const y = (e.beta + 45) / 90;
+                    updateTilt(Math.max(0, Math.min(1, x)), Math.max(0, Math.min(1, y)));
+                }
+            }, true);
+        }
+
         window.addEventListener('touchend', () => phone.style.transform = `rotateX(0deg) rotateY(0deg)`);
+        window.addEventListener('mouseleave', () => phone.style.transform = `rotateX(0deg) rotateY(0deg)`);
     </script>
 </body>
 </html>
