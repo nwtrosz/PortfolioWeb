@@ -9,164 +9,103 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
         .hero-pattern { background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px; }
+        .notification-float { animation: slideUpFade 4s ease-out infinite; }
+        @keyframes slideUpFade { 
+            0% { transform: translateY(20px); opacity: 0; }
+            15% { transform: translateY(0); opacity: 1; }
+            85% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
     </style>
 </head>
 <body class="text-slate-900 antialiased selection:bg-blue-500 selection:text-white">
 
-    <!-- Nav -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center transform -rotate-6">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center transform -rotate-6 shadow-lg shadow-blue-200">
                     <span class="text-white font-black text-xl italic">F</span>
                 </div>
-                <span class="text-2xl font-black tracking-tight text-slate-900">FACHOWO</span>
+                <span class="text-2xl font-black tracking-tight">FACHOWO</span>
             </div>
-            <div class="hidden md:flex items-center gap-8 font-semibold text-slate-600">
-                <a href="#jak-to-dziala" class="hover:text-blue-600 transition">Jak to działa</a>
-                <a href="#dla-fachowcow" class="hover:text-blue-600 transition">Dla fachowców</a>
-                <a href="#cennik" class="hover:text-blue-600 transition">Cennik</a>
-            </div>
-            <div class="flex gap-4">
-                <button class="hidden md:block font-bold text-slate-600 hover:text-blue-600 transition">Zaloguj się</button>
-                <a href="https://fachowo.net.pl" target="_blank" class="bg-slate-900 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-600 transition-all shadow-md">Wersja Live</a>
-            </div>
+            <a href="https://fachowo.net.pl" target="_blank" class="bg-slate-900 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-600 transition-all shadow-md">Wersja Live</a>
         </div>
     </nav>
 
-    <!-- Hero -->
     <main class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="absolute inset-0 hero-pattern opacity-50 z-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-16">
-            <div class="lg:w-1/2 text-center lg:text-left">
-                <div class="inline-block bg-blue-50 border border-blue-200 text-blue-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
-                    🚀 Najszybciej rozwijająca się platforma w Polsce
-                </div>
-                <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-                    Koniec z szukaniem <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">fachowca w ciemno.</span>
+        <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+            <div class="lg:w-1/2">
+                <h1 class="text-6xl lg:text-8xl font-extrabold tracking-tight mb-8 leading-[0.9]">
+                    Fachowiec <br><span class="text-blue-600 underline decoration-blue-200 underline-offset-8">od zaraz.</span>
                 </h1>
-                <p class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto lg:mx-0">
-                    Sprawdzeni specjaliści, bezpieczne płatności i gwarancja satysfakcji. Dodaj zlecenie i otrzymaj wyceny w 15 minut.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <button class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 transition-all">Dodaj Zlecenie - Za Darmo</button>
-                    <button class="bg-white text-slate-700 border-2 border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-slate-300 hover:bg-slate-50 transition-all">Dołącz jako Wykonawca</button>
+                <p class="text-xl text-slate-600 mb-10 max-w-xl">Ponad 12,000 sprawdzonych wykonawców czeka na Twoje zlecenie. Bezpieczne płatności i gwarancja jakości Fachowo.</p>
+                
+                <!-- Live Stats Counter -->
+                <div class="flex gap-12 mb-12">
+                    <div>
+                        <p id="counter-orders" class="text-4xl font-black text-slate-900">0</p>
+                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Zleceń dzisiaj</p>
+                    </div>
+                    <div>
+                        <p id="counter-pro" class="text-4xl font-black text-slate-900">0</p>
+                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Aktywnych PRO</p>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Mockup UI -->
+
             <div class="lg:w-1/2 w-full relative">
-                <div class="absolute -inset-4 bg-gradient-to-tr from-blue-500 to-indigo-400 rounded-[2.5rem] blur-2xl opacity-30 -rotate-6"></div>
-                <div class="bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 relative z-10 transform lg:-rotate-2 hover:rotate-0 transition-transform duration-500">
-                    <div class="flex justify-between items-center border-b border-slate-100 pb-4 mb-4">
-                        <div class="flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                            <div class="w-3 h-3 rounded-full bg-amber-400"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                        </div>
-                        <span class="text-xs font-bold text-slate-400 bg-slate-100 px-3 py-1 rounded-md">app.fachowo.pl</span>
+                <!-- Floating Notification Mockup -->
+                <div id="live-notification" class="notification-float absolute -top-10 -left-10 bg-white p-4 rounded-2xl shadow-2xl border border-slate-100 z-20 flex items-center gap-4 min-w-[280px]">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-xl">✅</div>
+                    <div>
+                        <p class="text-xs font-bold text-slate-400 uppercase">Nowa realizacja</p>
+                        <p class="text-sm font-bold">Marek ukończył: Malowanie</p>
                     </div>
-                    
-                    <div class="space-y-4">
-                        <!-- Zlecenie item -->
-                        <div class="p-4 border border-slate-100 rounded-2xl bg-slate-50 flex items-start gap-4">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-xl">🔧</div>
-                            <div class="flex-1">
-                                <h4 class="font-bold text-slate-900">Naprawa instalacji hydraulicznej</h4>
-                                <p class="text-sm text-slate-500 mb-2">Warszawa, Mokotów • Pilne</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded-md">4 oferty</span>
-                                    <span class="font-bold text-blue-600">od 150 zł</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Zlecenie item -->
-                        <div class="p-4 border border-slate-100 rounded-2xl bg-white shadow-sm flex items-start gap-4">
-                            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-xl">⚡</div>
-                            <div class="flex-1">
-                                <h4 class="font-bold text-slate-900">Przeniesienie gniazdek elektrycznych</h4>
-                                <p class="text-sm text-slate-500 mb-2">Kraków, Wola • W tym tygodniu</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded-md">Oczekiwanie</span>
-                                    <span class="font-bold text-slate-400">Wycena</span>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+
+                <div class="bg-white p-2 rounded-[2.5rem] shadow-2xl border border-slate-100 relative group transition-transform duration-500 hover:scale-[1.02]">
+                    <div class="aspect-video bg-slate-900 rounded-[2rem] overflow-hidden flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-blue-600/20 mix-blend-overlay"></div>
+                        <span class="text-white/20 font-black text-4xl italic tracking-tighter">APP PREVIEW</span>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Features -->
-    <section class="py-24 bg-white" id="jak-to-dziala">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold mb-4">Standard, na który zasługujesz.</h2>
-                <p class="text-xl text-slate-500">Zmieniamy rynek usług domowych na bezpieczniejszy i bardziej przejrzysty.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-blue-200 transition-colors">
-                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Tylko Zweryfikowani</h3>
-                    <p class="text-slate-600">Każdy wykonawca przechodzi wieloetapową weryfikację tożsamości oraz doświadczenia, zanim zacznie licytować zlecenia.</p>
-                </div>
-                
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-blue-200 transition-colors">
-                    <div class="w-14 h-14 bg-indigo-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-indigo-200">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Jasne Płatności</h3>
-                    <p class="text-slate-600">Środki trafiają na konto fachowca dopiero, gdy potwierdzisz, że praca została wykonana zgodnie z umową.</p>
-                </div>
+    <script>
+        // Smooth Counter Script
+        function animateCounter(id, target) {
+            let count = 0;
+            const step = target / 100;
+            const timer = setInterval(() => {
+                count += step;
+                if (count >= target) {
+                    document.getElementById(id).innerText = Math.floor(target).toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    document.getElementById(id).innerText = Math.floor(count).toLocaleString();
+                }
+            }, 20);
+        }
+        window.onload = () => {
+            animateCounter('counter-orders', 1458);
+            animateCounter('counter-pro', 8942);
+        };
 
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-blue-200 transition-colors">
-                    <div class="w-14 h-14 bg-rose-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-rose-200">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Prawdziwe Opinie</h3>
-                    <p class="text-slate-600">Zablokowaliśmy fałszywe recenzje. Opinię może wystawić wyłącznie klient, dla którego wykonano usługę przez platformę.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="py-20 bg-blue-600 text-white text-center">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-blue-500/50">
-            <div>
-                <p class="text-4xl md:text-5xl font-black mb-2">15k+</p>
-                <p class="text-blue-200 font-semibold uppercase text-sm tracking-wider">Zleceń w tym roku</p>
-            </div>
-            <div>
-                <p class="text-4xl md:text-5xl font-black mb-2">4.9/5</p>
-                <p class="text-blue-200 font-semibold uppercase text-sm tracking-wider">Średnia ocen</p>
-            </div>
-            <div>
-                <p class="text-4xl md:text-5xl font-black mb-2">24/7</p>
-                <p class="text-blue-200 font-semibold uppercase text-sm tracking-wider">Support Klienta</p>
-            </div>
-            <div>
-                <p class="text-4xl md:text-5xl font-black mb-2">120+</p>
-                <p class="text-blue-200 font-semibold uppercase text-sm tracking-wider">Kategorii usług</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-900 pt-20 pb-10 text-slate-400">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-2xl text-white font-bold mb-6">Demo Projektu Portfolio</h2>
-            <p class="mb-8">To jest jedynie prezentacja umiejętności UI/UX w ramach mojego portfolio. Aby zobaczyć działającą aplikację, przejdź na oficjalną stronę projektu.</p>
-            <a href="https://fachowo.net.pl" target="_blank" class="inline-block border border-slate-600 text-white px-8 py-3 rounded-lg hover:bg-white hover:text-slate-900 transition-all font-bold">
-                Otwórz Fachowo.net.pl
-            </a>
-            <div class="mt-16 pt-8 border-t border-slate-800 text-sm">
-                &copy; 2026 Portfolio Projekt. Wygenerowano jako demonstrację umiejętności front-endowych.
-            </div>
-        </div>
-    </footer>
+        // Live Notification Rotator
+        const notifications = [
+            "Marek ukończył: Malowanie",
+            "Piotr przyjął zlecenie: Hydraulik",
+            "Ania wystawiła opinię: 5/5 ⭐",
+            "Nowy fachowiec w okolicy: Kraków"
+        ];
+        let i = 0;
+        setInterval(() => {
+            i = (i + 1) % notifications.length;
+            document.querySelector('#live-notification p:last-child').innerText = notifications[i];
+        }, 4000);
+    </script>
 </body>
 </html>

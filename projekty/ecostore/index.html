@@ -3,147 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoStore | Pielęgnacja w zgodzie z naturą</title>
+    <title>EcoStore | Organic Essence</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:italic,wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Lato', sans-serif; }
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-        .bg-sage { background-color: #E3E8E4; }
-        .text-sage-dark { color: #2C4A3B; }
-        .bg-sage-dark { background-color: #2C4A3B; }
+        body { font-family: 'Inter', sans-serif; background-color: #fcfcf9; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .product-card:hover .shimmer { left: 100%; transition: all 0.7s; }
+        .shimmer { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent); skewX: -20deg; }
     </style>
 </head>
-<body class="bg-[#FBFBF9] text-gray-800">
+<body class="text-slate-800 antialiased">
 
-    <!-- Top banner -->
-    <div class="bg-sage-dark text-white text-center py-2 text-sm font-light tracking-widest uppercase">
-        Darmowa dostawa od 150 PLN 🌱 W 100% Wegańskie
-    </div>
-
-    <!-- Navigation -->
-    <nav class="border-b border-gray-200 sticky top-0 bg-[#FBFBF9]/90 backdrop-blur-md z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="flex gap-8 hidden md:flex font-medium text-sm tracking-wide">
-                <a href="#" class="hover:text-green-700 transition">Sklep</a>
-                <a href="#" class="hover:text-green-700 transition">O marce</a>
-                <a href="#" class="hover:text-green-700 transition">Blog</a>
-            </div>
-            <a href="#" class="text-3xl font-bold serif text-sage-dark tracking-tight">EcoStore.</a>
-            <div class="flex gap-6 items-center">
-                <button class="hover:text-green-700 transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
-                <button class="hover:text-green-700 transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></button>
-                <button class="flex items-center gap-2 hover:text-green-700 transition">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-                    <span class="bg-sage-dark text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-                </button>
-            </div>
+    <nav class="p-10 flex justify-between items-center max-w-7xl mx-auto">
+        <a href="#" class="serif text-3xl italic font-bold">EcoStore.</a>
+        <div class="flex gap-12 font-medium text-xs uppercase tracking-[0.3em] text-slate-400">
+            <a href="#" class="hover:text-emerald-700 transition">Shop</a>
+            <a href="#" class="hover:text-emerald-700 transition">Philosophy</a>
+            <a href="#" class="hover:text-emerald-700 transition">Archive</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative bg-sage overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 z-10 text-center md:text-left">
-                <span class="uppercase tracking-[0.3em] text-sage-dark text-xs font-bold mb-4 block">Nowa Kolekcja 2026</span>
-                <h1 class="text-5xl md:text-7xl font-bold text-sage-dark mb-6 leading-tight">Poczuj moc <br><span class="italic font-light">czystej natury.</span></h1>
-                <p class="text-lg text-gray-600 mb-10 max-w-md mx-auto md:mx-0 leading-relaxed">Nasze kosmetyki tworzymy ręcznie z organicznych składników, bez sztucznych barwników i mikroplastiku.</p>
-                <button class="bg-sage-dark text-white px-10 py-4 font-bold tracking-widest uppercase text-sm hover:bg-green-900 transition-colors">Odkryj produkty</button>
+    <header class="max-w-7xl mx-auto px-6 pt-20 pb-40 grid md:grid-cols-2 gap-20 items-center">
+        <div class="reveal">
+            <span class="text-emerald-700 font-bold text-xs uppercase tracking-widest mb-6 block">Collection 2026</span>
+            <h1 class="serif text-7xl lg:text-9xl italic mb-10 leading-none">Pure <br> Balance.</h1>
+            <p class="text-xl text-slate-500 font-light max-w-sm mb-12">Naturalne składniki, ręczna produkcja i szacunek do ziemi. Poczuj harmonię, której potrzebuje Twoja skóra.</p>
+            <button class="border-b-2 border-slate-800 pb-2 font-bold uppercase tracking-widest hover:text-emerald-700 hover:border-emerald-700 transition-all">Explore Essence</button>
+        </div>
+        <div class="relative reveal" style="transition-delay: 0.3s;">
+            <div class="aspect-[4/5] bg-emerald-100 rounded-t-full overflow-hidden relative group">
+                <div class="shimmer"></div>
+                <div class="absolute inset-0 flex items-center justify-center text-[150px] group-hover:scale-110 transition-transform duration-1000">🌿</div>
             </div>
-            <div class="md:w-1/2 mt-16 md:mt-0 relative">
-                <!-- Abstract nature shapes as placeholder for image -->
-                <div class="w-72 h-96 md:w-96 md:h-[30rem] bg-white rounded-t-full mx-auto relative overflow-hidden shadow-2xl border-8 border-[#FBFBF9]">
-                    <div class="absolute inset-0 bg-gradient-to-b from-green-100 to-sage flex items-center justify-center flex-col">
-                        <span class="text-8xl mb-4">🌿</span>
-                        <p class="serif text-xl text-sage-dark opacity-50 italic">Zdjęcie produktu</p>
-                    </div>
-                </div>
-                <div class="absolute top-1/2 -left-10 w-24 h-24 bg-yellow-100 rounded-full mix-blend-multiply blur-xl"></div>
-                <div class="absolute bottom-10 right-10 w-32 h-32 bg-green-200 rounded-full mix-blend-multiply blur-xl"></div>
+            <div class="absolute -bottom-10 -left-10 bg-white p-10 shadow-xl reveal" style="transition-delay: 0.6s;">
+                <p class="serif italic text-2xl">100% Vegan</p>
+                <p class="text-[10px] uppercase tracking-widest text-slate-400 mt-2">Certified Organic</p>
             </div>
         </div>
     </header>
 
-    <!-- Bestsellers -->
-    <section class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl text-sage-dark mb-4">Bestsellery</h2>
-            <p class="text-gray-500">Ulubieńcy naszych klientek</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Product 1 -->
-            <div class="group cursor-pointer">
-                <div class="aspect-[4/5] bg-gray-100 mb-4 relative overflow-hidden flex items-center justify-center group-hover:shadow-lg transition-all duration-500">
-                    <span class="text-6xl group-hover:scale-110 transition-transform duration-500">🧴</span>
-                    <button class="absolute bottom-0 left-0 w-full bg-sage-dark text-white py-4 text-sm font-bold uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">Do koszyka</button>
-                </div>
-                <div class="text-center">
-                    <h3 class="text-lg font-bold text-sage-dark mb-1">Olejek Różany</h3>
-                    <p class="text-gray-500 text-sm mb-2">Nawilżenie i blask</p>
-                    <p class="font-bold">89,00 zł</p>
-                </div>
-            </div>
-            
-            <!-- Product 2 -->
-            <div class="group cursor-pointer">
-                <div class="aspect-[4/5] bg-gray-100 mb-4 relative overflow-hidden flex items-center justify-center group-hover:shadow-lg transition-all duration-500">
-                    <div class="absolute top-4 left-4 bg-sage-dark text-white text-xs font-bold px-2 py-1 uppercase tracking-wider">Nowość</div>
-                    <span class="text-6xl group-hover:scale-110 transition-transform duration-500">🧼</span>
-                    <button class="absolute bottom-0 left-0 w-full bg-sage-dark text-white py-4 text-sm font-bold uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">Do koszyka</button>
-                </div>
-                <div class="text-center">
-                    <h3 class="text-lg font-bold text-sage-dark mb-1">Mydło Węglowe</h3>
-                    <p class="text-gray-500 text-sm mb-2">Głębokie oczyszczenie</p>
-                    <p class="font-bold">35,00 zł</p>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="group cursor-pointer">
-                <div class="aspect-[4/5] bg-gray-100 mb-4 relative overflow-hidden flex items-center justify-center group-hover:shadow-lg transition-all duration-500">
-                    <span class="text-6xl group-hover:scale-110 transition-transform duration-500">🕯️</span>
-                    <button class="absolute bottom-0 left-0 w-full bg-sage-dark text-white py-4 text-sm font-bold uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">Do koszyka</button>
-                </div>
-                <div class="text-center">
-                    <h3 class="text-lg font-bold text-sage-dark mb-1">Świeca Sojowa Las</h3>
-                    <p class="text-gray-500 text-sm mb-2">Aromaterapia</p>
-                    <p class="font-bold">65,00 zł</p>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="group cursor-pointer">
-                <div class="aspect-[4/5] bg-gray-100 mb-4 relative overflow-hidden flex items-center justify-center group-hover:shadow-lg transition-all duration-500">
-                    <span class="text-6xl group-hover:scale-110 transition-transform duration-500">🍵</span>
-                    <button class="absolute bottom-0 left-0 w-full bg-sage-dark text-white py-4 text-sm font-bold uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">Do koszyka</button>
-                </div>
-                <div class="text-center">
-                    <h3 class="text-lg font-bold text-sage-dark mb-1">Zestaw Matcha</h3>
-                    <p class="text-gray-500 text-sm mb-2">Detox organizmu</p>
-                    <p class="font-bold">120,00 zł</p>
-                </div>
-            </div>
+    <section class="bg-emerald-950 py-40 text-white text-center">
+        <div class="max-w-4xl mx-auto px-6 reveal">
+            <h2 class="serif text-5xl italic mb-10">Zrównoważony luksus.</h2>
+            <p class="text-emerald-200/60 text-xl font-light leading-relaxed">Wierzymy, że prawdziwe piękno nie wymaga chemii. Każdy flakon to esencja natury zamknięta w recyklingowanym szkle.</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-sage-dark text-sage pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-3xl serif mb-6 text-white">Zapisz się do newslettera</h2>
-            <p class="mb-8 font-light">Otrzymaj 15% rabatu na pierwsze zamówienie i porady pielęgnacyjne.</p>
-            <form class="max-w-md mx-auto flex gap-2 mb-16">
-                <input type="email" placeholder="Twój adres e-mail" class="flex-1 bg-transparent border-b border-sage/50 text-white px-2 py-3 focus:outline-none focus:border-white transition-colors placeholder-sage/50">
-                <button type="submit" class="uppercase tracking-widest text-sm font-bold border border-sage px-6 hover:bg-white hover:text-sage-dark transition-colors">Subskrybuj</button>
-            </form>
-            <div class="border-t border-sage/20 pt-8 text-sm font-light flex justify-between items-center opacity-70">
-                <p>&copy; 2026 EcoStore. Demo E-commerce Portfolio.</p>
-                <div class="flex gap-4">
-                    <a href="#" class="hover:text-white transition">Regulamin</a>
-                    <a href="#" class="hover:text-white transition">Polityka Prywatności</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
