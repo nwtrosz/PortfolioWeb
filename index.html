@@ -8,19 +8,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; cursor: default; }
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; }
         .gradient-text { 
             background: linear-gradient(90deg, #2563eb, #7c3aed, #db2777, #2563eb);
             background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: gradient-flow 8s ease infinite;
         }
-        @keyframes gradient-flow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+        @keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
         #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
         .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.03; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
@@ -30,246 +25,117 @@
 <body class="text-slate-900 overflow-x-hidden selection:bg-blue-200">
     <div class="noise"></div>
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 glass-card shadow-sm">
+    <nav class="fixed w-full z-50 glass-card shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <span class="text-2xl font-extrabold tracking-tight">Kajetan<span class="text-blue-600">.dev</span></span>
             <div class="space-x-8 hidden md:flex items-center font-medium text-sm">
                 <a href="#projekty" class="hover:text-blue-600 transition">Realizacje</a>
-                <a href="#umiejetnosci" class="hover:text-blue-600 transition">Technologie</a>
-                <a href="mailto:kontakt@twojadomena.pl" class="bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-500/30">Porozmawiajmy</a>
+                <a href="mailto:kontakt@twojadomena.pl" class="bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-500/30">Kontakt</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="relative pt-40 pb-32 px-6 flex flex-col items-center justify-center min-h-screen text-center">
         <canvas id="hero-canvas"></canvas>
-        
         <div class="relative z-10 max-w-5xl mx-auto">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-bold text-xs mb-8 animate__animated animate__fadeInDown tracking-widest uppercase">Ekspert Nowoczesnych Rozwiązań Webowych</span>
             <h1 class="text-7xl md:text-[110px] font-extrabold mb-8 tracking-tighter leading-[0.9] animate__animated animate__fadeInUp">
-                Tworzę <span class="gradient-text">doświadczenia</span>,<br>które zapadają w pamięć.
+                Tworzę <span class="gradient-text">doświadczenia</span>,<br>które robią różnicę.
             </h1>
-            <p class="text-xl md:text-2xl text-slate-500 mb-14 max-w-3xl mx-auto leading-relaxed animate__animated animate__fadeInUp animate__delay-1s font-light">
-                Łączę zaawansowaną inżynierię oprogramowania z minimalistycznym designem, by budować produkty, które wyznaczają nowe standardy.
+            <p class="text-xl md:text-2xl text-slate-500 mb-14 max-w-3xl mx-auto leading-relaxed font-light">
+                Fullstack Developer specjalizujący się w projektowaniu i wdrażaniu błyskawicznych, skalowalnych aplikacji webowych.
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center animate__animated animate__fadeInUp animate__delay-2s">
-                <a href="#projekty" class="magnetic-btn bg-blue-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-blue-700 hover:shadow-2xl hover:-translate-y-1 transition-all">Odkryj moje realizacje</a>
-                <a href="https://github.com/nwtrosz" target="_blank" class="magnetic-btn bg-white text-slate-900 px-10 py-5 rounded-full font-bold border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all flex items-center gap-3">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    Source Code
-                </a>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#projekty" class="magnetic-btn bg-blue-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-blue-700 hover:shadow-2xl transition-all">Moje Portfolio</a>
             </div>
         </div>
     </header>
 
-    <!-- Projects Grid -->
     <section id="projekty" class="py-32 px-6 bg-white relative z-10">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-24 text-center md:text-left">
-                <h2 class="text-5xl font-extrabold mb-6 tracking-tight">Wybrane <span class="text-blue-600">Case Studies.</span></h2>
-                <p class="text-xl text-slate-500 max-w-2xl leading-relaxed">Każdy projekt to osobna historia o optymalizacji, dostępności i nowoczesnym designie.</p>
-            </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                
                 <!-- Project 1: Fachowo -->
                 <div class="group cursor-pointer">
-                    <div class="aspect-[16/10] bg-[#0f172a] rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl hover:shadow-blue-500/20">
-                        <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-700"></div>
-                        <div class="flex justify-between items-start z-10">
-                            <span class="text-white/40 font-mono text-sm uppercase tracking-widest">01 // Services Marketplace</span>
-                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white backdrop-blur-md group-hover:bg-blue-600 transition-colors">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </div>
-                        </div>
+                    <div class="aspect-[16/10] bg-[#0f172a] rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl">
+                        <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
                         <h3 class="text-6xl font-black text-white italic tracking-tighter z-10">FACHOWO</h3>
                         <a href="./projekty/fachowo/" class="absolute inset-0"></a>
                     </div>
-                    <div class="mt-8 px-4">
-                        <h4 class="text-2xl font-bold mb-2">Platforma Fachowo Lite</h4>
-                        <p class="text-slate-500 leading-relaxed">Ekstremalnie szybki landing page z systemem weryfikacji fachowców i bezpiecznymi płatnościami.</p>
-                    </div>
+                    <div class="mt-8 px-4"><h4 class="text-2xl font-bold mb-2">Platforma Fachowo Lite</h4><p class="text-slate-500">Marketplace usług domowych.</p></div>
                 </div>
-
                 <!-- Project 2: FitTrack -->
                 <div class="group cursor-pointer">
-                    <div class="aspect-[16/10] bg-black rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl hover:shadow-rose-500/20">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/20 to-orange-500/20 opacity-0 group-hover:opacity-10 transition-opacity duration-700"></div>
-                        <div class="flex justify-between items-start z-10">
-                            <span class="text-white/40 font-mono text-sm uppercase tracking-widest">02 // SaaS Fitness App</span>
-                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white backdrop-blur-md group-hover:bg-rose-600 transition-colors">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </div>
-                        </div>
+                    <div class="aspect-[16/10] bg-black rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         <h3 class="text-6xl font-black text-white uppercase tracking-tighter z-10">FIT.TRACK</h3>
                         <a href="./projekty/fittrack/" class="absolute inset-0"></a>
                     </div>
-                    <div class="mt-8 px-4">
-                        <h4 class="text-2xl font-bold mb-2">Aplikacja FitTrack</h4>
-                        <p class="text-slate-500 leading-relaxed">Nowoczesny panel analityczny dla sportowców z silnym naciskiem na gamifikację i UX.</p>
-                    </div>
+                    <div class="mt-8 px-4"><h4 class="text-2xl font-bold mb-2">Aplikacja FitTrack</h4><p class="text-slate-500">SaaS dla branży fitness.</p></div>
                 </div>
-
                 <!-- Project 3: EcoStore -->
                 <div class="group cursor-pointer">
-                    <div class="aspect-[16/10] bg-[#F9FBF9] rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl hover:shadow-emerald-500/20 border border-emerald-50">
-                        <div class="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
-                        <div class="flex justify-between items-start z-10">
-                            <span class="text-emerald-800/40 font-mono text-sm uppercase tracking-widest">03 // E-Commerce</span>
-                            <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 backdrop-blur-md group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </div>
-                        </div>
+                    <div class="aspect-[16/10] bg-[#F9FBF9] rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl border border-emerald-50">
                         <h3 class="text-6xl font-black text-emerald-800/20 tracking-tighter z-10">ECOSTORE</h3>
                         <a href="./projekty/ecostore/" class="absolute inset-0"></a>
                     </div>
-                    <div class="mt-8 px-4">
-                        <h4 class="text-2xl font-bold mb-2">Sklep EcoStore</h4>
-                        <p class="text-slate-500 leading-relaxed">Minimalistyczny sklep internetowy z naturalnymi produktami. Skupienie na czystym UI i wysokim zaufaniu.</p>
-                    </div>
+                    <div class="mt-8 px-4"><h4 class="text-2xl font-bold mb-2">Sklep EcoStore</h4><p class="text-slate-500">E-commerce z naturalnymi produktami.</p></div>
                 </div>
-
                 <!-- Project 4: DevConsult -->
                 <div class="group cursor-pointer">
-                    <div class="aspect-[16/10] bg-slate-900 rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl hover:shadow-indigo-500/20 border border-slate-800">
-                        <div class="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-10 transition-opacity duration-700"></div>
-                        <div class="flex justify-between items-start z-10">
-                            <span class="text-white/40 font-mono text-sm uppercase tracking-widest">04 // B2B IT Consulting</span>
-                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white backdrop-blur-md group-hover:bg-indigo-600 transition-colors">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </div>
-                        </div>
+                    <div class="aspect-[16/10] bg-slate-900 rounded-[2rem] p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-700 hover:shadow-2xl border border-slate-800">
                         <h3 class="text-4xl font-mono text-blue-400 z-10 font-bold">&lt;DevConsult /&gt;</h3>
                         <a href="./projekty/devconsult/" class="absolute inset-0"></a>
                     </div>
-                    <div class="mt-8 px-4">
-                        <h4 class="text-2xl font-bold mb-2">Agencja DevConsult</h4>
-                        <p class="text-slate-500 leading-relaxed">Profesjonalna platforma usług IT typu Enterprise. Design budujący autorytet techniczny.</p>
-                    </div>
+                    <div class="mt-8 px-4"><h4 class="text-2xl font-bold mb-2">Agencja DevConsult</h4><p class="text-slate-500">B2B IT Solutions.</p></div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Interactive Script -->
     <script>
-        // Hero Particles System
         const canvas = document.getElementById('hero-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
         let mouse = { x: null, y: null };
-
         function init() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
             const numberOfParticles = (canvas.width * canvas.height) / 8000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                particles.push(new Particle());
-            }
+            for (let i = 0; i < numberOfParticles; i++) { particles.push(new Particle()); }
         }
-
         class Particle {
             constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
+                this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
+                this.speedX = Math.random() * 0.5 - 0.25; this.speedY = Math.random() * 0.5 - 0.25;
             }
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-
-                // Mouse interaction
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
+                this.x += this.speedX; this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0; if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0; if (this.y < 0) this.y = canvas.height;
+                let dx = mouse.x - this.x; let dy = mouse.y - this.y;
                 let distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 150) {
-                    this.x -= dx / 50;
-                    this.y -= dy / 50;
-                }
+                if (distance < 150) { this.x -= dx / 50; this.y -= dy / 50; }
             }
-            draw() {
-                ctx.fillStyle = 'rgba(37, 99, 235, 0.4)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+            draw() { ctx.fillStyle = 'rgba(37, 99, 235, 0.4)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
         }
-
         function handleParticles() {
             for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+                particles[i].update(); particles[i].draw();
                 for (let j = i; j < particles.length; j++) {
-                    let dx = particles[i].x - particles[j].x;
-                    let dy = particles[i].y - particles[j].y;
+                    let dx = particles[i].x - particles[j].x; let dy = particles[i].y - particles[j].y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
                     if (distance < 120) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(37, 99, 235, ${1 - distance / 120 - 0.7})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                        ctx.closePath();
+                        ctx.beginPath(); ctx.strokeStyle = `rgba(37, 99, 235, ${1 - distance / 120 - 0.7})`;
+                        ctx.lineWidth = 0.5; ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
                     }
                 }
             }
         }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            handleParticles();
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.x;
-            mouse.y = e.y;
-        });
-
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); handleParticles(); requestAnimationFrame(animate); }
+        window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
         window.addEventListener('resize', init);
-        init();
-        animate();
-
-        // Magnetic Buttons Effect
-        document.querySelectorAll('.magnetic-btn').forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translate(0, 0)';
-            });
-        });
+        init(); animate();
     </script>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-24 text-center">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-4xl text-white font-extrabold mb-8 tracking-tight">Napędźmy Twój biznes technologią.</h2>
-            <a href="mailto:kontakt@twojadomena.pl" class="magnetic-btn inline-block bg-blue-600 text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20 mb-16">kontakt@twojadomena.pl</a>
-            <div class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center text-sm gap-6">
-                <p>&copy; 2026 Kajetan. Wszelkie prawa zastrzeżone.</p>
-                <div class="space-x-8">
-                    <a href="https://github.com/nwtrosz" class="hover:text-white transition-colors">GitHub</a>
-                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
-                    <a href="#" class="hover:text-white transition-colors">Twitter</a>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

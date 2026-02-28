@@ -5,107 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fachowo | Platforma Usługowa</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
         .hero-pattern { background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px; }
         .notification-float { animation: slideUpFade 4s ease-out infinite; }
-        @keyframes slideUpFade { 
-            0% { transform: translateY(20px); opacity: 0; }
-            15% { transform: translateY(0); opacity: 1; }
-            85% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-20px); opacity: 0; }
-        }
+        @keyframes slideUpFade { 0% { transform: translateY(20px); opacity: 0; } 15% { transform: translateY(0); opacity: 1; } 85% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-20px); opacity: 0; } }
     </style>
 </head>
 <body class="text-slate-900 antialiased selection:bg-blue-500 selection:text-white">
 
     <nav class="fixed w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center transform -rotate-6 shadow-lg shadow-blue-200">
-                    <span class="text-white font-black text-xl italic">F</span>
-                </div>
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center transform -rotate-6 shadow-lg shadow-blue-200 text-white font-black italic">F</div>
                 <span class="text-2xl font-black tracking-tight">FACHOWO</span>
             </div>
-            <a href="https://fachowo.net.pl" target="_blank" class="bg-slate-900 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-600 transition-all shadow-md">Wersja Live</a>
+            <a href="https://fachowo.net.pl" target="_blank" class="bg-slate-900 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-600 transition-all">Wersja Live</a>
         </div>
     </nav>
 
-    <main class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <main class="relative pt-32 pb-20 overflow-hidden">
         <div class="absolute inset-0 hero-pattern opacity-50 z-0"></div>
-        <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
             <div class="lg:w-1/2">
-                <h1 class="text-6xl lg:text-8xl font-extrabold tracking-tight mb-8 leading-[0.9]">
-                    Fachowiec <br><span class="text-blue-600 underline decoration-blue-200 underline-offset-8">od zaraz.</span>
-                </h1>
-                <p class="text-xl text-slate-600 mb-10 max-w-xl">Ponad 12,000 sprawdzonych wykonawców czeka na Twoje zlecenie. Bezpieczne płatności i gwarancja jakości Fachowo.</p>
-                
-                <!-- Live Stats Counter -->
+                <h1 class="text-6xl lg:text-8xl font-extrabold tracking-tight mb-8 leading-[0.9]">Fachowiec <br><span class="text-blue-600">od zaraz.</span></h1>
+                <p class="text-xl text-slate-600 mb-10 max-w-xl">Ponad 12,000 sprawdzonych wykonawców czeka na Twoje zlecenie. Bezpieczne płatności i gwarancja jakości.</p>
                 <div class="flex gap-12 mb-12">
-                    <div>
-                        <p id="counter-orders" class="text-4xl font-black text-slate-900">0</p>
-                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Zleceń dzisiaj</p>
-                    </div>
-                    <div>
-                        <p id="counter-pro" class="text-4xl font-black text-slate-900">0</p>
-                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Aktywnych PRO</p>
-                    </div>
+                    <div><p id="counter-orders" class="text-4xl font-black">0</p><p class="text-sm font-bold text-slate-400 uppercase">Zleceń dzisiaj</p></div>
+                    <div><p id="counter-pro" class="text-4xl font-black">0</p><p class="text-sm font-bold text-slate-400 uppercase">Aktywnych PRO</p></div>
+                </div>
+                <div class="flex gap-4">
+                    <button class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Dodaj zlecenie</button>
+                    <button class="bg-white text-slate-700 border-2 border-slate-200 px-8 py-4 rounded-xl font-bold">Dołącz jako PRO</button>
                 </div>
             </div>
 
             <div class="lg:w-1/2 w-full relative">
-                <!-- Floating Notification Mockup -->
                 <div id="live-notification" class="notification-float absolute -top-10 -left-10 bg-white p-4 rounded-2xl shadow-2xl border border-slate-100 z-20 flex items-center gap-4 min-w-[280px]">
                     <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-xl">✅</div>
-                    <div>
-                        <p class="text-xs font-bold text-slate-400 uppercase">Nowa realizacja</p>
-                        <p class="text-sm font-bold">Marek ukończył: Malowanie</p>
-                    </div>
+                    <div><p class="text-xs font-bold text-slate-400">Nowa realizacja</p><p class="text-sm font-bold">Marek ukończył: Malowanie</p></div>
                 </div>
-
-                <div class="bg-white p-2 rounded-[2.5rem] shadow-2xl border border-slate-100 relative group transition-transform duration-500 hover:scale-[1.02]">
-                    <div class="aspect-video bg-slate-900 rounded-[2rem] overflow-hidden flex items-center justify-center relative">
-                        <div class="absolute inset-0 bg-blue-600/20 mix-blend-overlay"></div>
-                        <span class="text-white/20 font-black text-4xl italic tracking-tighter">APP PREVIEW</span>
-                    </div>
-                </div>
+                <div class="bg-white p-4 rounded-[2.5rem] shadow-2xl border border-slate-100"><div class="aspect-video bg-slate-900 rounded-[2rem] flex items-center justify-center text-white/20 font-black text-4xl">PREVIEW</div></div>
             </div>
         </div>
     </main>
 
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100">
+                <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6">🔒</div>
+                <h3 class="text-xl font-bold mb-3">Weryfikacja Kont</h3>
+                <p class="text-slate-600">Każdy fachowiec przechodzi proces weryfikacji tożsamości, co zapewnia bezpieczeństwo transakcji.</p>
+            </div>
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100">
+                <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6">⚡</div>
+                <h3 class="text-xl font-bold mb-3">Błyskawiczne Zlecenia</h3>
+                <p class="text-slate-600">Dzięki zoptymalizowanemu silnikowi, znalezienie wykonawcy trwa zazwyczaj kilka minut.</p>
+            </div>
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100">
+                <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6">⭐</div>
+                <h3 class="text-xl font-bold mb-3">System Opinii</h3>
+                <p class="text-slate-600">Rzetelne oceny wystawiane tylko po faktycznym zrealizowaniu usługi przez system.</p>
+            </div>
+        </div>
+    </section>
+
     <script>
-        // Smooth Counter Script
         function animateCounter(id, target) {
-            let count = 0;
-            const step = target / 100;
+            let count = 0; const step = target / 100;
             const timer = setInterval(() => {
                 count += step;
-                if (count >= target) {
-                    document.getElementById(id).innerText = Math.floor(target).toLocaleString();
-                    clearInterval(timer);
-                } else {
-                    document.getElementById(id).innerText = Math.floor(count).toLocaleString();
-                }
+                if (count >= target) { document.getElementById(id).innerText = Math.floor(target).toLocaleString(); clearInterval(timer); }
+                else { document.getElementById(id).innerText = Math.floor(count).toLocaleString(); }
             }, 20);
         }
-        window.onload = () => {
-            animateCounter('counter-orders', 1458);
-            animateCounter('counter-pro', 8942);
-        };
-
-        // Live Notification Rotator
-        const notifications = [
-            "Marek ukończył: Malowanie",
-            "Piotr przyjął zlecenie: Hydraulik",
-            "Ania wystawiła opinię: 5/5 ⭐",
-            "Nowy fachowiec w okolicy: Kraków"
-        ];
-        let i = 0;
-        setInterval(() => {
-            i = (i + 1) % notifications.length;
-            document.querySelector('#live-notification p:last-child').innerText = notifications[i];
-        }, 4000);
+        window.onload = () => { animateCounter('counter-orders', 1458); animateCounter('counter-pro', 8942); };
+        const notifications = ["Marek ukończył: Malowanie", "Piotr przyjął zlecenie: Hydraulik", "Ania wystawiła opinię: 5/5 ⭐", "Nowy PRO: Poznań"];
+        let ni = 0; setInterval(() => { ni = (ni + 1) % notifications.length; document.querySelector('#live-notification p:last-child').innerText = notifications[ni]; }, 4000);
     </script>
 </body>
 </html>

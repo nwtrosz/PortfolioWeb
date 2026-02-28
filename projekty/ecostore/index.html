@@ -11,54 +11,50 @@
         .serif { font-family: 'Playfair Display', serif; }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        .product-card:hover .shimmer { left: 100%; transition: all 0.7s; }
-        .shimmer { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent); skewX: -20deg; }
+        .shimmer-box { position: relative; overflow: hidden; }
+        .shimmer-box::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent); skewX: -20deg; transition: 0.7s; }
+        .shimmer-box:hover::after { left: 150%; }
     </style>
 </head>
 <body class="text-slate-800 antialiased">
-
-    <nav class="p-10 flex justify-between items-center max-w-7xl mx-auto">
+    <div class="bg-[#2C4A3B] text-white text-center py-2 text-xs tracking-widest uppercase font-light">Darmowa dostawa od 150 PLN 🌱</div>
+    <nav class="p-8 flex justify-between items-center max-w-7xl mx-auto">
         <a href="#" class="serif text-3xl italic font-bold">EcoStore.</a>
-        <div class="flex gap-12 font-medium text-xs uppercase tracking-[0.3em] text-slate-400">
-            <a href="#" class="hover:text-emerald-700 transition">Shop</a>
-            <a href="#" class="hover:text-emerald-700 transition">Philosophy</a>
-            <a href="#" class="hover:text-emerald-700 transition">Archive</a>
-        </div>
+        <div class="flex gap-12 font-medium text-[10px] uppercase tracking-[0.3em] text-slate-400"><a href="#">Sklep</a><a href="#">Marka</a><a href="#">Blog</a></div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-6 pt-20 pb-40 grid md:grid-cols-2 gap-20 items-center">
+    <header class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-20 items-center">
         <div class="reveal">
-            <span class="text-emerald-700 font-bold text-xs uppercase tracking-widest mb-6 block">Collection 2026</span>
+            <span class="text-emerald-700 font-bold text-xs uppercase tracking-widest mb-6 block font-bold">Organic Essence</span>
             <h1 class="serif text-7xl lg:text-9xl italic mb-10 leading-none">Pure <br> Balance.</h1>
-            <p class="text-xl text-slate-500 font-light max-w-sm mb-12">Naturalne składniki, ręczna produkcja i szacunek do ziemi. Poczuj harmonię, której potrzebuje Twoja skóra.</p>
-            <button class="border-b-2 border-slate-800 pb-2 font-bold uppercase tracking-widest hover:text-emerald-700 hover:border-emerald-700 transition-all">Explore Essence</button>
+            <p class="text-xl text-slate-500 font-light max-w-sm mb-12">Ręcznie tworzone kosmetyki z organicznych składników. Bez chemii, z szacunkiem do natury.</p>
+            <button class="bg-[#2C4A3B] text-white px-10 py-4 font-bold uppercase text-xs tracking-widest hover:bg-emerald-900 transition-all">Odkryj kolekcję</button>
         </div>
-        <div class="relative reveal" style="transition-delay: 0.3s;">
-            <div class="aspect-[4/5] bg-emerald-100 rounded-t-full overflow-hidden relative group">
-                <div class="shimmer"></div>
-                <div class="absolute inset-0 flex items-center justify-center text-[150px] group-hover:scale-110 transition-transform duration-1000">🌿</div>
-            </div>
-            <div class="absolute -bottom-10 -left-10 bg-white p-10 shadow-xl reveal" style="transition-delay: 0.6s;">
-                <p class="serif italic text-2xl">100% Vegan</p>
-                <p class="text-[10px] uppercase tracking-widest text-slate-400 mt-2">Certified Organic</p>
-            </div>
+        <div class="relative reveal shimmer-box rounded-t-full shadow-2xl" style="transition-delay: 0.3s;">
+            <div class="aspect-[4/5] bg-emerald-50 flex items-center justify-center text-[120px]">🌿</div>
         </div>
     </header>
 
-    <section class="bg-emerald-950 py-40 text-white text-center">
-        <div class="max-w-4xl mx-auto px-6 reveal">
-            <h2 class="serif text-5xl italic mb-10">Zrównoważony luksus.</h2>
-            <p class="text-emerald-200/60 text-xl font-light leading-relaxed">Wierzymy, że prawdziwe piękno nie wymaga chemii. Każdy flakon to esencja natury zamknięta w recyklingowanym szkle.</p>
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 serif italic text-4xl">Bestsellery</div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="reveal"><div class="aspect-[4/5] bg-gray-100 shimmer-box flex items-center justify-center text-5xl mb-4">🧴</div><p class="font-bold">Olejek Różany</p><p class="text-sm text-slate-400">89,00 zł</p></div>
+            <div class="reveal" style="transition-delay: 0.1s;"><div class="aspect-[4/5] bg-gray-100 shimmer-box flex items-center justify-center text-5xl mb-4">🧼</div><p class="font-bold">Mydło Węglowe</p><p class="text-sm text-slate-400">35,00 zł</p></div>
+            <div class="reveal" style="transition-delay: 0.2s;"><div class="aspect-[4/5] bg-gray-100 shimmer-box flex items-center justify-center text-5xl mb-4">🕯️</div><p class="font-bold">Świeca Sojowa</p><p class="text-sm text-slate-400">65,00 zł</p></div>
+            <div class="reveal" style="transition-delay: 0.3s;"><div class="aspect-[4/5] bg-gray-100 shimmer-box flex items-center justify-center text-5xl mb-4">🍵</div><p class="font-bold">Zestaw Matcha</p><p class="text-sm text-slate-400">120,00 zł</p></div>
         </div>
     </section>
 
+    <footer class="bg-[#2C4A3B] text-white py-20 text-center">
+        <div class="max-w-md mx-auto px-6">
+            <h2 class="serif text-3xl italic mb-6">Dołącz do newslettera</h2>
+            <form class="flex gap-2"><input type="email" placeholder="Twój e-mail" class="flex-1 bg-white/10 border-b border-white/30 p-3 focus:outline-none"><button class="border border-white px-6 uppercase text-xs font-bold tracking-widest hover:bg-white hover:text-emerald-900 transition-all">Zapisz</button></form>
+        </div>
+    </footer>
+
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        const obs = new IntersectionObserver((es) => { es.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); }, {threshold: 0.1});
+        document.querySelectorAll('.reveal').forEach(e => obs.observe(e));
     </script>
 </body>
 </html>
