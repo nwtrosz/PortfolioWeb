@@ -43,17 +43,25 @@ if [ ! -L /etc/nginx/sites-enabled/portfolio ]; then
     sudo ln -s /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled/
 fi
 
-# 4. Weryfikacja i Restart
-echo -e "\e[33m[4/4] Restartowanie serwera...\e[0m"
+# 4. Weryfikacja i SSL (Certbot)
+echo -e "\e[33m[4/5] Sprawdzanie konfiguracji i generowanie certyfikatu SSL...\e[0m"
 sudo nginx -t
 if [ $? -eq 0 ]; then
     sudo systemctl restart nginx
-    echo -e "
-\e[32m==========================================\e[0m"
-    echo -e "✅ GOTOWE! Obie strony powinny działać."
-    echo -e "Adres: http://$SUBDOMAIN"
-    echo -e "Pamiętaj o dodaniu rekordu A w DNS swojej domeny!"
+
+    # Próba instalacji SSL
+    if command -v certbot > /dev/null; then
+        echo -e "\e[33mGenerowanie certyfikatu SSL dla $SUBDOMAIN...\e[0m"
+        sudo certbot --nginx -d $SUBDOMAIN --non-interactive --agree-tos --register-unsafely-without-email
+    else
+        echo -e "\e[31mCertbot nie jest zainstalowany. Zainstaluj go: sudo apt install certbot python3-certbot-nginx\e[0m"
+    fi
+
+    echo -e "\n\e[32m==========================================\e[0m"
+    echo -e "✅ GOTOWE! Twoje portfolio powinno działać pod HTTPS."
+    echo -e "Adres: https://$SUBDOMAIN"
     echo -e "==========================================\e[0m"
 else
-    echo -e "\e[31m❌ Błąd konfiguracji Nginx. Sprawdź plik ręcznie.\e[0m"
+    echo -e "\e[31m❌ Błąd konfiguracji Nginx.\e[0m"
+fi
 fi
