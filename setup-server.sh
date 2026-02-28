@@ -12,11 +12,16 @@ PROJECT_PATH="/root/www/portfolio"
 
 echo -e "\e[36m🚀 Startujemy z konfiguracją Ubuntu pod Portfolio...\e[0m"
 
-# 1. Uprawnienia do folderu /root (BEZ TEGO BĘDZIE BŁĄD 403)
-echo -e "\e[33m[1/4] Ustawianie uprawnień dostępu do /root...\e[0m"
+# 1. Uprawnienia i Bezpieczeństwo Gita
+echo -e "\e[33m[1/4] Konfigurowanie uprawnień (Git-friendly)...\e[0m"
 chmod +x /root
 chmod +x /root/www
-chown -R www-data:www-data $PROJECT_PATH
+
+# Dodanie do safe.directory, aby git pull zawsze działał
+git config --global --add safe.directory $PROJECT_PATH
+
+# Ustawienie właściciela na aktualnego użytkownika, nie na www-data
+chown -R $USER:$USER $PROJECT_PATH
 chmod -R 755 $PROJECT_PATH
 
 # 2. Plik konfiguracyjny Nginx

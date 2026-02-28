@@ -31,9 +31,9 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 3. Finalizacja uprawnień dla www-data
-echo -e "\e[33m3. Optymalizacja uprawnień dla www-data (Nginx/Apache)...\e[0m"
-ssh ${SSH_USER}@${SERVER_IP} "${SUDO_CMD}chown -R www-data:www-data $REMOTE_DIR && ${SUDO_CMD}chmod -R 755 $RemoteDir"
+# 3. Finalizacja uprawnień (zachowując właściciela dla Gita)
+echo -e "\e[33m3. Optymalizacja uprawnień dla serwera WWW...\e[0m"
+ssh ${SSH_USER}@${SERVER_IP} "${SUDO_CMD}chmod -R 755 $REMOTE_DIR"
 
 # 4. Sprawdzenie statusu serwera
 echo -e "\e[33m4. Weryfikacja serwera WWW...\e[0m"
