@@ -13,35 +13,54 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body class="text-slate-800 antialiased">
+<body class="text-slate-800 antialiased selection:bg-emerald-100">
+    <div class="bg-[#2C4A3B] text-white text-center py-3 text-[10px] tracking-[0.4em] uppercase font-light">Free Global Shipping on orders over 150 PLN 🌱</div>
+    
     <nav class="p-10 flex justify-between items-center max-w-7xl mx-auto">
-        <a href="#" class="serif text-3xl italic font-bold">EcoStore.</a>
-        <div class="flex gap-12 font-medium text-xs uppercase tracking-[0.3em] text-slate-400">
-            <a href="#">Shop</a><a href="#">Philosophy</a><a href="#">Blog</a>
-        </div>
+        <a href="#" class="serif text-4xl italic font-bold tracking-tighter">EcoStore.</a>
+        <div class="flex gap-16 font-bold text-[10px] uppercase tracking-[0.3em] text-slate-400 hidden md:flex"><a href="#">Shop</a><a href="#">Philosophy</a><a href="#">Stories</a></div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-6 pt-20 pb-40 grid md:grid-cols-2 gap-20 items-center">
+    <header class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-24 items-center">
         <div class="reveal">
-            <span class="text-emerald-700 font-bold text-xs uppercase tracking-widest mb-6 block">Collection 2026</span>
-            <h1 class="serif text-7xl lg:text-9xl italic mb-10 leading-none">Pure <br> Balance.</h1>
-            <p class="text-xl text-slate-500 font-light max-w-sm mb-12">Ręcznie tworzone kosmetyki z organicznych składników. Bez chemii, z szacunkiem do natury.</p>
-            <button class="bg-[#2C4A3B] text-white px-10 py-4 font-bold uppercase text-xs tracking-widest hover:bg-emerald-900 transition-all">Odkryj kolekcję</button>
+            <span class="text-emerald-700 font-bold text-[10px] uppercase tracking-[0.5em] mb-8 block">Handcrafted in Poland</span>
+            <h1 class="serif text-8xl lg:text-[140px] italic mb-12 leading-[0.8] tracking-tighter">True <br> Organic.</h1>
+            <p class="text-2xl text-slate-500 font-light max-w-sm mb-16 leading-relaxed">Limitowane serie kosmetyków botanicznych tworzonych w zgodzie z rytmem natury.</p>
+            <button class="bg-[#2C4A3B] text-white px-12 py-5 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-emerald-900 transition-all shadow-2xl">Odkryj Esencję</button>
         </div>
         <div class="relative reveal" style="transition-delay: 0.3s;">
-            <div class="aspect-[4/5] bg-emerald-50 rounded-t-full flex items-center justify-center text-[120px] shadow-2xl">🌿</div>
+            <div class="aspect-[4/5] bg-emerald-50 rounded-t-full flex items-center justify-center text-[180px] shadow-[0_50px_100px_rgba(0,0,0,0.05)]">🌿</div>
+            <div class="absolute -bottom-12 -left-12 bg-white p-12 shadow-2xl rounded-2xl hidden md:block border border-slate-50">
+                <p class="serif italic text-3xl mb-2">100% Raw</p>
+                <p class="text-[10px] uppercase tracking-widest text-slate-400">Cold Pressed Oils Only</p>
+            </div>
         </div>
     </header>
 
-    <section class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16 serif italic text-4xl">Bestsellery</div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="reveal"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-5xl mb-4 hover:shadow-lg transition-shadow">🧴</div><p class="font-bold text-center">Olejek Różany</p></div>
-            <div class="reveal" style="transition-delay: 0.1s;"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-5xl mb-4 hover:shadow-lg transition-shadow">🧼</div><p class="font-bold text-center">Mydło Węglowe</p></div>
-            <div class="reveal" style="transition-delay: 0.2s;"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-5xl mb-4 hover:shadow-lg transition-shadow">🕯️</div><p class="font-bold text-center">Świeca Sojowa</p></div>
-            <div class="reveal" style="transition-delay: 0.3s;"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-5xl mb-4 hover:shadow-lg transition-shadow">🍵</div><p class="font-bold text-center">Zestaw Matcha</p></div>
+    <section class="py-40 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-8">
+            <h2 class="serif italic text-6xl tracking-tighter">Essentials.</h2>
+            <a href="#" class="text-[10px] font-black uppercase tracking-widest border-b-2 border-emerald-900 pb-1">See All Collection</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="reveal group"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-6xl mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">🧴</div><p class="font-bold text-center italic serif text-xl mb-2">Olejek Różany</p><p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">89,00 zł</p></div>
+            <div class="reveal group" style="transition-delay: 0.1s;"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-6xl mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">🧼</div><p class="font-bold text-center italic serif text-xl mb-2">Mydło Węglowe</p><p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">35,00 zł</p></div>
+            <div class="reveal group" style="transition-delay: 0.2s;"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-6xl mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">🕯️</div><p class="font-bold text-center italic serif text-xl mb-2">Świeca Sojowa</p><p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">65,00 zł</p></div>
+            <div class="reveal group" style="transition-delay: 0.3s;"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-6xl mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">🍵</div><p class="font-bold text-center italic serif text-xl mb-2">Matcha Set</p><p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">120,00 zł</p></div>
         </div>
     </section>
+
+    <section class="bg-[#2C4A3B] py-40 text-white text-center px-6">
+        <div class="max-w-3xl mx-auto reveal">
+            <h2 class="serif text-6xl italic mb-12 tracking-tighter">Nasza Misja.</h2>
+            <p class="text-xl font-light leading-relaxed opacity-80 mb-16 italic">"Wierzymy, że piękno to nie produkt, a proces uzdrawiania duszy poprzez kontakt z naturą. Każdy flakon to nasza obietnica czystości."</p>
+            <button class="border border-white/30 px-12 py-5 uppercase text-[10px] tracking-[0.4em] hover:bg-white hover:text-emerald-900 transition-all">Read Our Story</button>
+        </div>
+    </section>
+
+    <footer class="bg-[#fcfcf9] py-20 border-t border-slate-100 text-center px-6 text-slate-400 text-[9px] uppercase tracking-[0.5em]">
+        EcoStore Organic Essence &copy; 2026 Crafted with Soul.
+    </footer>
 
     <script>
         const obs = new IntersectionObserver((es) => { es.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); }, {threshold: 0.1});
