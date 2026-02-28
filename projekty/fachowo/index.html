@@ -3,97 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fachowo Lite - Profesjonalne Usługi</title>
+    <title>Fachowo | Platforma Usługowa</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        .hero-pattern { background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px; }
     </style>
 </head>
-<body class="bg-white text-slate-900">
+<body class="text-slate-900 antialiased selection:bg-blue-500 selection:text-white">
 
-    <!-- Header / Nav -->
-    <header class="bg-white border-b sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+    <!-- Nav -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center transform -rotate-6">
                     <span class="text-white font-black text-xl italic">F</span>
                 </div>
-                <span class="text-2xl font-extrabold tracking-tighter text-blue-600 italic">FACHOWO</span>
+                <span class="text-2xl font-black tracking-tight text-slate-900">FACHOWO</span>
             </div>
-            <a href="https://fachowo.net.pl" target="_blank" class="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors uppercase tracking-widest">Pełna Wersja Live</a>
+            <div class="hidden md:flex items-center gap-8 font-semibold text-slate-600">
+                <a href="#jak-to-dziala" class="hover:text-blue-600 transition">Jak to działa</a>
+                <a href="#dla-fachowcow" class="hover:text-blue-600 transition">Dla fachowców</a>
+                <a href="#cennik" class="hover:text-blue-600 transition">Cennik</a>
+            </div>
+            <div class="flex gap-4">
+                <button class="hidden md:block font-bold text-slate-600 hover:text-blue-600 transition">Zaloguj się</button>
+                <a href="https://fachowo.net.pl" target="_blank" class="bg-slate-900 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-600 transition-all shadow-md">Wersja Live</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Fachowo -->
-    <section class="py-20 px-6 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <!-- Hero -->
+    <main class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 hero-pattern opacity-50 z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <div class="inline-block bg-blue-50 border border-blue-200 text-blue-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+                    🚀 Najszybciej rozwijająca się platforma w Polsce
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                    Koniec z szukaniem <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">fachowca w ciemno.</span>
+                </h1>
+                <p class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto lg:mx-0">
+                    Sprawdzeni specjaliści, bezpieczne płatności i gwarancja satysfakcji. Dodaj zlecenie i otrzymaj wyceny w 15 minut.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <button class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 transition-all">Dodaj Zlecenie - Za Darmo</button>
+                    <button class="bg-white text-slate-700 border-2 border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-slate-300 hover:bg-slate-50 transition-all">Dołącz jako Wykonawca</button>
+                </div>
+            </div>
+            
+            <!-- Mockup UI -->
+            <div class="lg:w-1/2 w-full relative">
+                <div class="absolute -inset-4 bg-gradient-to-tr from-blue-500 to-indigo-400 rounded-[2.5rem] blur-2xl opacity-30 -rotate-6"></div>
+                <div class="bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 relative z-10 transform lg:-rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div class="flex justify-between items-center border-b border-slate-100 pb-4 mb-4">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 bg-slate-100 px-3 py-1 rounded-md">app.fachowo.pl</span>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- Zlecenie item -->
+                        <div class="p-4 border border-slate-100 rounded-2xl bg-slate-50 flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-xl">🔧</div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-slate-900">Naprawa instalacji hydraulicznej</h4>
+                                <p class="text-sm text-slate-500 mb-2">Warszawa, Mokotów • Pilne</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded-md">4 oferty</span>
+                                    <span class="font-bold text-blue-600">od 150 zł</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Zlecenie item -->
+                        <div class="p-4 border border-slate-100 rounded-2xl bg-white shadow-sm flex items-start gap-4">
+                            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-xl">⚡</div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-slate-900">Przeniesienie gniazdek elektrycznych</h4>
+                                <p class="text-sm text-slate-500 mb-2">Kraków, Wola • W tym tygodniu</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded-md">Oczekiwanie</span>
+                                    <span class="font-bold text-slate-400">Wycena</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Features -->
+    <section class="py-24 bg-white" id="jak-to-dziala">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4">Standard, na który zasługujesz.</h2>
+                <p class="text-xl text-slate-500">Zmieniamy rynek usług domowych na bezpieczniejszy i bardziej przejrzysty.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-blue-200 transition-colors">
+                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Tylko Zweryfikowani</h3>
+                    <p class="text-slate-600">Każdy wykonawca przechodzi wieloetapową weryfikację tożsamości oraz doświadczenia, zanim zacznie licytować zlecenia.</p>
+                </div>
+                
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-blue-200 transition-colors">
+                    <div class="w-14 h-14 bg-indigo-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-indigo-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Jasne Płatności</h3>
+                    <p class="text-slate-600">Środki trafiają na konto fachowca dopiero, gdy potwierdzisz, że praca została wykonana zgodnie z umową.</p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-blue-200 transition-colors">
+                    <div class="w-14 h-14 bg-rose-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-rose-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Prawdziwe Opinie</h3>
+                    <p class="text-slate-600">Zablokowaliśmy fałszywe recenzje. Opinię może wystawić wyłącznie klient, dla którego wykonano usługę przez platformę.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-20 bg-blue-600 text-white text-center">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-blue-500/50">
             <div>
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">Znajdź najlepszego <span class="text-blue-600">fachowca</span> w Twojej okolicy.</h1>
-                <p class="text-lg text-slate-600 mb-8 leading-relaxed">Projekt "Fachowo" powstał, aby uprościć proces zamawiania usług domowych. Bezpiecznie, szybko i profesjonalnie.</p>
-                <div class="flex gap-4">
-                    <a href="https://fachowo.net.pl" target="_blank" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">Sprawdź pełną wersję</a>
-                </div>
+                <p class="text-4xl md:text-5xl font-black mb-2">15k+</p>
+                <p class="text-blue-200 font-semibold uppercase text-sm tracking-wider">Zleceń w tym roku</p>
             </div>
-            <div class="relative">
-                <div class="bg-blue-600/5 absolute -inset-4 rounded-3xl -rotate-2"></div>
-                <div class="bg-white p-4 rounded-2xl shadow-2xl border border-blue-100 relative">
-                    <!-- Miejsce na screenshot interfejsu -->
-                    <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center text-slate-400">
-                        [ Screenshot Interfejsu Aplikacji ]
-                    </div>
-                </div>
+            <div>
+                <p class="text-4xl md:text-5xl font-black mb-2">4.9/5</p>
+                <p class="text-blue-200 font-semibold uppercase text-sm tracking-wider">Średnia ocen</p>
             </div>
-        </div>
-    </section>
-
-    <!-- O projekcie -->
-    <section class="py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4 italic">O PROJEKCIE</h2>
-            <p class="text-xl text-slate-600">Fachowo to kompleksowa platforma usługowa, która rozwiązuje problem braku dostępności sprawdzonych specjalistów. System łączy w sobie intuicyjny panel klienta oraz zaawansowane narzędzia dla wykonawców.</p>
-        </div>
-    </section>
-
-    <!-- Funkcje -->
-    <section class="py-20 px-6 bg-slate-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Funkcja 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Weryfikacja Kont</h3>
-                    <p class="text-slate-600">Każdy fachowiec przechodzi proces weryfikacji, co zapewnia bezpieczeństwo transakcji.</p>
-                </div>
-                <!-- Funkcja 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Błyskawiczne Zlecenia</h3>
-                    <p class="text-slate-600">Dzięki zoptymalizowanemu silnikowi, znalezienie wykonawcy trwa kilka minut.</p>
-                </div>
-                <!-- Funkcja 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">System Opinii</h3>
-                    <p class="text-slate-600">Rzetelne oceny wystawiane tylko po zrealizowaniu usługi przez system.</p>
-                </div>
+            <div>
+                <p class="text-4xl md:text-5xl font-black mb-2">24/7</p>
+                <p class="text-blue-200 font-semibold uppercase text-sm tracking-wider">Support Klienta</p>
+            </div>
+            <div>
+                <p class="text-4xl md:text-5xl font-black mb-2">120+</p>
+                <p class="text-blue-200 font-semibold uppercase text-sm tracking-wider">Kategorii usług</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer Lite -->
-    <footer class="py-12 px-6 border-t text-center">
-        <p class="text-slate-500 mb-6 font-semibold">Chcesz zobaczyć jak to działa w praktyce?</p>
-        <a href="https://fachowo.net.pl" target="_blank" class="text-blue-600 font-bold border-2 border-blue-600 px-6 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition-all">
-            PRZEJDŹ DO PEŁNEJ WERSJI
-        </a>
+    <footer class="bg-slate-900 pt-20 pb-10 text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-2xl text-white font-bold mb-6">Demo Projektu Portfolio</h2>
+            <p class="mb-8">To jest jedynie prezentacja umiejętności UI/UX w ramach mojego portfolio. Aby zobaczyć działającą aplikację, przejdź na oficjalną stronę projektu.</p>
+            <a href="https://fachowo.net.pl" target="_blank" class="inline-block border border-slate-600 text-white px-8 py-3 rounded-lg hover:bg-white hover:text-slate-900 transition-all font-bold">
+                Otwórz Fachowo.net.pl
+            </a>
+            <div class="mt-16 pt-8 border-t border-slate-800 text-sm">
+                &copy; 2026 Portfolio Projekt. Wygenerowano jako demonstrację umiejętności front-endowych.
+            </div>
+        </div>
     </footer>
-
 </body>
 </html>
