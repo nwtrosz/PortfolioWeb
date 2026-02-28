@@ -18,78 +18,36 @@
     
     <nav class="p-10 flex justify-between items-center max-w-7xl mx-auto">
         <a href="#" class="serif text-4xl italic font-bold tracking-tighter">EcoStore.</a>
-        <div class="flex gap-16 font-bold text-[10px] uppercase tracking-[0.3em] text-slate-400 hidden md:flex"><a href="#">Shop</a><a href="#">Philosophy</a><a href="#">Stories</a></div>
+        <div class="flex gap-16 font-bold text-[10px] uppercase tracking-[0.3em] text-slate-400 hidden md:flex"><a href="#">Sklep</a><a href="#">Marka</a><a href="#">Kontakt</a></div>
     </nav>
 
     <header class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-24 items-center">
         <div class="reveal">
-            <span class="text-emerald-700 font-bold text-[10px] uppercase tracking-[0.5em] mb-8 block">Handcrafted in Poland</span>
-            <h1 class="serif text-8xl lg:text-[140px] italic mb-12 leading-[0.8] tracking-tighter">True <br> Organic.</h1>
-            <p class="text-2xl text-slate-500 font-light max-w-sm mb-16 leading-relaxed">Limitowane serie kosmetyków botanicznych tworzonych w zgodzie z rytmem natury.</p>
-            <button class="bg-[#2C4A3B] text-white px-12 py-5 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-emerald-900 transition-all shadow-2xl">Odkryj Esencję</button>
+            <span class="text-emerald-700 font-bold text-[10px] uppercase tracking-[0.5em] mb-8 block font-bold">Organic Essence</span>
+            <h1 class="serif text-8xl lg:text-[140px] italic mb-12 leading-[0.8] tracking-tighter text-slate-900">Pure <br> Balance.</h1>
+            <p class="text-2xl text-slate-500 font-light max-w-sm mb-16 leading-relaxed">Kosmetyki botaniczne tworzone w zgodzie z rytmem natury.</p>
+            <button class="bg-[#2C4A3B] text-white px-12 py-5 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-emerald-900 transition-all shadow-2xl">ODKRYJ ESENCJĘ</button>
         </div>
-        <div class="relative reveal" style="transition-delay: 0.3s;">
-            <div class="aspect-[4/5] bg-emerald-50 rounded-t-full flex items-center justify-center shadow-[0_50px_100px_rgba(0,0,0,0.05)] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Organic Essential Oil">
-            </div>
-            <div class="absolute -bottom-12 -left-12 bg-white p-12 shadow-2xl rounded-2xl hidden md:block border border-slate-50">
-                <p class="serif italic text-3xl mb-2">100% Raw</p>
-                <p class="text-[10px] uppercase tracking-widest text-slate-400">Cold Pressed Oils Only</p>
-            </div>
+        <div class="relative reveal shadow-2xl rounded-t-full overflow-hidden" style="transition-delay: 0.3s;">
+            <img src="img/kosmetyk.jpg" class="w-full aspect-[4/5] object-cover" alt="Organic">
         </div>
     </header>
 
     <section class="py-40 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-8 text-left">
-            <h2 class="serif italic text-6xl tracking-tighter">Essentials.</h2>
+        <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-8">
+            <h2 class="serif italic text-6xl tracking-tighter text-slate-900">Essentials.</h2>
             <a href="#" class="text-[10px] font-black uppercase tracking-widest border-b-2 border-emerald-900 pb-1">See All Collection</a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
-            <!-- Product 1: Rose Oil -->
-            <div class="reveal group">
-                <div class="aspect-[4/5] bg-gray-100 flex items-center justify-center overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Rose Oil Dropper">
-                </div>
-                <p class="font-bold italic serif text-xl mb-2">Olejek Różany</p>
-                <p class="text-[10px] tracking-widest text-slate-400 uppercase font-bold">89,00 zł</p>
-            </div>
-            <!-- Product 2: Soap -->
-            <div class="reveal group" style="transition-delay: 0.1s;">
-                <div class="aspect-[4/5] bg-gray-100 flex items-center justify-center overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1596433809252-260c2745dfdd?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Charcoal Soap Bar">
-                </div>
-                <p class="font-bold italic serif text-xl mb-2">Mydło Węglowe</p>
-                <p class="text-[10px] tracking-widest text-slate-400 uppercase font-bold">35,00 zł</p>
-            </div>
-            <!-- Product 3: Candle -->
-            <div class="reveal group" style="transition-delay: 0.2s;">
-                <div class="aspect-[4/5] bg-gray-100 flex items-center justify-center overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1602872029708-84d970d3382b?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Scented Soy Candle">
-                </div>
-                <p class="font-bold italic serif text-xl mb-2">Świeca Sojowa</p>
-                <p class="text-[10px] tracking-widest text-slate-400 uppercase font-bold">65,00 zł</p>
-            </div>
-            <!-- Product 4: Matcha -->
-            <div class="reveal group" style="transition-delay: 0.3s;">
-                <div class="aspect-[4/5] bg-gray-100 flex items-center justify-center overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Matcha Tea Bowl">
-                </div>
-                <p class="font-bold italic serif text-xl mb-2">Matcha Set</p>
-                <p class="text-[10px] tracking-widest text-slate-400 uppercase font-bold">120,00 zł</p>
-            </div>
+            <div class="reveal group"><img src="img/olejek.jpg" class="aspect-[4/5] w-full object-cover rounded-lg mb-8 shadow-md group-hover:scale-105 transition-transform"><p class="font-bold italic serif text-xl mb-2 text-slate-900">Olejek Różany</p><p class="text-[10px] tracking-widest text-slate-400 font-bold">89,00 zł</p></div>
+            <div class="reveal group" style="transition-delay: 0.1s;"><img src="img/mydlo.jpg" class="aspect-[4/5] w-full object-cover rounded-lg mb-8 shadow-md group-hover:scale-105 transition-transform"><p class="font-bold italic serif text-xl mb-2 text-slate-900">Mydło Węglowe</p><p class="text-[10px] tracking-widest text-slate-400 font-bold">35,00 zł</p></div>
+            <div class="reveal group" style="transition-delay: 0.2s;"><img src="img/swieca.jpg" class="aspect-[4/5] w-full object-cover rounded-lg mb-8 shadow-md group-hover:scale-105 transition-transform"><p class="font-bold italic serif text-xl mb-2 text-slate-900">Świeca Sojowa</p><p class="text-[10px] tracking-widest text-slate-400 font-bold">65,00 zł</p></div>
+            <div class="reveal group" style="transition-delay: 0.3s;"><img src="img/matcha.jpg" class="aspect-[4/5] w-full object-cover rounded-lg mb-8 shadow-md group-hover:scale-105 transition-transform"><p class="font-bold italic serif text-xl mb-2 text-slate-900">Zestaw Matcha</p><p class="text-[10px] tracking-widest text-slate-400 font-bold">120,00 zł</p></div>
         </div>
     </section>
 
-    <section class="bg-[#2C4A3B] py-40 text-white text-center px-6">
-        <div class="max-w-3xl mx-auto reveal">
-            <h2 class="serif text-6xl italic mb-12 tracking-tighter">Nasza Misja.</h2>
-            <p class="text-xl font-light leading-relaxed opacity-80 mb-16 italic">"Wierzymy, że piękno to nie produkt, a proces uzdrawiania duszy poprzez kontakt z naturą. Każdy flakon to nasza obietnica czystości."</p>
-            <button class="border border-white/30 px-12 py-5 uppercase text-[10px] tracking-[0.4em] hover:bg-white hover:text-emerald-900 transition-all">Read Our Story</button>
-        </div>
-    </section>
-
-    <footer class="bg-[#fcfcf9] py-20 border-t border-slate-100 text-center px-6 text-slate-400 text-[9px] uppercase tracking-[0.5em] italic">
-        EcoStore Organic Essence &copy; 2026 Crafted with Soul.
+    <footer class="bg-[#2C4A3B] py-24 text-white text-center italic px-6">
+        <div class="max-w-3xl mx-auto"><h2 class="serif text-5xl mb-8">Crafted with Soul.</h2><p class="opacity-60 text-xs tracking-widest uppercase">EcoStore &copy; 2026 Organic Life</p></div>
     </footer>
 
     <script>
