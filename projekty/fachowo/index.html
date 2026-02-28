@@ -3,88 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fachowo | Buduj Mądrze</title>
+    <title>Fachowo | Twój Marketplace Usług</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
-        .hero-pattern { background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px; }
-        .notification-float { animation: slideUpFade 4s ease-out infinite; }
-        @keyframes slideUpFade { 0% { transform: translateY(20px); opacity: 0; } 15% { transform: translateY(0); opacity: 1; } 85% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-20px); opacity: 0; } }
+        .hero-pattern { background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 32px 32px; }
+        .notification-float { animation: slideUpFade 5s ease-out infinite; }
+        @keyframes slideUpFade { 
+            0% { transform: translateY(30px); opacity: 0; }
+            10% { transform: translateY(0); opacity: 1; }
+            90% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-30px); opacity: 0; }
+        }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .bento-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .bento-card:hover { transform: translateY(-5px); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.1); }
     </style>
 </head>
-<body class="text-slate-900 antialiased selection:bg-blue-500">
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
+<body class="text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
+
+    <!-- Sticky Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-xl border-b border-slate-200 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center transform -rotate-6 shadow-lg shadow-blue-200 text-white font-black italic text-xl">F</div>
-                <span class="text-2xl font-black tracking-tight uppercase">FACHOWO</span>
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center transform -rotate-6 shadow-lg shadow-blue-500/20 text-white font-black italic text-xl">F</div>
+                <span class="text-2xl font-black tracking-tighter uppercase">FACHOWO</span>
             </div>
-            <a href="https://fachowo.net.pl" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl transition-all uppercase text-xs tracking-widest">Start Now</a>
+            <div class="hidden md:flex gap-10 font-bold text-[11px] uppercase tracking-widest text-slate-500">
+                <a href="#kategorie" class="hover:text-blue-600 transition">Usługi</a>
+                <a href="#jak-to-dziala" class="hover:text-blue-600 transition">Jak to działa</a>
+                <a href="#dla-fachowcow" class="hover:text-blue-600 transition">Dla PRO</a>
+            </div>
+            <a href="https://fachowo.net.pl" target="_blank" class="bg-slate-900 text-white px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-blue-600 transition-all">Portal Live</a>
         </div>
     </nav>
 
-    <main class="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center">
-        <div class="absolute inset-0 hero-pattern opacity-50 z-0"></div>
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-20 relative z-10">
-            <div class="lg:w-1/2">
-                <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-8 border border-blue-100 italic">Trusted by 45,000+ Inwestors</div>
-                <h1 class="text-7xl lg:text-[110px] font-black tracking-tighter mb-10 leading-[0.85] uppercase italic">Wybierz <br><span class="text-blue-600">Jakość.</span></h1>
-                <p class="text-2xl text-slate-600 mb-12 max-w-xl font-light">Największy serwis w Polsce dla branży budowlanej. Tylko zweryfikowani specjaliści PRO i bezpieczne transakcje.</p>
-                <div class="flex gap-16 mb-16">
-                    <div><p id="counter-orders" class="text-5xl font-black italic">0</p><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Jobs Done Today</p></div>
-                    <div><p id="counter-pro" class="text-5xl font-black italic">0</p><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Active PROs</p></div>
+    <!-- Hero Section -->
+    <main class="relative pt-48 pb-32 overflow-hidden flex items-center min-h-[90vh]">
+        <div class="absolute inset-0 hero-pattern opacity-40 z-0"></div>
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-24 relative z-10">
+            <div class="lg:w-3/5 text-center lg:text-left">
+                <div class="inline-flex items-center gap-3 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-blue-100 shadow-sm animate__animated animate__fadeInDown">
+                    <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                    Nowoczesny Standard Branży Budowlanej
                 </div>
-                <button class="bg-slate-900 text-white px-12 py-5 rounded-[2rem] font-black uppercase italic tracking-widest hover:bg-blue-600 transition-all shadow-2xl">Zleć za darmo</button>
+                <h1 class="text-7xl lg:text-[110px] font-black tracking-tighter mb-10 leading-[0.85] uppercase italic">Fachowiec <br><span class="text-blue-600">Verified Pro.</span></h1>
+                <p class="text-2xl text-slate-500 mb-14 max-w-2xl font-light leading-relaxed">Zapomnij o stresie podczas remontu. Znajdź sprawdzonych wykonawców, porównaj wyceny i śpij spokojnie dzięki gwarancji Fachowo.</p>
+                
+                <div class="flex flex-wrap gap-12 mb-16 justify-center lg:justify-start">
+                    <div class="text-center lg:text-left"><p id="counter-orders" class="text-5xl font-black italic tracking-tighter">0</p><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">Zleceń Dzisiaj</p></div>
+                    <div class="text-center lg:text-left"><p id="counter-pro" class="text-5xl font-black italic tracking-tighter">0</p><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">Aktywnych Specjalistów</p></div>
+                    <div class="text-center lg:text-left"><p class="text-5xl font-black italic tracking-tighter">4.9/5</p><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">Średnia Ocen</p></div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                    <button class="bg-blue-600 text-white px-12 py-6 rounded-3xl font-black uppercase italic tracking-widest hover:bg-slate-900 transition-all shadow-2xl shadow-blue-500/20 text-lg">Zleć za darmo</button>
+                    <button class="bg-white text-slate-900 border-2 border-slate-200 px-12 py-6 rounded-3xl font-black uppercase italic tracking-widest hover:border-blue-600 transition-all text-lg">Zostań Wykonawcą</button>
+                </div>
             </div>
-            <div class="lg:w-1/2 w-full relative">
-                <div id="live-notification" class="notification-float absolute -top-12 -left-12 bg-white p-6 rounded-[2rem] shadow-2xl border border-slate-50 z-20 flex items-center gap-5 min-w-[340px]">
-                    <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-3xl">👷</div>
-                    <div><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Real-time update</p><p class="text-base font-bold italic">Andrzej K. przyjął zlecenie</p></div>
+
+            <div class="lg:w-2/5 w-full relative">
+                <div id="live-notification" class="notification-float absolute -top-12 -left-12 bg-white p-6 rounded-[2.5rem] shadow-[0_40px_80px_rgba(0,0,0,0.12)] border border-slate-50 z-20 flex items-center gap-5 min-w-[360px]">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-4xl shadow-inner">👷</div>
+                    <div>
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Status: Właśnie teraz</p>
+                        <p id="notif-text" class="text-lg font-bold italic tracking-tight">Tomasz B. przyjął zlecenie</p>
+                    </div>
                 </div>
-                <div class="bg-white p-5 rounded-[4rem] shadow-[0_50px_100px_rgba(0,0,0,0.1)] border border-slate-100"><div class="aspect-video bg-slate-950 rounded-[3rem] flex items-center justify-center text-white/5 font-black text-6xl uppercase tracking-tighter italic">Preview</div></div>
+                <div class="bg-white p-6 rounded-[4.5rem] shadow-[0_60px_120px_-20px_rgba(0,0,0,0.15)] border border-slate-100 relative group">
+                    <div class="aspect-[10/12] bg-slate-950 rounded-[3.5rem] flex flex-col items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-600/5"></div>
+                        <div class="w-full px-10 space-y-6 z-10">
+                            <div class="h-4 w-2/3 bg-white/10 rounded-full"></div>
+                            <div class="h-4 w-1/2 bg-white/10 rounded-full"></div>
+                            <div class="h-32 w-full bg-white/5 rounded-[2rem] border border-white/10"></div>
+                            <div class="h-12 w-full bg-blue-600 rounded-2xl"></div>
+                        </div>
+                        <span class="absolute bottom-10 text-white/10 font-black text-7xl italic uppercase tracking-tighter">APP UI</span>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
-    <section class="py-40 bg-white px-6">
+    <!-- Categories Section -->
+    <section id="kategorie" class="py-40 bg-white px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-5xl font-black mb-24 text-center tracking-tighter uppercase italic">Kategorie Usług.</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="p-10 rounded-[3rem] bg-slate-50 hover:bg-blue-600 hover:text-white transition-all duration-500 cursor-pointer text-center group"><div class="text-4xl mb-6">🏠</div><h4 class="font-bold uppercase tracking-widest text-xs">Budowa Domu</h4></div>
-                <div class="p-10 rounded-[3rem] bg-slate-50 hover:bg-blue-600 hover:text-white transition-all duration-500 cursor-pointer text-center group"><div class="text-4xl mb-6">🛠️</div><h4 class="font-bold uppercase tracking-widest text-xs">Remonty</h4></div>
-                <div class="p-10 rounded-[3rem] bg-slate-50 hover:bg-blue-600 hover:text-white transition-all duration-500 cursor-pointer text-center group"><div class="text-4xl mb-6">⚡</div><h4 class="font-bold uppercase tracking-widest text-xs">Elektryka</h4></div>
-                <div class="p-10 rounded-[3rem] bg-slate-50 hover:bg-blue-600 hover:text-white transition-all duration-500 cursor-pointer text-center group"><div class="text-4xl mb-6">🚿</div><h4 class="font-bold uppercase tracking-widest text-xs">Hydraulika</h4></div>
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-6xl font-black tracking-tighter uppercase italic mb-6">W czym możemy pomóc?</h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto font-light">Ponad 120 kategorii usług realizowanych przez zweryfikowanych profesjonalistów.</p>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bento-card bg-slate-50 p-12 rounded-[3.5rem] hover:bg-blue-600 hover:text-white transition-all text-center group cursor-pointer reveal">
+                    <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">🏗️</div>
+                    <h4 class="font-black uppercase tracking-widest text-sm mb-4">Budowa Domu</h4>
+                    <p class="text-xs opacity-60 font-medium">Od fundamentów po dach</p>
+                </div>
+                <div class="bento-card bg-slate-50 p-12 rounded-[3.5rem] hover:bg-blue-600 hover:text-white transition-all text-center group cursor-pointer reveal" style="transition-delay: 0.1s;">
+                    <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">🛠️</div>
+                    <h4 class="font-black uppercase tracking-widest text-sm mb-4">Remonty</h4>
+                    <p class="text-xs opacity-60 font-medium">Łazienki, kuchnie, wykończenia</p>
+                </div>
+                <div class="bento-card bg-slate-50 p-12 rounded-[3.5rem] hover:bg-blue-600 hover:text-white transition-all text-center group cursor-pointer reveal" style="transition-delay: 0.2s;">
+                    <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">🚿</div>
+                    <h4 class="font-black uppercase tracking-widest text-sm mb-4">Hydraulika</h4>
+                    <p class="text-xs opacity-60 font-medium">Instalacje i szybkie awarie</p>
+                </div>
+                <div class="bento-card bg-slate-50 p-12 rounded-[3.5rem] hover:bg-blue-600 hover:text-white transition-all text-center group cursor-pointer reveal" style="transition-delay: 0.3s;">
+                    <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">⚡</div>
+                    <h4 class="font-black uppercase tracking-widest text-sm mb-4">Elektryka</h4>
+                    <p class="text-xs opacity-60 font-medium">Pomiary, montaż, naprawy</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-40 bg-blue-600 text-white px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-6xl font-black italic mb-12 tracking-tighter uppercase">Zacznij budować bezpiecznie.</h2>
-            <p class="text-xl mb-16 opacity-80 max-w-2xl mx-auto font-light leading-relaxed">System Fachowo chroni Twój kapitał i gwarantuje, że zlecenie zostanie wykonane zgodnie z polską normą budowlaną.</p>
-            <div class="flex flex-wrap justify-center gap-8">
-                <div class="text-left"><p class="text-2xl font-bold">100%</p><p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Money Protection</p></div>
-                <div class="text-left"><p class="text-2xl font-bold">PRO</p><p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Verified Identity</p></div>
-                <div class="text-left"><p class="text-2xl font-bold">24/7</p><p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Support Desk</p></div>
+    <!-- How it works -->
+    <section id="jak-to-dziala" class="py-40 bg-slate-900 text-white px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div class="reveal">
+                    <h2 class="text-6xl font-black tracking-tighter uppercase italic mb-12">Proces Prostszy <br> niż myślisz.</h2>
+                    <div class="space-y-12">
+                        <div class="flex gap-8 group">
+                            <span class="text-5xl font-black text-blue-600/30 group-hover:text-blue-600 transition-colors italic">01</span>
+                            <div><h4 class="text-2xl font-bold mb-3 italic uppercase">Dodaj zlecenie</h4><p class="text-slate-400 font-light leading-relaxed">Opisz czego potrzebujesz, dodaj zdjęcia i ustal swój budżet w mniej niż 2 minuty.</p></div>
+                        </div>
+                        <div class="flex gap-8 group">
+                            <span class="text-5xl font-black text-blue-600/30 group-hover:text-blue-600 transition-colors italic">02</span>
+                            <div><h4 class="text-2xl font-bold mb-3 italic uppercase">Odbierz oferty</h4><p class="text-slate-400 font-light leading-relaxed">Otrzymasz wyceny od sprawdzonych wykonawców z Twojej okolicy.</p></div>
+                        </div>
+                        <div class="flex gap-8 group">
+                            <span class="text-5xl font-black text-blue-600/30 group-hover:text-blue-600 transition-colors italic">03</span>
+                            <div><h4 class="text-2xl font-bold mb-3 italic uppercase">Wybierz eksperta</h4><p class="text-slate-400 font-light leading-relaxed">Sprawdź opinie, zweryfikuj portfolio i wybierz najlepszego fachowca do Twojego zadania.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative reveal">
+                    <div class="absolute inset-0 bg-blue-600/20 blur-[150px] rounded-full"></div>
+                    <div class="bg-white/5 border border-white/10 p-12 rounded-[4rem] backdrop-blur-xl relative z-10 shadow-2xl">
+                        <h3 class="text-3xl font-black italic mb-8 uppercase text-blue-500 tracking-widest">Trust Metrics</h3>
+                        <div class="space-y-8">
+                            <div class="p-6 bg-white/5 rounded-3xl border border-white/5"><p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Escrow Protection</p><div class="h-2 w-full bg-white/10 rounded-full"><div class="h-full w-full bg-blue-600 rounded-full"></div></div><p class="text-right text-[10px] mt-2 font-black italic">ACTIVE</p></div>
+                            <div class="p-6 bg-white/5 rounded-3xl border border-white/5"><p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">ID Verification</p><div class="h-2 w-full bg-white/10 rounded-full"><div class="h-full w-[95%] bg-blue-600 rounded-full"></div></div><p class="text-right text-[10px] mt-2 font-black italic">95% SCAN ACCURACY</p></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 text-center text-slate-300 font-black uppercase italic tracking-[0.5em] text-[10px]">Fachowo Platform Demo &copy; 2026</footer>
+    <!-- Footer -->
+    <footer class="bg-white py-32 text-center px-6">
+        <h2 class="text-5xl font-black tracking-tighter uppercase italic mb-12">Fachowo Platform.</h2>
+        <p class="text-slate-400 font-bold uppercase tracking-[0.5em] text-[10px] mb-12">&copy; 2026 FACHOWO DEMO UX/UI PORTFOLIO</p>
+        <div class="flex justify-center gap-8"><a href="https://fachowo.net.pl" class="text-blue-600 font-black italic uppercase tracking-widest border-b-4 border-blue-100 hover:border-blue-600 transition-all pb-1">Odwiedź oryginał &rarr;</a></div>
+    </footer>
 
     <script>
+        // Smooth Counter Animation
         function animateCounter(id, target) {
             let count = 0; const step = target / 100;
             const timer = setInterval(() => {
                 count += step;
                 if (count >= target) { document.getElementById(id).innerText = Math.floor(target).toLocaleString(); clearInterval(timer); }
                 else { document.getElementById(id).innerText = Math.floor(count).toLocaleString(); }
-            }, 20);
+            }, 25);
         }
+        
+        // Reveal on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
         window.onload = () => { animateCounter('counter-orders', 1458); animateCounter('counter-pro', 8942); };
-        const notifications = ["Marek ukończył: Malowanie", "Piotr przyjął zlecenie: Hydraulik", "Ania wystawiła opinię: 5/5 ⭐", "Nowy PRO: Poznań"];
-        let ni = 0; setInterval(() => { ni = (ni + 1) % notifications.length; document.querySelector('#live-notification p:last-child').innerText = notifications[ni]; }, 4000);
+
+        // Notification Rotator
+        const notifications = [
+            "Marek ukończył: Malowanie",
+            "Piotr przyjął zlecenie: Hydraulik",
+            "Ania wystawiła opinię: 5/5 ⭐",
+            "Nowy PRO: Poznań",
+            "Krzysztof wycenił: Remont dachu"
+        ];
+        let ni = 0; setInterval(() => {
+            ni = (ni + 1) % notifications.length;
+            document.getElementById('notif-text').innerText = notifications[ni];
+        }, 5000);
     </script>
 </body>
 </html>
