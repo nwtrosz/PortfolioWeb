@@ -7,84 +7,60 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Space Grotesk', sans-serif; background-color: #020617; color: #94a3b8; }
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #020617; color: #94a3b8; overflow-x: hidden; }
         .mono { font-family: 'Fira Code', monospace; }
-        #network-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .grid-bg { background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px); background-size: 50px 50px; }
-        .scanner-line { position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, transparent, #3b82f6, transparent); opacity: 0.2; animation: scan 6s linear infinite; z-index: 5; }
-        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        #network-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.4; }
+        .grid-bg { background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px); background-size: 40px 40px; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
 </head>
-<body class="overflow-x-hidden">
-    <div id="spotlight"></div>
-
-    <nav class="fixed w-full p-8 flex justify-between items-center z-[60] border-b border-white/5 backdrop-blur-xl">
-        <span class="text-white font-bold text-2xl tracking-tighter uppercase">DEV<span class="text-blue-500">.CONSULT</span></span>
-        <div class="hidden md:flex gap-12 font-bold text-[10px] uppercase tracking-[0.4em] text-slate-500">
-            <a href="#services" class="hover:text-blue-400 transition">Infrastructure</a>
-            <a href="#security" class="hover:text-blue-400 transition">Security</a>
-            <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
-        </div>
-        <span class="mono text-[9px] text-green-500 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20 shadow-[0_0_15px_rgba(34,197,94,0.2)]">CORE_STABLE</span>
+<body class="overflow-x-hidden selection:bg-blue-900 selection:text-blue-100">
+    <nav class="fixed w-full p-6 md:p-8 flex justify-between items-center z-[60] border-b border-white/5 backdrop-blur-xl">
+        <span class="text-white font-bold text-xl md:text-2xl tracking-tighter uppercase">DEV<span class="text-blue-500">.CONSULT</span></span>
+        <span class="mono text-[8px] md:text-[9px] text-green-500 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20 hidden sm:block">CORE_STABLE</span>
     </nav>
 
-    <header class="relative min-h-screen flex items-center justify-center pt-20 grid-bg overflow-hidden">
-        <div class="scanner-line"></div>
+    <header class="relative min-h-screen flex items-center justify-center pt-24 md:pt-20 grid-bg overflow-hidden">
         <canvas id="network-canvas"></canvas>
         <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
-            <div class="mono text-blue-500 mb-8 text-sm uppercase tracking-[0.5em] animate__animated animate__fadeIn">// INITIATING_SCALABILITY_PROTOCOL</div>
-            <h1 class="text-7xl md:text-[150px] font-bold text-white mb-10 tracking-tighter leading-[0.8] uppercase italic">Scaling <br><span class="text-transparent" style="-webkit-text-stroke: 1px #3b82f6;">Logic.</span></h1>
-            <p class="text-2xl max-w-3xl mx-auto mb-16 font-light leading-relaxed text-slate-400">Architektura IT klasy Enterprise. Budujemy ekosystemy, które przetrwają każdą skalę i każdy atak.</p>
+            <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] md:text-sm uppercase tracking-[0.4em] md:tracking-[0.5em] animate__animated animate__fadeIn leading-relaxed">// INITIATING_SCALABILITY_PROTOCOL</div>
+            <h1 class="text-5xl md:text-7xl lg:text-[150px] font-bold text-white mb-8 md:mb-10 tracking-tighter leading-[0.9] uppercase italic">Scaling <br class="hidden md:block"><span class="text-transparent" style="-webkit-text-stroke: 1px #3b82f6;">Logic.</span></h1>
+            <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-12 md:mb-16 font-light leading-relaxed text-slate-400">Architektura IT klasy Enterprise. Budujemy systemy, które przetrwają każdą skalę.</p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 pt-16 border-t border-white/10">
-                <div class="text-center"><p class="text-5xl font-bold text-white mb-2 italic">99.99%</p><p class="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Uptime SLA</p></div>
-                <div class="text-center"><p class="text-5xl font-bold text-white mb-2 italic">450TB</p><p class="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Traffic Handled</p></div>
-                <div class="text-center"><p class="text-5xl font-bold text-white mb-2 italic">-45%</p><p class="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Cloud Efficiency</p></div>
-                <div class="text-center"><p class="text-5xl font-bold text-white mb-2 italic">SOC2</p><p class="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Ready</p></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pt-12 md:pt-16 border-t border-white/10">
+                <div class="text-center"><p class="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2 italic">99.99%</p><p class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Uptime SLA</p></div>
+                <div class="text-center"><p class="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2 italic">450TB</p><p class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Traffic</p></div>
+                <div class="text-center"><p class="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2 italic">-45%</p><p class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Efficiency</p></div>
+                <div class="text-center"><p class="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2 italic">SOC2</p><p class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500">Ready</p></div>
             </div>
         </div>
     </header>
 
-    <section id="services" class="py-40 max-w-7xl mx-auto px-6">
-        <h2 class="text-5xl font-bold text-white mb-24 tracking-tighter uppercase italic">Engineering Modules.</h2>
-        <div class="grid md:grid-cols-3 gap-16">
-            <div class="p-12 rounded-[3.5rem] glass hover:bg-blue-600/5 transition-all duration-700 group">
-                <div class="mono text-blue-500 mb-8 text-xs">MODULE_01 // CLOUD</div>
-                <h3 class="text-3xl font-black text-white mb-6 italic">High Velocity</h3>
-                <p class="leading-relaxed font-light mb-8">Wdrażanie natywnych rozwiązań chmurowych z pełną orkiestracją Kubernetes i Terraform.</p>
+    <section id="services" class="py-24 md:py-40 max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 md:mb-24 tracking-tighter uppercase italic text-center md:text-left">Engineering Modules.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+            <div class="p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] glass hover:bg-blue-600/5 transition-all duration-700 group">
+                <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] md:text-xs tracking-widest uppercase">Module_01</div>
+                <h3 class="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6 italic uppercase">Cloud Core</h3>
+                <p class="text-sm md:text-base leading-relaxed font-light mb-8">Wdrażanie rozwiązań chmurowych z pełną orkiestracją Kubernetes.</p>
                 <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
-            <div class="p-12 rounded-[3.5rem] glass hover:bg-blue-600/5 transition-all duration-700 group">
-                <div class="mono text-blue-500 mb-8 text-xs">MODULE_02 // SECURITY</div>
-                <h3 class="text-3xl font-black text-white mb-6 italic">Zero Trust</h3>
-                <p class="leading-relaxed font-light mb-8">Audyty bezpieczeństwa kodu (SAST/DAST) i uszczelnianie infrastruktury przed zagrożeniami.</p>
+            <div class="p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] glass hover:bg-blue-600/5 transition-all duration-700 group">
+                <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] md:text-xs tracking-widest uppercase">Module_02</div>
+                <h3 class="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6 italic uppercase">Security</h3>
+                <p class="text-sm md:text-base leading-relaxed font-light mb-8">Audyty bezpieczeństwa i uszczelnianie procesów CI/CD.</p>
                 <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
-            <div class="p-12 rounded-[3.5rem] glass hover:bg-blue-600/5 transition-all duration-700 group">
-                <div class="mono text-blue-500 mb-8 text-xs">MODULE_03 // REFACTOR</div>
-                <h3 class="text-3xl font-black text-white mb-6 italic">Core Modern</h3>
-                <p class="leading-relaxed font-light mb-8">Migracja systemów legacy do mikroserwisów. Spłacamy dług techniczny bez przestojów.</p>
+            <div class="p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] glass hover:bg-blue-600/5 transition-all duration-700 group">
+                <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] md:text-xs tracking-widest uppercase">Module_03</div>
+                <h3 class="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6 italic uppercase">Refactor</h3>
+                <p class="text-sm md:text-base leading-relaxed font-light mb-8">Migracja systemów legacy do nowoczesnych mikroserwisów.</p>
                 <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-40 border-t border-white/5 bg-slate-950 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-7xl font-bold text-white mb-12 tracking-tighter italic uppercase">Start Transition.</h2>
-            <p class="text-xl font-light mb-16 opacity-60">Skontaktuj się z naszymi inżynierami, aby omówić architekturę Twojego systemu.</p>
-            <form class="glass p-12 rounded-[4rem] text-left">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
-                    <div><label class="mono text-[10px] text-blue-500 uppercase font-bold mb-4 block tracking-widest">User_Name</label><input type="text" class="w-full bg-black/50 border border-white/10 p-5 rounded-2xl text-white outline-none focus:border-blue-500 transition-all"></div>
-                    <div><label class="mono text-[10px] text-blue-500 uppercase font-bold mb-4 block tracking-widest">User_Email</label><input type="email" class="w-full bg-black/50 border border-white/10 p-5 rounded-2xl text-white outline-none focus:border-blue-500 transition-all"></div>
-                </div>
-                <button class="w-full bg-blue-600 text-white py-6 rounded-3xl font-black uppercase italic tracking-widest hover:bg-white hover:text-black transition-all">Establish Connection</button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="py-20 text-center mono text-[10px] opacity-20 uppercase tracking-[1em]">DevConsult Enterprise 2026</footer>
+    <footer class="py-16 md:py-20 text-center mono text-[8px] md:text-[10px] opacity-20 uppercase tracking-[0.5em] md:tracking-[1em] px-6 leading-relaxed">DevConsult Enterprise 2026 // Distributed Intelligence</footer>
 
     <script>
         const canvas = document.getElementById('network-canvas');
@@ -95,13 +71,13 @@
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
-            const count = window.innerWidth < 768 ? 50 : 120;
+            const count = window.innerWidth < 768 ? 40 : 100;
             for (let i = 0; i < count; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    sx: Math.random() * 0.6 - 0.3,
-                    sy: Math.random() * 0.6 - 0.3
+                    sx: Math.random() * 0.4 - 0.2,
+                    sy: Math.random() * 0.4 - 0.2
                 });
             }
         }
@@ -113,21 +89,20 @@
                 if (p.x > canvas.width) p.x = 0; if (p.x < 0) p.x = canvas.width;
                 if (p.y > canvas.height) p.y = 0; if (p.y < 0) p.y = canvas.height;
 
-                // Reactivity
                 if(mouse.x) {
                     let dx = mouse.x - p.x; let dy = mouse.y - p.y;
                     let dist = Math.sqrt(dx*dx + dy*dy);
-                    if(dist < 200) { p.x -= dx/150; p.y -= dy/150; }
+                    if(dist < 150) { p.x -= dx/100; p.y -= dy/100; }
                 }
 
                 ctx.fillStyle = 'rgba(59, 130, 246, 0.8)';
-                ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fill();
+                ctx.beginPath(); ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2); ctx.fill();
 
                 for (let j = i; j < particles.length; j++) {
                     let d = Math.sqrt((p.x-particles[j].x)**2 + (p.y-particles[j].y)**2);
-                    if (d < 180) {
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${1 - d/180})`;
-                        ctx.lineWidth = 0.8;
+                    if (d < 150) {
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${1 - d/150 - 0.5})`;
+                        ctx.lineWidth = 0.5;
                         ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
                     }
                 }

@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; overflow-x: hidden; }
         .teko { font-family: 'Teko', sans-serif; text-transform: uppercase; line-height: 0.8; }
         .phone-tilt { transform-style: preserve-3d; transition: transform 0.1s ease-out; will-change: transform; }
         .heart-pulse { animation: pulse 1.2s infinite; }
@@ -17,63 +17,63 @@
         .perspective-container { perspective: 2000px; }
     </style>
 </head>
-<body class="text-white overflow-x-hidden selection:bg-rose-600">
-    <div class="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-difference">
-        <span class="teko text-5xl tracking-widest text-white italic">FIT<span class="text-rose-600">.</span>TRACK</span>
-        <button class="bg-white text-black px-10 py-3 rounded-full font-black uppercase text-[10px] tracking-[0.3em] hover:scale-105 transition-all">Download</button>
+<body class="text-white selection:bg-rose-600">
+    <div class="fixed top-0 w-full p-6 md:p-8 flex justify-between items-center z-50 mix-blend-difference">
+        <span class="teko text-3xl md:text-5xl tracking-widest text-white italic">FIT<span class="text-rose-600">.</span>TRACK</span>
+        <button class="bg-white text-black px-6 md:px-10 py-2 md:py-3 rounded-full font-black uppercase text-[9px] md:text-[10px] tracking-[0.3em] hover:scale-105 transition-all">Download</button>
     </div>
 
-    <main class="relative min-h-screen flex flex-col items-center justify-center pt-32 overflow-hidden">
+    <main class="relative min-h-screen flex flex-col items-center justify-center pt-24 md:pt-32 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/10 to-orange-600/10 blur-[150px]"></div>
         
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-24 relative z-10 w-full px-6 mb-20">
-            <div class="md:w-1/2 text-center md:text-left">
-                <div class="inline-block bg-rose-600/10 text-rose-500 border border-rose-600/20 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-8 italic uppercase">AI Driven Discipline</div>
-                <h1 class="teko text-[120px] lg:text-[200px] mb-6 italic tracking-tighter leading-none drop-shadow-2xl">HUSTLE<br><span class="text-transparent" style="-webkit-text-stroke: 2px #e11d48;">HARDER</span></h1>
-                <p class="text-2xl text-white/40 max-w-md font-medium mb-12 leading-none italic uppercase tracking-tighter">Zmień swoje wymówki w rekordy życiowe.</p>
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 md:gap-24 relative z-10 w-full px-6 mb-16 md:mb-20">
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <div class="inline-block bg-rose-600/10 text-rose-500 border border-rose-600/20 px-4 py-1 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 md:mb-8 italic uppercase">AI Driven Discipline</div>
+                <h1 class="teko text-7xl md:text-[120px] lg:text-[200px] mb-6 italic tracking-tighter leading-none drop-shadow-2xl">HUSTLE<br><span class="text-transparent" style="-webkit-text-stroke: 1.5px #e11d48;">HARDER</span></h1>
+                <p class="text-lg md:text-2xl text-white/40 max-w-md font-medium mb-10 leading-tight italic uppercase tracking-tighter mx-auto lg:mx-0">Zmień swoje wymówki w rekordy życiowe.</p>
                 <div class="flex flex-wrap justify-center md:justify-start gap-6">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="h-14 hover:scale-105 transition-all cursor-pointer shadow-xl">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="h-10 md:h-14 hover:scale-105 transition-all cursor-pointer shadow-xl">
                 </div>
             </div>
 
-            <div class="md:w-1/2 perspective-container flex justify-center">
-                <div id="phone" class="phone-tilt w-[300px] h-[600px] bg-slate-950 border-[12px] border-slate-800 rounded-[4rem] relative shadow-[0_50px_100px_rgba(225,29,72,0.3)] overflow-hidden">
-                    <div class="p-10 pt-20 flex flex-col h-full bg-gradient-to-b from-rose-600/20 to-black">
-                        <div class="flex justify-between items-center mb-12 font-black text-xs uppercase tracking-widest text-rose-500"><span>Training Live</span><span class="heart-pulse text-2xl">❤️</span></div>
-                        <h2 class="text-5xl font-black italic mb-12 leading-none">92% <br><span class="text-[10px] font-normal not-italic text-slate-500 uppercase tracking-[0.4em]">Intensity</span></h2>
-                        <div class="space-y-6">
-                            <div class="glass p-5 rounded-3xl flex justify-between font-black italic shadow-lg"><span>Bench Press</span><span class="text-rose-500">100kg</span></div>
-                            <div class="glass p-5 rounded-3xl flex justify-between font-black italic opacity-40"><span>Squats</span><span class="text-rose-500">140kg</span></div>
+            <div class="lg:w-1/2 perspective-container flex justify-center w-full mt-12 lg:mt-0">
+                <div id="phone" class="phone-tilt w-[260px] md:w-[300px] h-[520px] md:h-[600px] bg-slate-950 border-[8px] md:border-[12px] border-slate-800 rounded-[3rem] md:rounded-[4rem] relative shadow-[0_50px_100px_rgba(225,29,72,0.3)] overflow-hidden">
+                    <div class="p-8 md:p-10 pt-16 md:pt-20 flex flex-col h-full bg-gradient-to-b from-rose-600/20 to-black">
+                        <div class="flex justify-between items-center mb-8 md:mb-12 font-black text-[10px] md:text-xs uppercase tracking-widest text-rose-500"><span>Training Live</span><span class="heart-pulse text-xl md:text-2xl">❤️</span></div>
+                        <h2 class="text-4xl md:text-5xl font-black italic mb-10 md:mb-12 leading-none text-white">92% <br><span class="text-[9px] md:text-[10px] font-normal not-italic text-slate-500 uppercase tracking-[0.4em]">Intensity</span></h2>
+                        <div class="space-y-4 md:space-y-6">
+                            <div class="glass p-4 md:p-5 rounded-2xl md:rounded-3xl flex justify-between font-black italic shadow-lg text-sm md:text-base"><span>Bench Press</span><span class="text-rose-500">100kg</span></div>
+                            <div class="glass p-4 md:p-5 rounded-2xl md:rounded-3xl flex justify-between font-black italic opacity-40 text-sm md:text-base"><span>Squats</span><span class="text-rose-500">140kg</span></div>
                         </div>
-                        <div class="mt-auto bg-rose-600 py-6 rounded-[2rem] font-black text-center uppercase tracking-widest hover:bg-rose-500 cursor-pointer shadow-2xl transition-colors">Start session</div>
+                        <div class="mt-auto bg-rose-600 text-white py-4 md:py-6 rounded-2xl md:rounded-[2rem] font-black text-center uppercase tracking-widest hover:bg-rose-500 cursor-pointer shadow-2xl transition-all text-xs md:text-base">Start session</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="w-full bg-rose-600 py-6 overflow-hidden whitespace-nowrap border-y border-rose-500 z-20 relative transform -rotate-1 scale-105 shadow-2xl">
-            <div class="text-white font-black text-4xl uppercase tracking-[0.2em] animate-[marquee_20s_linear_infinite] inline-block">
+        <div class="w-full bg-rose-600 py-4 md:py-6 overflow-hidden whitespace-nowrap border-y border-rose-500 z-20 relative transform -rotate-1 md:scale-105 shadow-2xl">
+            <div class="text-white font-black text-2xl md:text-4xl uppercase tracking-[0.2em] animate-[marquee_20s_linear_infinite] inline-block">
                 NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • NO PAIN NO GAIN • TRACK PROGRESS • CRUSH LIMITS • 
             </div>
         </div>
     </main>
 
-    <section class="py-40 max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16">
-        <div class="glass p-12 rounded-[3rem] text-center border-white/5 hover:border-rose-600/50 transition-all">
-            <h3 class="text-4xl font-black italic mb-6">01. AI COACH</h3>
-            <p class="text-slate-400 font-medium">Analiza techniki w czasie rzeczywistym dzięki kamerze Twojego smartfona.</p>
+    <section class="py-24 md:py-40 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+        <div class="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] text-center border-white/5 hover:border-rose-600/50 transition-all">
+            <h3 class="text-3xl md:text-4xl font-black italic mb-4 md:mb-6 uppercase tracking-tighter">01. AI COACH</h3>
+            <p class="text-sm md:text-base text-slate-400">Analiza techniki w czasie rzeczywistym dzięki kamerze smartfona.</p>
         </div>
-        <div class="glass p-12 rounded-[3rem] text-center border-rose-600/30">
-            <h3 class="text-4xl font-black italic mb-6">02. SOCIAL</h3>
-            <p class="text-slate-400 font-medium">Rywalizuj ze znajomymi i dziel się swoimi rekordami w społeczności PRO.</p>
+        <div class="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] text-center border-rose-600/30">
+            <h3 class="text-3xl md:text-4xl font-black italic mb-4 md:mb-6 uppercase tracking-tighter">02. SOCIAL</h3>
+            <p class="text-sm md:text-base text-slate-400">Rywalizuj ze znajomymi i dziel się swoimi rekordami w społeczności PRO.</p>
         </div>
-        <div class="glass p-12 rounded-[3rem] text-center border-white/5 hover:border-rose-600/50 transition-all">
-            <h3 class="text-4xl font-black italic mb-6">03. DIET</h3>
-            <p class="text-slate-400 font-medium">Automatyczny dobór makroskładników na podstawie intensywności treningu.</p>
+        <div class="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] text-center border-white/5 hover:border-rose-600/50 transition-all">
+            <h3 class="text-3xl md:text-4xl font-black italic mb-4 md:mb-6 uppercase tracking-tighter">03. DIET</h3>
+            <p class="text-sm md:text-base text-slate-400">Automatyczny dobór makroskładników na podstawie intensywności treningu.</p>
         </div>
     </section>
 
-    <footer class="py-20 text-center opacity-30 text-[10px] uppercase font-bold tracking-[0.5em]">FitTrack &copy; 2026 Dominate the Game</footer>
+    <footer class="py-16 md:py-20 text-center opacity-30 text-[8px] md:text-[10px] uppercase font-bold tracking-[0.5em] px-6">FitTrack &copy; 2026 Dominate the Game</footer>
 
     <script>
         const phone = document.getElementById('phone');
@@ -83,8 +83,8 @@
             if (!clientX || !clientY) return;
             const x = clientX / window.innerWidth;
             const y = clientY / window.innerHeight;
-            const rotateX = (0.5 - y) * 30;
-            const rotateY = (x - 0.5) * 30;
+            const rotateX = (0.5 - y) * 20;
+            const rotateY = (x - 0.5) * 20;
             phone.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         };
         window.addEventListener('mousemove', updateTilt);
