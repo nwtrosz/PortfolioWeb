@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fachowo | Znajdź Fachowca</title>
+    <title>Fachowo | Buduj Mądrze</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -13,92 +13,65 @@
         @keyframes slideUpFade { 0% { transform: translateY(20px); opacity: 0; } 15% { transform: translateY(0); opacity: 1; } 85% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-20px); opacity: 0; } }
     </style>
 </head>
-<body class="text-slate-900 antialiased selection:bg-blue-500 selection:text-white">
-
+<body class="text-slate-900 antialiased selection:bg-blue-500">
     <nav class="fixed w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center transform -rotate-6 shadow-lg shadow-blue-200 text-white font-black text-xl italic">F</div>
-                <span class="text-2xl font-extrabold tracking-tight">FACHOWO</span>
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center transform -rotate-6 shadow-lg shadow-blue-200 text-white font-black italic text-xl">F</div>
+                <span class="text-2xl font-black tracking-tight uppercase">FACHOWO</span>
             </div>
-            <a href="https://fachowo.net.pl" target="_blank" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-bold hover:shadow-lg transition-all">Wersja Live</a>
+            <a href="https://fachowo.net.pl" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl transition-all uppercase text-xs tracking-widest">Start Now</a>
         </div>
     </nav>
 
     <main class="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center">
         <div class="absolute inset-0 hero-pattern opacity-50 z-0"></div>
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-20 relative z-10">
             <div class="lg:w-1/2">
-                <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6">● 1,452 Fachowców online</div>
-                <h1 class="text-6xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.9]">Twoja budowa <br><span class="text-blue-600">pod kontrolą.</span></h1>
-                <p class="text-xl text-slate-600 mb-10 max-w-xl">Największa w Polsce platforma łącząca sprawdzonych wykonawców z inwestorami. Bezpieczne płatności, weryfikacja dokumentów i gwarancja satysfakcji.</p>
-                <div class="flex gap-12 mb-12">
-                    <div><p id="counter-orders" class="text-4xl font-black">0</p><p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Zleceń dzisiaj</p></div>
-                    <div><p id="counter-pro" class="text-4xl font-black">0</p><p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Aktywnych PRO</p></div>
+                <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-8 border border-blue-100 italic">Trusted by 45,000+ Inwestors</div>
+                <h1 class="text-7xl lg:text-[110px] font-black tracking-tighter mb-10 leading-[0.85] uppercase italic">Wybierz <br><span class="text-blue-600">Jakość.</span></h1>
+                <p class="text-2xl text-slate-600 mb-12 max-w-xl font-light">Największy serwis w Polsce dla branży budowlanej. Tylko zweryfikowani specjaliści PRO i bezpieczne transakcje.</p>
+                <div class="flex gap-16 mb-16">
+                    <div><p id="counter-orders" class="text-5xl font-black italic">0</p><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Jobs Done Today</p></div>
+                    <div><p id="counter-pro" class="text-5xl font-black italic">0</p><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Active PROs</p></div>
                 </div>
-                <div class="flex flex-wrap gap-4"><button class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-extrabold hover:bg-blue-700 transition-all shadow-xl shadow-blue-200">Dodaj zlecenie bezpłatnie</button></div>
+                <button class="bg-slate-900 text-white px-12 py-5 rounded-[2rem] font-black uppercase italic tracking-widest hover:bg-blue-600 transition-all shadow-2xl">Zleć za darmo</button>
             </div>
-
             <div class="lg:w-1/2 w-full relative">
-                <div id="live-notification" class="notification-float absolute -top-10 -left-10 bg-white p-5 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.1)] border border-slate-100 z-20 flex items-center gap-4 min-w-[300px]">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">👷</div>
-                    <div><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Akcja w czasie rzeczywistym</p><p class="text-sm font-bold">Jan Kowalski ukończył zlecenie</p></div>
+                <div id="live-notification" class="notification-float absolute -top-12 -left-12 bg-white p-6 rounded-[2rem] shadow-2xl border border-slate-50 z-20 flex items-center gap-5 min-w-[340px]">
+                    <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-3xl">👷</div>
+                    <div><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Real-time update</p><p class="text-base font-bold italic">Andrzej K. przyjął zlecenie</p></div>
                 </div>
-                <div class="bg-white p-4 rounded-[3rem] shadow-2xl border border-slate-100 relative overflow-hidden group">
-                    <div class="aspect-video bg-slate-950 rounded-[2.2rem] flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-blue-600/10"></div>
-                        <span class="text-white/10 font-black text-5xl italic tracking-tighter">FACHOWO APP</span>
-                    </div>
-                </div>
+                <div class="bg-white p-5 rounded-[4rem] shadow-[0_50px_100px_rgba(0,0,0,0.1)] border border-slate-100"><div class="aspect-video bg-slate-950 rounded-[3rem] flex items-center justify-center text-white/5 font-black text-6xl uppercase tracking-tighter italic">Preview</div></div>
             </div>
         </div>
     </main>
 
-    <section class="py-32 bg-white px-6">
+    <section class="py-40 bg-white px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-black mb-16 text-center tracking-tight">Dlaczego Fachowo?</h2>
-            <div class="grid md:grid-cols-3 gap-12 text-center">
-                <div class="p-10 rounded-[2.5rem] bg-slate-50 hover:bg-blue-50 transition-colors duration-500">
-                    <div class="text-4xl mb-6">🛡️</div>
-                    <h3 class="text-xl font-bold mb-4 italic">Pełne Bezpieczeństwo</h3>
-                    <p class="text-slate-500">Weryfikujemy uprawnienia, ubezpieczenia OC i tożsamość każdego fachowca PRO.</p>
-                </div>
-                <div class="p-10 rounded-[2.5rem] bg-slate-50 hover:bg-blue-50 transition-colors duration-500">
-                    <div class="text-4xl mb-6">💸</div>
-                    <h3 class="text-xl font-bold mb-4 italic">System Escrow</h3>
-                    <p class="text-slate-500">Twoje pieniądze są bezpieczne. Fachowiec otrzyma zapłatę dopiero po Twojej akceptacji.</p>
-                </div>
-                <div class="p-10 rounded-[2.5rem] bg-slate-50 hover:bg-blue-50 transition-colors duration-500">
-                    <div class="text-4xl mb-6">📋</div>
-                    <h3 class="text-xl font-bold mb-4 italic">Przejrzyste Oferty</h3>
-                    <p class="text-slate-500">Otrzymuj konkretne wyceny zamiast szacunkowych stawek. Porównuj i wybieraj mądrze.</p>
-                </div>
+            <h2 class="text-5xl font-black mb-24 text-center tracking-tighter uppercase italic">Kategorie Usług.</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="p-10 rounded-[3rem] bg-slate-50 hover:bg-blue-600 hover:text-white transition-all duration-500 cursor-pointer text-center group"><div class="text-4xl mb-6">🏠</div><h4 class="font-bold uppercase tracking-widest text-xs">Budowa Domu</h4></div>
+                <div class="p-10 rounded-[3rem] bg-slate-50 hover:bg-blue-600 hover:text-white transition-all duration-500 cursor-pointer text-center group"><div class="text-4xl mb-6">🛠️</div><h4 class="font-bold uppercase tracking-widest text-xs">Remonty</h4></div>
+                <div class="p-10 rounded-[3rem] bg-slate-50 hover:bg-blue-600 hover:text-white transition-all duration-500 cursor-pointer text-center group"><div class="text-4xl mb-6">⚡</div><h4 class="font-bold uppercase tracking-widest text-xs">Elektryka</h4></div>
+                <div class="p-10 rounded-[3rem] bg-slate-50 hover:bg-blue-600 hover:text-white transition-all duration-500 cursor-pointer text-center group"><div class="text-4xl mb-6">🚿</div><h4 class="font-bold uppercase tracking-widest text-xs">Hydraulika</h4></div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 bg-slate-900 text-white px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-            <div>
-                <h2 class="text-5xl font-black mb-8 italic tracking-tighter">Gotowy by dołączyć <br>do najlepszych?</h2>
-                <p class="text-slate-400 text-xl mb-12 font-light leading-relaxed">Zrealizowaliśmy już ponad 45,000 zleceń w całej Polsce. Dołącz do społeczności zadowolonych inwestorów i profesjonalistów.</p>
-                <div class="space-y-6">
-                    <div class="flex items-center gap-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span>Dostęp do tysięcy zleceń co miesiąc</span></div>
-                    <div class="flex items-center gap-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span>Profesjonalny profil wykonawcy</span></div>
-                    <div class="flex items-center gap-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span>Automatyczne fakturowanie</span></div>
-                </div>
-            </div>
-            <div class="bg-white/5 p-12 rounded-[3rem] border border-white/10 backdrop-blur-xl">
-                <h3 class="text-3xl font-black mb-8 italic text-blue-500 uppercase tracking-widest">Dla Fachowca</h3>
-                <p class="text-slate-300 mb-10">Płacisz tylko za realne kontakty. Bez abonamentu, bez ukrytych kosztów.</p>
-                <button class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase italic tracking-widest hover:bg-blue-600 hover:text-white transition-all">Załóż konto PRO</button>
+    <section class="py-40 bg-blue-600 text-white px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-6xl font-black italic mb-12 tracking-tighter uppercase">Zacznij budować bezpiecznie.</h2>
+            <p class="text-xl mb-16 opacity-80 max-w-2xl mx-auto font-light leading-relaxed">System Fachowo chroni Twój kapitał i gwarantuje, że zlecenie zostanie wykonane zgodnie z polską normą budowlaną.</p>
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="text-left"><p class="text-2xl font-bold">100%</p><p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Money Protection</p></div>
+                <div class="text-left"><p class="text-2xl font-bold">PRO</p><p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Verified Identity</p></div>
+                <div class="text-left"><p class="text-2xl font-bold">24/7</p><p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Support Desk</p></div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-white py-20 border-t border-slate-100 text-center px-6">
-        <p class="text-slate-400 font-bold uppercase tracking-[0.3em] text-[10px]">&copy; 2026 FACHOWO PLATFORM DEMO</p>
-    </footer>
+    <footer class="py-20 text-center text-slate-300 font-black uppercase italic tracking-[0.5em] text-[10px]">Fachowo Platform Demo &copy; 2026</footer>
 
     <script>
         function animateCounter(id, target) {
