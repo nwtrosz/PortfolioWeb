@@ -7,7 +7,7 @@
 # nie ruszając istniejących stron.
 
 # Zmień tę zmienną na swoją realną subdomenę:
-SUBDOMAIN="portfolio.twojadomena.pl" 
+SUBDOMAIN="portfolio.fachowo.net.pl" 
 PROJECT_PATH="/root/www/portfolio"
 
 echo -e "\e[36m🚀 Startujemy z konfiguracją Ubuntu pod Portfolio...\e[0m"
