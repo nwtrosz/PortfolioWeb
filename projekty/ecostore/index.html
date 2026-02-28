@@ -29,7 +29,9 @@
             <button class="bg-[#2C4A3B] text-white px-12 py-5 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-emerald-900 transition-all shadow-2xl">Odkryj Esencję</button>
         </div>
         <div class="relative reveal" style="transition-delay: 0.3s;">
-            <div class="aspect-[4/5] bg-emerald-50 rounded-t-full flex items-center justify-center text-[180px] shadow-[0_50px_100px_rgba(0,0,0,0.05)]">🌿</div>
+            <div class="aspect-[4/5] bg-emerald-50 rounded-t-full flex items-center justify-center shadow-[0_50px_100px_rgba(0,0,0,0.05)] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Organic Product">
+            </div>
             <div class="absolute -bottom-12 -left-12 bg-white p-12 shadow-2xl rounded-2xl hidden md:block border border-slate-50">
                 <p class="serif italic text-3xl mb-2">100% Raw</p>
                 <p class="text-[10px] uppercase tracking-widest text-slate-400">Cold Pressed Oils Only</p>
@@ -38,15 +40,43 @@
     </header>
 
     <section class="py-40 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-8">
+        <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-8 text-left">
             <h2 class="serif italic text-6xl tracking-tighter">Essentials.</h2>
             <a href="#" class="text-[10px] font-black uppercase tracking-widest border-b-2 border-emerald-900 pb-1">See All Collection</a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div class="reveal group"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-6xl mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">🧴</div><p class="font-bold text-center italic serif text-xl mb-2">Olejek Różany</p><p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">89,00 zł</p></div>
-            <div class="reveal group" style="transition-delay: 0.1s;"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-6xl mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">🧼</div><p class="font-bold text-center italic serif text-xl mb-2">Mydło Węglowe</p><p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">35,00 zł</p></div>
-            <div class="reveal group" style="transition-delay: 0.2s;"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-6xl mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">🕯️</div><p class="font-bold text-center italic serif text-xl mb-2">Świeca Sojowa</p><p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">65,00 zł</p></div>
-            <div class="reveal group" style="transition-delay: 0.3s;"><div class="aspect-[4/5] bg-gray-100 flex items-center justify-center text-6xl mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">🍵</div><p class="font-bold text-center italic serif text-xl mb-2">Matcha Set</p><p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">120,00 zł</p></div>
+            <!-- Product 1 -->
+            <div class="reveal group">
+                <div class="aspect-[4/5] bg-gray-100 flex items-center justify-center overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Rose Oil">
+                </div>
+                <p class="font-bold text-center italic serif text-xl mb-2">Olejek Różany</p>
+                <p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">89,00 zł</p>
+            </div>
+            <!-- Product 2 -->
+            <div class="reveal group" style="transition-delay: 0.1s;">
+                <div class="aspect-[4/5] bg-gray-100 flex items-center justify-center overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1596433809252-260c2745dfdd?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Charcoal Soap">
+                </div>
+                <p class="font-bold text-center italic serif text-xl mb-2">Mydło Węglowe</p>
+                <p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">35,00 zł</p>
+            </div>
+            <!-- Product 3 -->
+            <div class="reveal group" style="transition-delay: 0.2s;">
+                <div class="aspect-[4/5] bg-gray-100 flex items-center justify-center overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1602872029708-84d970d3382b?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Soy Candle">
+                </div>
+                <p class="font-bold text-center italic serif text-xl mb-2">Świeca Sojowa</p>
+                <p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">65,00 zł</p>
+            </div>
+            <!-- Product 4 -->
+            <div class="reveal group" style="transition-delay: 0.3s;">
+                <div class="aspect-[4/5] bg-gray-100 flex items-center justify-center overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-700 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Matcha Set">
+                </div>
+                <p class="font-bold text-center italic serif text-xl mb-2">Matcha Set</p>
+                <p class="text-center text-xs tracking-widest text-slate-400 uppercase font-bold">120,00 zł</p>
+            </div>
         </div>
     </section>
 
@@ -58,7 +88,7 @@
         </div>
     </section>
 
-    <footer class="bg-[#fcfcf9] py-20 border-t border-slate-100 text-center px-6 text-slate-400 text-[9px] uppercase tracking-[0.5em]">
+    <footer class="bg-[#fcfcf9] py-20 border-t border-slate-100 text-center px-6 text-slate-400 text-[9px] uppercase tracking-[0.5em] italic">
         EcoStore Organic Essence &copy; 2026 Crafted with Soul.
     </footer>
 
