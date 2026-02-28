@@ -3,30 +3,21 @@
 # ==========================================
 # AUTONOMICZNY SKRYPT KONFIGURACJI SERWERA
 # ==========================================
-# Skrypt przygotowuje Nginx pod nową subdomenę, 
-# nie ruszając istniejących stron.
+# Skrypt przygotowuje Nginx pod nową subdomenę.
 
-# Zmień tę zmienną na swoją realną subdomenę:
 SUBDOMAIN="portfolio.fachowo.net.pl" 
 PROJECT_PATH="/root/www/portfolio"
 
-echo -e "\e[36m🚀 Startujemy z konfiguracją Ubuntu pod Portfolio...\e[0m"
+echo -e "\e[36m🚀 Konfiguracja serwera dla Portfolio...\e[0m"
 
-# 1. Uprawnienia i Bezpieczeństwo Gita
-echo -e "\e[33m[1/4] Konfigurowanie uprawnień (Git-friendly)...\e[0m"
+# 1. Uprawnienia dostępu (tylko dla folderów nadrzędnych)
+echo -e "\e[33m[1/3] Nadawanie uprawnień przejścia dla Nginx...\e[0m"
+# To musi zostać, aby Nginx mógł "wejść" do /root, ale nie dotyka plików w środku projektu
 chmod +x /root
 chmod +x /root/www
 
-# Dodanie do safe.directory i ignorowanie zmian uprawnień (fileMode)
-git config --global --add safe.directory $PROJECT_PATH
-git config core.fileMode false
-
-# Ustawienie właściciela na aktualnego użytkownika
-chown -R $USER:$USER $PROJECT_PATH
-chmod -R 755 $PROJECT_PATH
-
 # 2. Plik konfiguracyjny Nginx
-echo -e "\e[33m[2/4] Tworzenie konfiguracji Nginx dla $SUBDOMAIN...\e[0m"
+echo -e "\e[33m[2/3] Tworzenie konfiguracji Nginx dla $SUBDOMAIN...\e[0m"
 cat <<EOF | sudo tee /etc/nginx/sites-available/portfolio
 server {
     listen 80;
@@ -43,31 +34,21 @@ server {
 }
 EOF
 
-# 3. Aktywacja nowej strony
-echo -e "\e[33m[3/4] Aktywowanie strony w Nginx...\e[0m"
+# 3. Aktywacja strony w Nginx
 if [ ! -L /etc/nginx/sites-enabled/portfolio ]; then
+    echo -e "\e[33m[3/3] Aktywowanie strony...\e[0m"
     sudo ln -s /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled/
 fi
 
-# 4. Weryfikacja i SSL (Certbot)
-echo -e "\e[33m[4/5] Sprawdzanie konfiguracji i generowanie certyfikatu SSL...\e[0m"
+# 4. SSL (Certbot)
+echo -e "\e[33mSprawdzanie konfiguracji i SSL...\e[0m"
 sudo nginx -t
 if [ $? -eq 0 ]; then
     sudo systemctl restart nginx
-
-    # Próba instalacji SSL
     if command -v certbot > /dev/null; then
-        echo -e "\e[33mGenerowanie certyfikatu SSL dla $SUBDOMAIN...\e[0m"
         sudo certbot --nginx -d $SUBDOMAIN --non-interactive --agree-tos --register-unsafely-without-email
-    else
-        echo -e "\e[31mCertbot nie jest zainstalowany. Zainstaluj go: sudo apt install certbot python3-certbot-nginx\e[0m"
     fi
-
-    echo -e "\n\e[32m==========================================\e[0m"
-    echo -e "✅ GOTOWE! Twoje portfolio powinno działać pod HTTPS."
-    echo -e "Adres: https://$SUBDOMAIN"
-    echo -e "==========================================\e[0m"
+    echo -e "\n\e[32m✅ GOTOWE! Strona działa pod adresem: https://$SUBDOMAIN\e[0m"
 else
     echo -e "\e[31m❌ Błąd konfiguracji Nginx.\e[0m"
-fi
 fi
