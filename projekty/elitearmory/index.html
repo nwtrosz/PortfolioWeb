@@ -18,61 +18,101 @@
 </head>
 <body class="text-slate-800">
 
+    <!-- Top Bar -->
     <div class="top-bar py-2 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <div class="flex gap-6 font-medium"><span>📍 Warszawa</span><span>📞 +48 123 456 789</span></div>
-            <div class="flex gap-4 uppercase font-bold tracking-wider"><a href="#" class="hover:text-white transition">Konto</a><a href="#" class="text-red-600">Logowanie</a></div>
+            <div class="flex gap-6 font-medium"><span>📍 ul. Strzelecka 12, Warszawa</span><span>📞 +48 123 456 789</span></div>
+            <div class="flex gap-4 uppercase font-bold tracking-wider"><a href="#" class="hover:text-white transition">Moje konto</a><a href="#" class="hover:text-white transition text-red-600">Logowanie</a></div>
         </div>
     </div>
 
+    <!-- Header -->
     <header class="main-header py-6 shadow-md">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-4xl font-black tracking-tighter uppercase italic text-slate-900">ELITE<span class="text-red-700">ARMORY</span></div>
-            <div class="flex-1 max-w-xl w-full flex"><input type="text" placeholder="Szukaj..." class="w-full border-2 border-slate-200 p-3 rounded-l-lg outline-none"><button class="bg-red-700 text-white px-8 rounded-r-lg font-bold">SZUKAJ</button></div>
-            <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center relative text-xl">🛒<span class="absolute -top-1 -right-1 bg-red-700 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">0</span></div>
+            <div class="flex-1 max-w-xl w-full flex"><input type="text" placeholder="Szukaj produktów..." class="w-full border-2 border-slate-200 p-3 rounded-l-lg outline-none focus:border-red-700"><button class="bg-red-700 text-white px-8 rounded-r-lg font-bold">SZUKAJ</button></div>
+            <div class="flex gap-8 items-center">
+                <div class="text-right hidden lg:block"><p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Twój Koszyk</p><p class="font-bold text-slate-900 italic">0.00 PLN</p></div>
+                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center relative text-xl border border-slate-200">🛒<span class="absolute -top-1 -right-1 bg-red-700 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold border-2 border-white">0</span></div>
+            </div>
         </div>
     </header>
 
-    <nav class="nav-bg text-white sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 flex font-bold text-xs uppercase tracking-widest"><a href="#" class="py-4 px-6 bg-red-700 text-white">Start</a><a href="#" class="py-4 px-6 hover:bg-white/10">Broń</a><a href="#" class="py-4 px-6 hover:bg-white/10">Amunicja</a><a href="#" class="py-4 px-6 hover:bg-white/10 text-red-500">Promocje %</a></div>
+    <!-- Navigation -->
+    <nav class="nav-bg text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 flex font-bold text-xs uppercase tracking-[0.1em] overflow-x-auto whitespace-nowrap">
+            <a href="#" class="py-4 px-6 bg-red-700">Start</a>
+            <a href="#" class="py-4 px-6 hover:bg-white/10 border-r border-white/5 transition">Broń Palna</a>
+            <a href="#" class="py-4 px-6 hover:bg-white/10 border-r border-white/5 transition">Amunicja</a>
+            <a href="#" class="py-4 px-6 hover:bg-white/10 border-r border-white/5 transition">Optyka</a>
+            <a href="#" class="py-4 px-6 hover:bg-white/10 border-r border-white/5 transition">Akcesoria</a>
+            <a href="#" class="py-4 px-6 hover:bg-white/10 border-r border-white/5 transition">Odzież</a>
+            <a href="#" class="py-4 px-6 hover:bg-white/10 text-red-500 italic transition">Promocje %</a>
+        </div>
     </nav>
 
+    <!-- Hero Slider -->
     <section class="max-w-7xl mx-auto mt-6 px-4">
         <div class="bg-slate-800 h-[500px] relative overflow-hidden group shadow-2xl border-b-4 border-red-700 rounded-lg">
-            <img src="img/hero.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Hero">
+            <img src="img/hero.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-105" alt="Hero">
             <div class="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent z-10"></div>
-            <div class="relative z-20 p-16 flex flex-col justify-center h-full max-w-2xl">
-                <span class="bg-red-700 text-white px-4 py-1 self-start font-bold mb-6 text-[10px] italic">NOWOŚĆ 2026</span>
-                <h2 class="text-6xl font-black text-white mb-6 uppercase italic leading-none">Precyzja bez <br> kompromisów.</h2>
-                <button class="bg-red-700 text-white px-12 py-5 font-bold hover:bg-white hover:text-red-700 transition-all self-start uppercase italic tracking-widest shadow-2xl">ZOBACZ OFERTĘ</button>
+            <div class="relative z-20 p-16 flex flex-col justify-center h-full max-w-2xl text-left">
+                <span class="bg-red-700 text-white px-4 py-1 self-start font-bold mb-6 text-[10px] uppercase italic tracking-widest">Nowość 2026 // Premium Gear</span>
+                <h2 class="text-6xl font-black text-white mb-6 leading-none tracking-tighter uppercase italic">Precyzja bez <br> kompromisów.</h2>
+                <p class="text-slate-200 text-xl mb-10 leading-relaxed max-w-lg font-light italic">Sprawdź nową dostawę sprzętu taktycznego oraz karabinków sportowych klasy premium dostępnych od ręki.</p>
+                <button class="bg-red-700 text-white px-12 py-5 font-bold hover:bg-white hover:text-red-700 transition-all self-start uppercase italic tracking-widest shadow-2xl">ZOBACZ OFERTĘ &rarr;</button>
             </div>
         </div>
     </section>
 
+    <!-- Categories Grid -->
     <section class="max-w-7xl mx-auto py-20 px-4">
-        <h2 class="text-3xl font-black mb-12 border-l-8 border-red-700 pl-6 uppercase italic tracking-tighter">Kategorie Produktów</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-4 text-center border-2 border-slate-100 category-card hover:shadow-xl"><img src="img/pistolet.jpg" class="w-full aspect-square object-cover mb-4 rounded"><p class="font-bold text-[10px] uppercase tracking-widest">Broń Krótka</p></div>
-            <div class="bg-white p-4 text-center border-2 border-slate-100 category-card hover:shadow-xl"><img src="img/luneta.jpg" class="w-full aspect-square object-cover mb-4 rounded"><p class="font-bold text-[10px] uppercase tracking-widest">Optyka</p></div>
-            <div class="bg-white p-4 text-center border-2 border-slate-100 category-card hover:shadow-xl"><img src="img/amunicja.jpg" class="w-full aspect-square object-cover mb-4 rounded"><p class="font-bold text-[10px] uppercase tracking-widest">Amunicja</p></div>
-            <div class="bg-white p-4 text-center border-2 border-slate-100 category-card hover:shadow-xl"><img src="img/kurtka.jpg" class="w-full aspect-square object-cover mb-4 rounded"><p class="font-bold text-[10px] uppercase tracking-widest">Odzież</p></div>
+        <h2 class="text-3xl font-black mb-12 border-l-8 border-red-700 pl-6 uppercase italic tracking-tighter text-slate-900">Kategorie Produktów</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div class="bg-white p-4 text-center border-2 border-slate-100 transition-all cursor-pointer category-card shadow-sm hover:shadow-xl hover:-translate-y-1"><img src="img/pistolet.jpg" class="w-full aspect-square object-cover mb-4 rounded border border-slate-50"><p class="font-bold text-[10px] uppercase tracking-widest italic">Broń Krótka</p></div>
+            <div class="bg-white p-4 text-center border-2 border-slate-100 transition-all cursor-pointer category-card shadow-sm hover:shadow-xl hover:-translate-y-1"><img src="img/luneta.jpg" class="w-full aspect-square object-cover mb-4 rounded border border-slate-50"><p class="font-bold text-[10px] uppercase tracking-widest italic">Optyka</p></div>
+            <div class="bg-white p-4 text-center border-2 border-slate-100 transition-all cursor-pointer category-card shadow-sm hover:shadow-xl hover:-translate-y-1"><img src="img/amunicja.jpg" class="w-full aspect-square object-cover mb-4 rounded border border-slate-50"><p class="font-bold text-[10px] uppercase tracking-widest italic">Amunicja</p></div>
+            <div class="bg-white p-4 text-center border-2 border-slate-100 transition-all cursor-pointer category-card shadow-sm hover:shadow-xl hover:-translate-y-1"><img src="img/akcesoria.jpg" class="w-full aspect-square object-cover mb-4 rounded border border-slate-50"><p class="font-bold text-[10px] uppercase tracking-widest italic">Akcesoria</p></div>
+            <div class="bg-white p-4 text-center border-2 border-slate-100 transition-all cursor-pointer category-card shadow-sm hover:shadow-xl hover:-translate-y-1"><img src="img/plecak.jpg" class="w-full aspect-square object-cover mb-4 rounded border border-slate-50"><p class="font-bold text-[10px] uppercase tracking-widest italic">Plecaki</p></div>
+            <div class="bg-white p-4 text-center border-2 border-slate-100 transition-all cursor-pointer category-card shadow-sm hover:shadow-xl hover:-translate-y-1"><img src="img/latarka.jpg" class="w-full aspect-square object-cover mb-4 rounded border border-slate-50"><p class="font-bold text-[10px] uppercase tracking-widest italic">Oświetlenie</p></div>
         </div>
     </section>
 
-    <section class="bg-slate-200 py-24 px-4 border-y border-slate-300 text-center">
+    <!-- Bestsellers -->
+    <section class="bg-slate-200 py-24 px-4 border-y border-slate-300">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-black mb-16 uppercase italic tracking-tighter">Bestsellery Sklepu</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-lg text-left shadow-lg"><img src="img/pistolet.jpg" class="w-full aspect-square object-cover mb-6 rounded shadow-sm"><h3 class="font-black mb-4 uppercase italic">Pistolet Sportowy Elite-X</h3><p class="product-price text-2xl">3,499.00 PLN</p></div>
-                <div class="bg-white p-6 rounded-lg text-left shadow-lg"><img src="img/luneta.jpg" class="w-full aspect-square object-cover mb-6 rounded shadow-sm"><h3 class="font-black mb-4 uppercase italic">Luneta Myśliwska Night-Scope</h3><p class="product-price text-2xl">1,850.00 PLN</p></div>
-                <div class="bg-white p-6 rounded-lg text-left shadow-lg"><img src="img/kurtka.jpg" class="w-full aspect-square object-cover mb-6 rounded shadow-sm"><h3 class="font-black mb-4 uppercase italic">Kurtka Taktyczna Storm</h3><p class="product-price text-2xl">599.00 PLN</p></div>
-                <div class="bg-white p-6 rounded-lg text-left shadow-lg"><img src="img/amunicja.jpg" class="w-full aspect-square object-cover mb-6 rounded shadow-sm"><h3 class="font-black mb-4 uppercase italic">Amunicja Magtech 9mm</h3><p class="product-price text-2xl">85.00 PLN</p></div>
+            <h2 class="text-4xl font-black border-l-8 border-red-700 pl-6 mb-16 uppercase italic tracking-tighter">Bestsellery Sklepu</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white group cursor-pointer shadow-md hover:shadow-2xl transition-all flex flex-col h-full rounded-lg overflow-hidden">
+                    <div class="aspect-[4/3] bg-slate-50 relative overflow-hidden flex items-center justify-center p-2"><img src="img/pistolet.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"><div class="absolute top-4 left-4 bg-red-700 text-white text-[10px] font-bold px-3 py-1 uppercase italic shadow-lg">HIT</div></div>
+                    <div class="p-8 flex-1 flex flex-col"><p class="text-[10px] text-slate-400 font-black uppercase mb-3 tracking-widest">Pistolety / Sport</p><h3 class="font-black mb-6 text-xl h-14 overflow-hidden leading-tight group-hover:text-red-700 transition italic uppercase">Pistolet Sportowy Elite-X v2 9mm</h3><div class="mt-auto flex justify-between items-center border-t border-slate-100 pt-6"><span class="product-price text-2xl italic tracking-tighter">3,499.00 PLN</span><button class="bg-slate-900 text-white p-3 rounded-lg hover:bg-red-700 transition shadow-lg">🛒</button></div></div>
+                </div>
+                <div class="bg-white group cursor-pointer shadow-md hover:shadow-2xl transition-all flex flex-col h-full rounded-lg overflow-hidden">
+                    <div class="aspect-[4/3] bg-slate-50 relative overflow-hidden flex items-center justify-center p-2"><img src="img/luneta.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="p-8 flex-1 flex flex-col"><p class="text-[10px] text-slate-400 font-black uppercase mb-3 tracking-widest">Optyka / Myślistwo</p><h3 class="font-black mb-6 text-xl h-14 overflow-hidden leading-tight group-hover:text-red-700 transition italic uppercase">Luneta Myśliwska Night-Scope 4-12x50</h3><div class="mt-auto flex justify-between items-center border-t border-slate-100 pt-6"><span class="product-price text-2xl italic tracking-tighter">1,850.00 PLN</span><button class="bg-slate-900 text-white p-3 rounded-lg hover:bg-red-700 transition shadow-lg">🛒</button></div></div>
+                </div>
+                <div class="bg-white group cursor-pointer shadow-md hover:shadow-2xl transition-all flex flex-col h-full rounded-lg overflow-hidden">
+                    <div class="aspect-[4/3] bg-slate-50 relative overflow-hidden flex items-center justify-center p-2"><img src="img/odziez.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="p-8 flex-1 flex flex-col"><p class="text-[10px] text-slate-400 font-black uppercase mb-3 tracking-widest">Odzież / Outdoor</p><h3 class="font-black mb-6 text-xl h-14 overflow-hidden leading-tight group-hover:text-red-700 transition italic uppercase">Kurtka Taktyczna Storm-Guard Olive</h3><div class="mt-auto flex justify-between items-center border-t border-slate-100 pt-6"><span class="product-price text-2xl italic tracking-tighter">599.00 PLN</span><button class="bg-slate-900 text-white p-3 rounded-lg hover:bg-red-700 transition shadow-lg">🛒</button></div></div>
+                </div>
+                <div class="bg-white group cursor-pointer shadow-md hover:shadow-2xl transition-all flex flex-col h-full rounded-lg overflow-hidden">
+                    <div class="aspect-[4/3] bg-slate-50 relative overflow-hidden flex items-center justify-center p-2"><img src="img/amunicja.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="p-8 flex-1 flex flex-col"><p class="text-[10px] text-slate-400 font-black uppercase mb-3 tracking-widest">Amunicja / 9mm</p><h3 class="font-black mb-6 text-xl h-14 overflow-hidden leading-tight group-hover:text-red-700 transition italic uppercase">Amunicja Magtech 9mm Luger 115gr</h3><div class="mt-auto flex justify-between items-center border-t border-slate-100 pt-6"><span class="product-price text-2xl italic tracking-tighter">85.00 PLN</span><button class="bg-slate-900 text-white p-3 rounded-lg hover:bg-red-700 transition shadow-lg">🛒</button></div></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#1a1a1a] text-slate-400 py-24 text-center">
-        <div class="max-w-7xl mx-auto px-4"><h4 class="text-white font-bold mb-8 uppercase tracking-widest italic text-2xl underline decoration-red-700 underline-offset-8">EliteArmory</h4><p class="max-w-xl mx-auto text-sm italic">Profesjonalny salon broni i akcesoriów. Crafted for precision and accuracy. &copy; 2026</p></div>
+    <!-- Footer -->
+    <footer class="bg-[#1a1a1a] text-slate-400 py-24">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-16 text-left border-b border-white/5 pb-16">
+            <div><h4 class="text-white font-bold mb-8 uppercase tracking-[0.2em] italic">EliteArmory</h4><p class="text-sm leading-relaxed mb-8 font-light italic">Salon broni i akcesoriów strzeleckich. Od 15 lat dostarczamy sprzęt najwyższej klasy dla strzelców i myśliwych.</p></div>
+            <div><h4 class="text-white font-bold mb-8 uppercase tracking-[0.2em] border-b border-red-700 inline-block pb-1">Informacje</h4><ul class="text-[10px] space-y-5 uppercase font-bold tracking-widest"><li><a href="#" class="hover:text-red-700">O nas</a></li><li><a href="#" class="hover:text-red-700">Dostawa</a></li><li><a href="#" class="hover:text-red-700">Regulamin</a></li></ul></div>
+            <div><h4 class="text-white font-bold mb-8 uppercase tracking-[0.2em] border-b border-red-700 inline-block pb-1">Konto</h4><ul class="text-[10px] space-y-5 uppercase font-bold tracking-widest"><li><a href="#" class="hover:text-red-700">Zaloguj się</a></li><li><a href="#" class="hover:text-red-700">Moje zamówienia</a></li><li><a href="#" class="hover:text-red-700">Newsletter</a></li></ul></div>
+            <div><h4 class="text-white font-bold mb-8 uppercase tracking-[0.2em] border-b border-red-700 inline-block pb-1">Kontakt</h4><ul class="text-[10px] space-y-5 font-bold tracking-widest"><li>📞 +48 123 456 789</li><li>📧 SKLEP@ELITEARMORY.PL</li><li>📍 WARSZAWA, STRZELECKA 12</li></ul></div>
+        </div>
+        <p class="text-center text-[9px] uppercase font-black tracking-[0.5em] opacity-20 pt-10">&copy; 2026 EliteArmory Platform. Built for accuracy.</p>
     </footer>
+
 </body>
 </html>
