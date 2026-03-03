@@ -25,7 +25,7 @@
 <body class="selection:bg-rose-600">
     <div class="fixed top-0 w-full p-6 md:p-8 flex justify-between items-center z-50 mix-blend-difference">
         <span class="teko text-3xl md:text-5xl tracking-widest text-white italic">FIT<span class="text-rose-600">.</span>TRACK</span>
-        <button class="bg-white text-black px-6 md:px-10 py-2 md:py-3 rounded-full font-black uppercase text-[9px] md:text-[10px] tracking-[0.3em]">Download</button>
+        <button id="gyro-request" class="bg-white text-black px-6 md:px-10 py-2 md:py-3 rounded-full font-black uppercase text-[9px] md:text-[10px] tracking-[0.3em]">Enable Tilt</button>
     </div>
 
     <main class="relative min-h-screen flex flex-col items-center justify-center pt-24 md:pt-32 overflow-hidden">
@@ -63,37 +63,67 @@
 
     <script>
         const phone = document.getElementById('phone');
+        const gyroBtn = document.getElementById('gyro-request');
         
-        // Combined Tilt (Mouse + Touch + Gyroscope)
-        const updateTilt = (xPct, y) => {
-            const rotateX = (0.5 - y) * 40; // Increased sensitivity
+        let isUsingGyro = false;
+
+        const updateTilt = (xPct, yPct) => {
+            const rotateX = (0.5 - yPct) * 40;
             const rotateY = (xPct - 0.5) * 40;
             phone.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         };
 
-        // 1. Mouse Tracking
+        // Mouse Tracking (Fallback)
         document.addEventListener('mousemove', (e) => {
-            updateTilt(e.clientX / window.innerWidth, e.clientY / window.innerHeight);
+            if (!isUsingGyro) {
+                updateTilt(e.clientX / window.innerWidth, e.clientY / window.innerHeight);
+            }
         }, { passive: true });
 
-        // 2. Touch Tracking
+        // Touch Tracking (Fallback)
         document.addEventListener('touchmove', (e) => {
-            updateTilt(e.touches[0].clientX / window.innerWidth, e.touches[0].clientY / window.innerHeight);
+            if (!isUsingGyro) {
+                updateTilt(e.touches[0].clientX / window.innerWidth, e.touches[0].clientY / window.innerHeight);
+            }
         }, { passive: true });
 
-        // 3. Device Orientation (Gyroscope)
-        if (window.DeviceOrientationEvent) {
-            window.addEventListener('deviceorientation', (e) => {
-                if(window.innerWidth < 1024) { // Only on mobile/tablets
-                    const x = (e.gamma + 45) / 90; // -45 to 45 deg range
-                    const y = (e.beta + 45) / 90;
-                    updateTilt(Math.max(0, Math.min(1, x)), Math.max(0, Math.min(1, y)));
-                }
-            }, true);
-        }
+        // Device Orientation (Gyroscope)
+        const handleOrientation = (e) => {
+            isUsingGyro = true;
+            // Gamma is left-to-right tilt (-90 to 90)
+            // Beta is front-to-back tilt (-180 to 180)
+            let x = (e.gamma + 30) / 60; // Focused range
+            let y = (e.beta - 20) / 60;  // Offset for natural viewing angle
+            
+            updateTilt(
+                Math.max(0, Math.min(1, x)),
+                Math.max(0, Math.min(1, y))
+            );
+        };
 
-        window.addEventListener('touchend', () => phone.style.transform = `rotateX(0deg) rotateY(0deg)`);
-        window.addEventListener('mouseleave', () => phone.style.transform = `rotateX(0deg) rotateY(0deg)`);
+        gyroBtn.addEventListener('click', () => {
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                DeviceOrientationEvent.requestPermission()
+                    .then(permissionState => {
+                        if (permissionState === 'granted') {
+                            window.addEventListener('deviceorientation', handleOrientation, true);
+                            gyroBtn.style.display = 'none';
+                        }
+                    })
+                    .catch(console.error);
+            } else {
+                // Non-iOS or older browsers
+                window.addEventListener('deviceorientation', handleOrientation, true);
+                gyroBtn.style.display = 'none';
+            }
+        });
+
+        window.addEventListener('touchend', () => {
+            if (!isUsingGyro) phone.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        });
+        window.addEventListener('mouseleave', () => {
+            if (!isUsingGyro) phone.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        });
     </script>
 </body>
 </html>
