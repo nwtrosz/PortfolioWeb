@@ -69,11 +69,11 @@
         const ctx = canvas.getContext('2d');
         let particles = [];
         let mouse = { x: null, y: null };
+        let lastWidth = window.innerWidth;
 
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
-            // Increased density for a much more impressive effect
             const count = window.innerWidth < 768 ? 100 : 200;
             for (let i = 0; i < count; i++) {
                 particles.push({
@@ -116,7 +116,15 @@
         const updateM = (e) => { mouse.x = e.clientX || (e.touches && e.touches[0].clientX); mouse.y = e.clientY || (e.touches && e.touches[0].clientY); };
         window.addEventListener('mousemove', updateM, { passive: true });
         window.addEventListener('touchmove', updateM, { passive: true });
-        window.addEventListener('resize', init);
+        
+        // Fix: Prevent mobile flicker on scroll
+        window.addEventListener('resize', () => {
+            if (window.innerWidth !== lastWidth) {
+                lastWidth = window.innerWidth;
+                init();
+            }
+        });
+
         init(); animate();
     </script>
 </body>
