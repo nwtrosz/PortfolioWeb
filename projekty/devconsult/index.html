@@ -9,7 +9,7 @@
     <style>
         body { font-family: 'Space Grotesk', sans-serif; background-color: #020617; color: #94a3b8; overflow-x: hidden; }
         .mono { font-family: 'Fira Code', monospace; }
-        #network-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.8; }
+        #network-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6; }
         .grid-bg { background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px); background-size: 40px 40px; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
@@ -17,20 +17,20 @@
 <body class="overflow-x-hidden selection:bg-blue-900 selection:text-blue-100">
     <nav class="fixed w-full p-6 md:p-8 flex justify-between items-center z-[60] border-b border-white/5 backdrop-blur-xl">
         <span class="text-white font-bold text-xl md:text-2xl tracking-tighter uppercase">DEV<span class="text-blue-500">.CONSULT</span></span>
-        <span class="mono text-[8px] md:text-[9px] text-green-500 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20 hidden sm:block uppercase tracking-widest">Core Status: Stable</span>
+        <span class="mono text-[8px] md:text-[9px] text-green-500 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20 hidden sm:block uppercase tracking-widest text-center leading-none">Core: Stable</span>
     </nav>
 
     <header class="relative min-h-screen flex items-center justify-center pt-24 md:pt-20 grid-bg overflow-hidden">
         <canvas id="network-canvas"></canvas>
         <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
-            <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] md:text-sm uppercase tracking-[0.4em] animate__animated animate__fadeIn">// SCALABILITY_PROTOCOL_ACTIVE</div>
-            <h1 class="text-5xl md:text-7xl lg:text-[150px] font-bold text-white mb-8 md:mb-10 tracking-tighter leading-[0.9] uppercase italic">Scaling <br class="hidden md:block"><span class="text-transparent" style="-webkit-text-stroke: 1.5px #3b82f6;">Logic.</span></h1>
+            <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] md:text-sm uppercase tracking-[0.4em] leading-relaxed animate__animated animate__fadeIn">// SCALABILITY_PROTOCOL_ACTIVE</div>
+            <h1 class="text-5xl md:text-7xl lg:text-[150px] font-bold text-white mb-8 md:mb-10 tracking-tighter leading-[0.9] uppercase italic">Scaling <br class="hidden md:block"><span class="text-transparent" style="-webkit-text-stroke: 1px #3b82f6;">Logic.</span></h1>
             <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-12 md:mb-16 font-light leading-relaxed text-slate-400">Architektura IT klasy Enterprise. Budujemy ekosystemy odporne na każdą skalę.</p>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pt-12 md:pt-16 border-t border-white/10">
                 <div class="text-center"><p class="text-3xl md:text-5xl font-bold text-white mb-1 italic">99.99%</p><p class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500/60">Uptime SLA</p></div>
                 <div class="text-center"><p class="text-3xl md:text-5xl font-bold text-white mb-1 italic">450TB</p><p class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500/60">Traffic</p></div>
-                <div class="text-center"><p class="text-3xl md:text-5xl font-bold text-white mb-1 italic">-45%</p><p class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500/60">Cloud Cost</p></div>
+                <div class="text-center"><p class="text-3xl md:text-5xl font-bold text-white mb-1 italic">-45%</p><p class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500/60">Efficiency</p></div>
                 <div class="text-center"><p class="text-3xl md:text-5xl font-bold text-white mb-1 italic">Zero</p><p class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-blue-500/60">Breach</p></div>
             </div>
         </div>
@@ -40,27 +40,27 @@
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 md:mb-24 tracking-tighter uppercase italic text-center md:text-left underline decoration-blue-500/30 underline-offset-8">Engineering Modules.</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
             <div class="p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] glass hover:bg-blue-600/10 transition-all duration-700 group">
-                <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] tracking-widest uppercase">Module_01 // CLOUD</div>
+                <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] tracking-widest uppercase">Module_01</div>
                 <h3 class="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6 italic uppercase">High Velocity</h3>
-                <p class="text-sm md:text-base leading-relaxed font-light mb-8">Wdrażanie rozwiązań chmurowych z pełną orkiestracją Kubernetes i Terraform.</p>
+                <p class="text-sm md:text-base leading-relaxed font-light mb-8 text-slate-400">Wdrażanie rozwiązań chmurowych z pełną orkiestracją Kubernetes i Terraform.</p>
                 <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
             <div class="p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] glass hover:bg-blue-600/10 transition-all duration-700 group">
-                <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] tracking-widest uppercase">Module_02 // SECURITY</div>
+                <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] tracking-widest uppercase">Module_02</div>
                 <h3 class="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6 italic uppercase">Zero Trust</h3>
-                <p class="text-sm md:text-base leading-relaxed font-light mb-8">Audyty bezpieczeństwa i implementacja polityk security-first dla sektora FinTech.</p>
+                <p class="text-sm md:text-base leading-relaxed font-light mb-8 text-slate-400">Audyty bezpieczeństwa i implementacja polityk security-first dla sektora FinTech.</p>
                 <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
             <div class="p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] glass hover:bg-blue-600/10 transition-all duration-700 group">
-                <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] tracking-widest uppercase">Module_03 // REFACTOR</div>
-                <h3 class="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6 italic uppercase">Core Modern</h3>
-                <p class="text-sm md:text-base leading-relaxed font-light mb-8">Modernizacja systemów legacy. Rozbijanie monolitów na skalowalne mikroserwisy.</p>
+                <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] tracking-widest uppercase">Module_03</div>
+                <h3 class="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6 italic uppercase">Refactor</h3>
+                <p class="text-sm md:text-base leading-relaxed font-light mb-8 text-slate-400">Modernizacja systemów legacy. Rozbijanie monolitów na skalowalne mikroserwisów.</p>
                 <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
         </div>
     </section>
 
-    <footer class="py-16 md:py-20 text-center mono text-[8px] md:text-[10px] opacity-30 uppercase tracking-[0.5em] md:tracking-[1em] px-6 leading-relaxed border-t border-white/5">
+    <footer class="py-16 md:py-20 text-center mono text-[8px] md:text-[10px] opacity-20 uppercase tracking-[0.5em] md:tracking-[1em] px-6 leading-relaxed border-t border-white/5">
         DevConsult Enterprise 2026 // Distributed Technical Excellence
     </footer>
 
@@ -73,14 +73,13 @@
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
-            // Increased density for better visibility
-            const count = window.innerWidth < 768 ? 60 : 120;
+            const count = window.innerWidth < 768 ? 50 : 100;
             for (let i = 0; i < count; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    sx: Math.random() * 0.5 - 0.25,
-                    sy: Math.random() * 0.5 - 0.25
+                    sx: Math.random() * 0.4 - 0.2,
+                    sy: Math.random() * 0.4 - 0.2
                 });
             }
         }
@@ -95,19 +94,17 @@
                 if(mouse.x) {
                     let dx = mouse.x - p.x; let dy = mouse.y - p.y;
                     let dist = Math.sqrt(dx*dx + dy*dy);
-                    if(dist < 200) { p.x -= dx/150; p.y -= dy/150; }
+                    if(dist < 180) { p.x -= dx/120; p.y -= dy/120; }
                 }
 
-                // Brighter particles
-                ctx.fillStyle = 'rgba(59, 130, 246, 0.9)';
-                ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fill();
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.7)';
+                ctx.beginPath(); ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2); ctx.fill();
 
                 for (let j = i; j < particles.length; j++) {
                     let d = Math.sqrt((p.x-particles[j].x)**2 + (p.y-particles[j].y)**2);
-                    if (d < 180) {
-                        // More visible lines
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${1.2 - d/180})`;
-                        ctx.lineWidth = 1.2;
+                    if (d < 150) {
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${0.8 - d/150})`;
+                        ctx.lineWidth = 0.8;
                         ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
                     }
                 }
