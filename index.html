@@ -103,7 +103,8 @@
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
-            const density = window.innerWidth < 768 ? 4000 : 8000;
+            // Clean mobile effect: lower density
+            const density = window.innerWidth < 768 ? 12000 : 8000;
             const numberOfParticles = (canvas.width * canvas.height) / density;
             for (let i = 0; i < numberOfParticles; i++) { particles.push(new Particle()); }
         }
@@ -118,7 +119,7 @@
                 this.x += this.speedX; this.y += this.speedY;
                 if (this.x > canvas.width) this.x = 0; if (this.x < 0) this.x = canvas.width;
                 if (this.y > canvas.height) this.y = 0; if (this.y < 0) this.y = canvas.height;
-                let dx = mouse.x - this.x; let dy = mouse.y - p.y;
+                let dx = mouse.x - this.x; let dy = mouse.y - this.y;
                 let distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < 150) { this.x -= dx / 50; this.y -= dy / 50; }
             }
@@ -126,14 +127,17 @@
         }
 
         function handleParticles() {
+            const maxDistance = window.innerWidth < 768 ? 80 : 120; // Shorten lines on mobile
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update(); particles[i].draw();
                 for (let j = i; j < particles.length; j++) {
                     let dx = particles[i].x - particles[j].x; let dy = particles[i].y - particles[j].y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 120) {
-                        ctx.beginPath(); ctx.strokeStyle = `rgba(37, 99, 235, ${1 - distance / 120 - 0.7})`;
-                        ctx.lineWidth = 0.5; ctx.moveTo(particles[i].x, particles[i].y);
+                    if (distance < maxDistance) {
+                        ctx.beginPath(); 
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${1 - distance / maxDistance - 0.7})`;
+                        ctx.lineWidth = window.innerWidth < 768 ? 0.3 : 0.5; // Thinner lines on mobile
+                        ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
                     }
                 }
@@ -147,12 +151,8 @@
         window.addEventListener('touchstart', setMouse);
         window.addEventListener('touchmove', setMouse);
         
-        // Fix: Prevent mobile flicker on scroll
         window.addEventListener('resize', () => {
-            if (window.innerWidth !== lastWidth) {
-                lastWidth = window.innerWidth;
-                init();
-            }
+            if (window.innerWidth !== lastWidth) { lastWidth = window.innerWidth; init(); }
         });
 
         init(); animate();

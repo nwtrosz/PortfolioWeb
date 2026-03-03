@@ -9,7 +9,7 @@
     <style>
         body { font-family: 'Space Grotesk', sans-serif; background-color: #020617; color: #94a3b8; overflow-x: hidden; }
         .mono { font-family: 'Fira Code', monospace; }
-        #network-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.7; }
+        #network-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6; }
         .grid-bg { background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px); background-size: 40px 40px; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
@@ -54,7 +54,7 @@
             <div class="p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] glass hover:bg-blue-600/10 transition-all duration-700 group">
                 <div class="mono text-blue-500 mb-6 md:mb-8 text-[10px] tracking-widest uppercase">Module_03</div>
                 <h3 class="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6 italic uppercase">Refactor</h3>
-                <p class="text-sm md:text-base leading-relaxed font-light mb-8 text-slate-400">Modernizacja systemów legacy. Rozbijanie monolitów na skalowalne mikroserwisów.</p>
+                <p class="text-sm md:text-base leading-relaxed font-light mb-8 text-slate-400">Modernizacja systemów legacy. Rozbijanie monolitów na skalowalne mikroserwisy.</p>
                 <div class="h-1 w-12 bg-blue-600 group-hover:w-full transition-all duration-700"></div>
             </div>
         </div>
@@ -74,7 +74,8 @@
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
-            const count = window.innerWidth < 768 ? 100 : 200;
+            // Clean mobile effect: lower density
+            const count = window.innerWidth < 768 ? 40 : 200;
             for (let i = 0; i < count; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
@@ -87,6 +88,7 @@
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const maxDist = window.innerWidth < 768 ? 100 : 150;
             particles.forEach((p, i) => {
                 p.x += p.sx; p.y += p.sy;
                 if (p.x > canvas.width) p.x = 0; if (p.x < 0) p.x = canvas.width;
@@ -95,7 +97,7 @@
                 if(mouse.x) {
                     let dx = mouse.x - p.x; let dy = mouse.y - p.y;
                     let dist = Math.sqrt(dx*dx + dy*dy);
-                    if(dist < 180) { p.x -= dx/120; p.y -= dy/120; }
+                    if(dist < 150) { p.x -= dx/100; p.y -= dy/100; }
                 }
 
                 ctx.fillStyle = 'rgba(59, 130, 246, 0.8)';
@@ -103,9 +105,9 @@
 
                 for (let j = i; j < particles.length; j++) {
                     let d = Math.sqrt((p.x-particles[j].x)**2 + (p.y-particles[j].y)**2);
-                    if (d < 150) {
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${1.0 - d/150})`;
-                        ctx.lineWidth = 1.0;
+                    if (d < maxDist) {
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${window.innerWidth < 768 ? 0.5 : 1.0} - ${d/maxDist})`;
+                        ctx.lineWidth = window.innerWidth < 768 ? 0.6 : 1.0;
                         ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
                     }
                 }
@@ -117,12 +119,8 @@
         window.addEventListener('mousemove', updateM, { passive: true });
         window.addEventListener('touchmove', updateM, { passive: true });
         
-        // Fix: Prevent mobile flicker on scroll
         window.addEventListener('resize', () => {
-            if (window.innerWidth !== lastWidth) {
-                lastWidth = window.innerWidth;
-                init();
-            }
+            if (window.innerWidth !== lastWidth) { lastWidth = window.innerWidth; init(); }
         });
 
         init(); animate();
