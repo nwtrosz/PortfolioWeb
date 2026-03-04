@@ -24,7 +24,7 @@
             <span class="text-2xl font-black tracking-tighter uppercase">Patnar<span class="text-blue-600">.dev</span></span>
             <div class="space-x-8 hidden md:flex items-center font-bold text-xs uppercase tracking-widest text-slate-500">
                 <a href="#projekty" class="hover:text-blue-600 transition">Portfolio</a>
-                <a href="mailto:kontakt@twojadomena.pl" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 text-[10px]">Start Project</a>
+                <a href="mailto:kontakt@patnar.dev" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 text-[10px]">Start Project</a>
             </div>
         </div>
     </nav>
@@ -90,7 +90,7 @@
 
     <footer class="bg-slate-900 py-32 text-center text-white px-6">
         <h2 class="text-5xl md:text-7xl font-black mb-12 tracking-tighter uppercase italic">Patnar.dev</h2>
-        <a href="mailto:kontakt@twojadomena.pl" class="text-2xl font-light border-b border-white/20 pb-2 hover:text-blue-500 hover:border-blue-500 transition-all inline-block">kontakt@patnar.dev</a>
+        <a href="mailto:kontakt@patnar.dev" class="text-2xl font-light border-b border-white/20 pb-2 hover:text-blue-500 hover:border-blue-500 transition-all inline-block">kontakt@patnar.dev</a>
     </footer>
 
     <script>
@@ -103,7 +103,8 @@
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
-            const density = window.innerWidth < 768 ? 12000 : 8000;
+            // Subtler density: 15000 for Desktop, 20000 for Mobile
+            const density = window.innerWidth < 768 ? 20000 : 15000;
             const numberOfParticles = (canvas.width * canvas.height) / density;
             for (let i = 0; i < numberOfParticles; i++) { particles.push(new Particle()); }
         }
@@ -111,8 +112,8 @@
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 0.5 - 0.25; this.speedY = Math.random() * 0.5 - 0.25;
+                this.size = Math.random() * 1.5 + 0.5; // Smaller dots
+                this.speedX = Math.random() * 0.4 - 0.2; this.speedY = Math.random() * 0.4 - 0.2;
             }
             update() {
                 this.x += this.speedX; this.y += this.speedY;
@@ -122,28 +123,28 @@
                 if(mouse.x) {
                     let dx = mouse.x - this.x; let dy = mouse.y - this.y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 150) { this.x -= dx / 50; this.y -= dy / 50; }
+                    if (distance < 120) { this.x -= dx / 60; this.y -= dy / 60; }
                 }
             }
             draw() { 
-                ctx.fillStyle = 'rgba(37, 99, 235, 0.4)'; 
+                ctx.fillStyle = 'rgba(37, 99, 235, 0.25)'; // Lighter dots
                 ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); 
                 ctx.fill(); 
             }
         }
 
         function handleParticles() {
-            const maxDistance = window.innerWidth < 768 ? 80 : 120;
+            const maxDistance = window.innerWidth < 768 ? 70 : 90; // Shorter lines
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update(); 
-                particles[i].draw(); // Correctly restore point drawing
+                particles[i].draw();
                 for (let j = i; j < particles.length; j++) {
                     let dx = particles[i].x - particles[j].x; let dy = particles[i].y - particles[j].y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
                     if (distance < maxDistance) {
                         ctx.beginPath(); 
-                        ctx.strokeStyle = `rgba(37, 99, 235, ${window.innerWidth < 768 ? 0.3 : 0.5} - ${distance / maxDistance})`;
-                        ctx.lineWidth = window.innerWidth < 768 ? 0.3 : 0.5;
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${(1 - distance / maxDistance) * 0.2})`; // Much more transparent lines
+                        ctx.lineWidth = 0.4;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
                     }
@@ -154,9 +155,9 @@
         function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); handleParticles(); requestAnimationFrame(animate); }
         
         const setMouse = (e) => { mouse.x = e.clientX || (e.touches && e.touches[0].clientX); mouse.y = e.clientY || (e.touches && e.touches[0].clientY); };
-        window.addEventListener('mousemove', setMouse);
-        window.addEventListener('touchstart', setMouse);
-        window.addEventListener('touchmove', setMouse);
+        window.addEventListener('mousemove', setMouse, { passive: true });
+        window.addEventListener('touchstart', setMouse, { passive: true });
+        window.addEventListener('touchmove', setMouse, { passive: true });
         
         window.addEventListener('resize', () => { if (window.innerWidth !== lastWidth) { lastWidth = window.innerWidth; init(); } });
         init(); animate();
