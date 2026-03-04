@@ -112,7 +112,6 @@
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
-            // Denser particles: 9000 for Desktop, 15000 for Mobile
             const density = window.innerWidth < 768 ? 15000 : 9000;
             const numberOfParticles = (canvas.width * canvas.height) / density;
             for (let i = 0; i < numberOfParticles; i++) { particles.push(new Particle()); }
@@ -136,7 +135,7 @@
                 }
             }
             draw() { 
-                ctx.fillStyle = 'rgba(37, 99, 235, 0.4)';
+                ctx.fillStyle = 'rgba(37, 99, 235, 0.65)'; // Higher opacity for dots
                 ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); 
                 ctx.fill(); 
             }
@@ -152,7 +151,7 @@
                     let distance = Math.sqrt(dx * dx + dy * dy);
                     if (distance < maxDistance) {
                         ctx.beginPath(); 
-                        ctx.strokeStyle = `rgba(37, 99, 235, ${(1 - distance / maxDistance) * 0.3})`;
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${(1 - distance / maxDistance) * 0.5})`; // Higher opacity for lines
                         ctx.lineWidth = 0.4;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
