@@ -84,6 +84,15 @@
                         <a href="./projekty/devconsult/" class="absolute inset-0"></a>
                     </div>
                 </div>
+                <!-- EliteArmory -->
+                <div class="project-card group">
+                    <div class="aspect-[16/10] bg-white rounded-[3rem] p-12 flex flex-col justify-between relative overflow-hidden shadow-2xl border border-slate-100">
+                        <div class="absolute inset-0 bg-red-700 opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
+                        <h3 class="text-7xl font-black text-slate-900/5 tracking-tighter z-10 group-hover:text-red-700/10 transition-all italic">ELITE</h3>
+                        <div class="z-10"><h4 class="text-3xl font-black text-slate-900 mb-2 italic">EliteArmory</h4><p class="text-red-700 font-bold text-sm uppercase tracking-widest">Classic E-commerce</p></div>
+                        <a href="./projekty/elitearmory/" class="absolute inset-0"></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -103,7 +112,6 @@
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             particles = [];
-            // Subtler density: 15000 for Desktop, 20000 for Mobile
             const density = window.innerWidth < 768 ? 20000 : 15000;
             const numberOfParticles = (canvas.width * canvas.height) / density;
             for (let i = 0; i < numberOfParticles; i++) { particles.push(new Particle()); }
@@ -112,7 +120,7 @@
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5; // Smaller dots
+                this.size = Math.random() * 1.5 + 0.5;
                 this.speedX = Math.random() * 0.4 - 0.2; this.speedY = Math.random() * 0.4 - 0.2;
             }
             update() {
@@ -127,14 +135,14 @@
                 }
             }
             draw() { 
-                ctx.fillStyle = 'rgba(37, 99, 235, 0.25)'; // Lighter dots
+                ctx.fillStyle = 'rgba(37, 99, 235, 0.25)'; 
                 ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); 
                 ctx.fill(); 
             }
         }
 
         function handleParticles() {
-            const maxDistance = window.innerWidth < 768 ? 70 : 90; // Shorter lines
+            const maxDistance = window.innerWidth < 768 ? 70 : 90;
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update(); 
                 particles[i].draw();
@@ -143,7 +151,7 @@
                     let distance = Math.sqrt(dx * dx + dy * dy);
                     if (distance < maxDistance) {
                         ctx.beginPath(); 
-                        ctx.strokeStyle = `rgba(37, 99, 235, ${(1 - distance / maxDistance) * 0.2})`; // Much more transparent lines
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${(1 - distance / maxDistance) * 0.2})`;
                         ctx.lineWidth = 0.4;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
